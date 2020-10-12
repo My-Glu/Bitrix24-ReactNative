@@ -196,6 +196,9 @@ dependencies {
         exclude group:'com.squareup.okhttp3', module:'okhttp'
     }
 
+
+apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
+
     debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.flipper'
     }

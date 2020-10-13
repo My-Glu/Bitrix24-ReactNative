@@ -46,7 +46,7 @@ export default class ForgetPassword extends Component {
   {/* ------------------------------Button signin----------------------------------------------  */}
 
   <View style={styles.screenContainer}>
-      <Button title="RESET"  />
+      <Button title="RESET"  color="#385805" />
     </View>
 
  

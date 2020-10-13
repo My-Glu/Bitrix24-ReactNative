@@ -78,8 +78,30 @@ export default class Login extends Component {
   {/* ------------------------------Button signin----------------------------------------------  */}
 
   <View style={styles.screenContainer}>
-      <Button title="SIGN IN" width="100%" />
+      <Button title="SIGN IN" width="100%" color="#385805" style={{backgroundColor: '#385805'}} />
     </View>
+
+
+
+{/* -------------------------------Social Links ----------------------------------------------- */}
+
+<View style={{flexDirection: 'row', alignItems: 'center', marginVertical:40}}>
+<View  style={styles.circle}>
+    <Text style={{width: 50, textAlign: 'center'}}>youtube</Text>
+  </View>
+  <View style={{flex:  0.15, height: 1, backgroundColor: 'black'}} />
+  <View style={styles.circle}>
+    <Text style={{width: 50, textAlign: 'center'}}>fb</Text>
+  </View>
+  <View style={{flex: 0.15, height: 1, backgroundColor: 'black'}} />
+  <View style={styles.circle}>
+    <Text style={{width: 50, textAlign: 'center'}}>Insta</Text>
+  </View>
+</View>
+
+
+
+
 
   {/* <View style = {{alignItems: 'center'}}>
   <TouchableOpacity>
@@ -223,7 +245,17 @@ checkboxContainer: {
   marginHorizontal:5,
   alignSelf: 'stretch',
   justifyContent: "center",
-  padding: 16
-}
+  padding: 16,
+  color:'#385805'
+  },
+  circle :{
+  height : 60,
+  width :60,
+  borderRadius: 100,
+  borderColor: '#49641D',
+  borderWidth:2,
+  justifyContent: "center", 
+  paddingHorizontal: 5,
+ }
 
 });

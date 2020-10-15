@@ -4,9 +4,13 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 export default class Splash extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+// setTimeout(()=> {
+
+//   this.props.navigation.navigate("Login")
+// }, 1000);
+    
   }
+
 
   render() {
     return (
@@ -14,7 +18,7 @@ export default class Splash extends Component {
 
           <View style={styles.container}>
             
-            <Image source={require('../../assets/images/noorgrplogo3x.png')}
+            <Image source={require('./src/assets/images/noorgrplogo3x.png')}
               resizeMode="contain" 
               style={{width: 200}}
                  />

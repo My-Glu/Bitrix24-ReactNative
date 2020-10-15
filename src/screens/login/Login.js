@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import {View, StyleSheet, Text,TextInput, Image, ScrollView,Button, CheckBox , TouchableOpacity} from 'react-native';
+import {View, StyleSheet,Navigator, Text,TextInput, Image, ScrollView,Button, CheckBox , TouchableOpacity} from 'react-native';
 // import styles from "./style";
 // import { Button } from 'react-native-elements';
-
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 export default class Login extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ export default class Login extends Component {
                  />
 
                <Text style={styles.textTitle}>LOGIN</Text>
-
+{/* ------------------------------Horizontal line -------------------------------------- */}
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
                   <View style={{flex: 1, height: 1, backgroundColor: 'black', marginHorizontal: 20, marginTop: 10}} />
 
@@ -78,7 +79,9 @@ export default class Login extends Component {
   {/* ------------------------------Button signin----------------------------------------------  */}
 
   <View style={styles.screenContainer}>
-      <Button title="SIGN IN" width="100%" color="#385805" style={{backgroundColor: '#385805'}} />
+      <Button title="SIGN IN" width="100%" color="#385805" style={{backgroundColor: '#385805'}} 
+      // onPress={() => navigation.navigate('NavScreen') }
+      />
     </View>
 
 

@@ -20,6 +20,7 @@ import Splash from './Splash';
 import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
 
 import PipeLine from './src/navPages/Pipelines';
+import Channel from './src/navPages/Channel';
 //import Information from './src/screens/info/Information';
 //import NavScreen from './src/navPages/NavScreen';
 
@@ -64,7 +65,7 @@ render() {
     if (!this.state.timePassed) {
         return <Splash/>;
     } else {
-        return <PipeLine/>;
+        return <Channel/>;
     }
 
 }

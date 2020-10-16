@@ -6,7 +6,6 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 // import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import NavScreen from '../../../src/navPages/NavScreen';
 
 import { NavigationContainer } from '@react-navigation/native';

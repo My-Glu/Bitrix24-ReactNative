@@ -8,9 +8,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+
 //import Clients from './src/navPages/Clients';
 //import ExploreScreen from './src/navPages/ExploreScreen';
 //import SettingScreen from './src/navPages/SettingScreen';
+
+// import Clients from './src/navPages/Clients';
+// import ExploreScreen from './src/navPages/ExploreScreen';
+// import SettingScreen from './src/navPages/SettingScreen';
+
 
 import Chat from './Chat';
 import Dashboard from './Dashboard';

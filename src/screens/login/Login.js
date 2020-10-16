@@ -4,15 +4,31 @@ import {View, StyleSheet,Navigator, Text,TextInput, Image, ScrollView,Button, Ch
 // import { Button } from 'react-native-elements';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import NavScreen from '../../../src/navPages/NavScreen';
+
+
 
 export default class Login extends Component {
+
   constructor(props) {
     super(props);
-    // this.state = {
-    // };
+     this.state = {
+      isLogIn: false, 
+    };
+    
   }
 
+  SetLogIn() {
+    this.setState({isLogIn:true});
+}
+
   render() {
+
+    if (this.state.isLogIn) {
+      return <NavScreen/>;
+  } 
+
     return (
      
       <ScrollView style={{backgroundColor: 'white'}}>
@@ -36,7 +52,7 @@ export default class Login extends Component {
                 <View style={styles.containerInput}>
                 <View style={styles.SectionStyle}>
 
-               <Image source={require('../../assets/images/user-profile.png')} style={styles.ImageStyle} />
+                <Icon name="user" style={{fontSize:22,paddingRight:5,paddingLeft:5,color:'#00000029'}} />
 
                          <TextInput
                          style={{flex:1}}
@@ -52,7 +68,7 @@ export default class Login extends Component {
 <View style={styles.containerInput}>
                 <View style={styles.SectionStyle}>
 
-               <Image source={require('../../assets/images/lock.png')} style={styles.ImageStyle} />
+                <Icon name="lock" style={{fontSize:22,paddingRight:5,paddingLeft:5,color:'#00000029'}} />
 
                          <TextInput
                          style={{flex:1}}
@@ -80,7 +96,7 @@ export default class Login extends Component {
 
   <View style={styles.screenContainer}>
       <Button title="SIGN IN" width="100%" color="#385805" style={{backgroundColor: '#385805'}} 
-      // onPress={() => navigation.navigate('NavScreen') }
+     onPress={this.SetLogIn()}
       />
     </View>
 
@@ -90,15 +106,15 @@ export default class Login extends Component {
 
 <View style={{flexDirection: 'row', alignItems: 'center', marginVertical:40}}>
 <View  style={styles.circle}>
-    <Text style={{width: 50, textAlign: 'center'}}>youtube</Text>
+<Image source={require('../../assets/images/youtubeicon.png')} style={{width:40,height:30,marginLeft:3}}/>
   </View>
   <View style={{flex:  0.15, height: 1, backgroundColor: 'black'}} />
   <View style={styles.circle}>
-    <Text style={{width: 50, textAlign: 'center'}}>fb</Text>
+  <Image source={require('../../assets/images/fbicon.png')} style={{width:20,height:38,marginLeft:12}}/>
   </View>
   <View style={{flex: 0.15, height: 1, backgroundColor: 'black'}} />
   <View style={styles.circle}>
-    <Text style={{width: 50, textAlign: 'center'}}>Insta</Text>
+  <Image source={require('../../assets/images/instaicon.png')} style={{width:30,height:30,marginLeft:8}}/>
   </View>
 </View>
 

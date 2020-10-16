@@ -15,7 +15,9 @@ import ListOne from './src/components/ListOne';
 import Login from './src/screens/login/Login';
 import Splash from './Splash';
 import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
-import Information from './src/screens/info/Information';
+import PipeLine from './src/navPages/Pipelines';
+//import Information from './src/screens/info/Information';
+//import NavScreen from './src/navPages/NavScreen';
 //  import TabNavigator from './src/screens/bottomNav/BottomNavigation';
 // import Chat from './src/screens/bottomNav/Chat';
 // import Navigation from './Navigation';
@@ -35,6 +37,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
         timePassed: false,
+        
     };
 }
 
@@ -48,11 +51,13 @@ setTimePassed() {
     this.setState({timePassed: true});
 }
 
+
+
 render() {
     if (!this.state.timePassed) {
         return <Splash/>;
     } else {
-        return <Login/>;
+        return <PipeLine/>;
     }
 }
 

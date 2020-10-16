@@ -10,12 +10,16 @@ import {
   Dimensions,
   TouchableOpacity
 } from 'react-native';
-import {createStackNavigator, createAppContainer} from 'react-navigation';
+import {createAppContainer} from 'react-navigation';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import ListOne from './src/components/ListOne';
 import Login from './src/screens/login/Login';
+import NavScreen from './src/navPages/NavScreen';
 import Splash from './Splash';
 import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
 import Information from './src/screens/info/Information';
+
 //  import TabNavigator from './src/screens/bottomNav/BottomNavigation';
 // import Chat from './src/screens/bottomNav/Chat';
 // import Navigation from './Navigation';
@@ -52,9 +56,17 @@ render() {
     if (!this.state.timePassed) {
         return <Splash/>;
     } else {
+
+        // return <Information/>;
         return <Login/>;
+        // return <NavScreen/>;
     }
+
 }
+
+//  <Image source={require('../../assets/images/noorgrplogo3x.png')}
+
+
 
   // render() {
  

@@ -1,21 +1,68 @@
 import React, { Component } from 'react';
-import {View, StyleSheet,Navigator, Text,TextInput, Image, ScrollView,Button, CheckBox , TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text,TextInput, Image, ScrollView,Button, CheckBox ,Alert, TouchableOpacity} from 'react-native';
 // import styles from "./style";
 // import { Button } from 'react-native-elements';
-import { NavigationContainer } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+// import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
+import { NavigationContainer } from '@react-navigation/native';
+import ForgetPassword from '.././forgetPassword/ForgetPassword';
+// import {Actions} from 'react-native-router-flux'
 export default class Login extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    // };
+    this.state = {
+      isLogin: false
+    };
+    // this.onPressButton = this.onPressButton.bind(this);
+
   }
 
+
+//   moveToForgetPassword = () => {
+//     this.props.navigation.navigate('ForgetPassword')
+// }
+
+// handleClick=()=>{
+//   alert('Button clicked!');
+// }
+
+
+// onPressButton() {
+//   const { navigate } = this.props.navigation;
+
+//   var options = {
+//     title: strings.app_name,
+//     content: strings.create_message,
+//     positiveText: strings.OK,
+//     onPositive: () => navigate("ForgetPassword")
+//   };
+//   // var dialog = new DialogAndroid();
+//   // dialog.set(options);
+//   // dialog.show();
+// }
+
+// componentDidMount() {
+//   setTimeout( () => {
+//       this.setState({isLogin:false})
+//   },2000);
+// }
+
+setLogin() {
+  this.setState({isLogin: true});
+}
+
   render() {
+    if (this.state.isLogin) {
+     
+      return <ForgetPassword/>;
+  }
     return (
      
-      <ScrollView style={{backgroundColor: 'white'}}>
+     
+     <ScrollView style={{backgroundColor: 'white'}}>
+      
+       
          <View style={styles.container}>
 
              <Image source={require('../../assets/images/noorgrplogo3x.png')}
@@ -33,10 +80,11 @@ export default class Login extends Component {
                 <View style={{flex: 1, height:20}}></View>
 
 {/*-------------------------------- input email ------------------------------------- */}
-                <View style={styles.containerInput}>
+            
+<View style={styles.containerInput}>
                 <View style={styles.SectionStyle}>
 
-               <Image source={require('../../assets/images/user-profile.png')} style={styles.ImageStyle} />
+                <Icon name="user" style={{fontSize:22,paddingRight:5,paddingLeft:5,color:'#00000029'}} />
 
                          <TextInput
                          style={{flex:1}}
@@ -46,13 +94,15 @@ export default class Login extends Component {
 
                   </View>
                  </View>
+            
+            
 
 {/* ------------------------------input password -------------------------------------*/}
 
 <View style={styles.containerInput}>
                 <View style={styles.SectionStyle}>
 
-               <Image source={require('../../assets/images/lock.png')} style={styles.ImageStyle} />
+                <Icon name="lock" style={{fontSize:22,paddingRight:5,paddingLeft:5,color:'#00000029'}} />
 
                          <TextInput
                          style={{flex:1}}
@@ -72,7 +122,18 @@ export default class Login extends Component {
                   </View>
 <View style={{ flex:0.78, alignItems: 'flex-end'}}></View>
 
-                  <Text style={[styles.textBody], {alignSelf: 'flex-end'}}>Forgot Password?</Text>
+{/* <TouchableOpacity onPress={() => this.onPressButton}>  */}
+<TouchableOpacity 
+//goto forgetpassword screen
+// onPress={this.setLogin()}
+>
+
+<View>
+                  <Text style={[styles.textBody], {alignSelf: 'flex-end'}}
+                  >Forgot Password?</Text>
+                  </View>
+
+                  </TouchableOpacity>
 
   </View>
 
@@ -80,8 +141,10 @@ export default class Login extends Component {
 
   <View style={styles.screenContainer}>
       <Button title="SIGN IN" width="100%" color="#385805" style={{backgroundColor: '#385805'}} 
-      // onPress={() => navigation.navigate('NavScreen') }
-      />
+      // onClick={() => navigation.navigate('NavScreen') 
+      // onPress={this.handleClick}
+      // onClick={this.handleClick}
+     />
     </View>
 
 
@@ -90,17 +153,20 @@ export default class Login extends Component {
 
 <View style={{flexDirection: 'row', alignItems: 'center', marginVertical:40}}>
 <View  style={styles.circle}>
-    <Text style={{width: 50, textAlign: 'center'}}>youtube</Text>
+<Image source={require('../../assets/images/youtubeicon.png')} style={{width:40,height:30,marginLeft:3}}/>
   </View>
   <View style={{flex:  0.15, height: 1, backgroundColor: 'black'}} />
   <View style={styles.circle}>
-    <Text style={{width: 50, textAlign: 'center'}}>fb</Text>
+  <Image source={require('../../assets/images/fbicon.png')} style={{width:20,height:38,marginLeft:12}}/>
   </View>
   <View style={{flex: 0.15, height: 1, backgroundColor: 'black'}} />
   <View style={styles.circle}>
-    <Text style={{width: 50, textAlign: 'center'}}>Insta</Text>
+  <Image source={require('../../assets/images/instaicon.png')} style={{width:30,height:30,marginLeft:8}}/>
   </View>
 </View>
+
+
+
 
 
 

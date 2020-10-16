@@ -1,17 +1,41 @@
 import React, { Component } from 'react';
 import {View, StyleSheet, Text,TextInput, Image, ScrollView,Button, CheckBox , TouchableOpacity} from 'react-native';
-
+import Icon from 'react-native-vector-icons';
+import Login from '.././login/Login';
 export default class ForgetPassword extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      goBack: false
     };
   }
 
-  render() {
-    return (
-      <View>
+  setBack() {
+    this.setState({goBack: true});
+  }
+
+render() {
+
+//   if (this.state.goBack) {
+     
+//     return <Login/>;
+// }
+     return (
+      
         <ScrollView style={{backgroundColor: 'white'}}>
+        <View style={{flex:1, marginLeft:10, marginTop:10}}>
+        <TouchableOpacity 
+// onPress={this.setBack()}
+>
+        <Image source={require('../../assets/images/backarrowsmall.png')} />
+
+        </TouchableOpacity>
+       {/* <Icon name="menu"  color="black" height="50" width="50" 
+      //  onPress={() =>}
+       /> */}
+
+       </View>
+       
          <View style={styles.container}>
 
              <Image source={require('../../assets/images/noorgrplogo3x.png')}
@@ -42,18 +66,15 @@ export default class ForgetPassword extends Component {
                   </View>
                  </View>
 
-
   {/* ------------------------------Button signin----------------------------------------------  */}
 
   <View style={styles.screenContainer}>
       <Button title="RESET"  color="#385805" />
     </View>
-
- 
-          </View>
+ </View>
 
       </ScrollView>
-      </View>
+    
     );
   }
 }

@@ -8,16 +8,16 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import Clients from './src/navPages/Clients';
-import ExploreScreen from './src/navPages/ExploreScreen';
-import SettingScreen from './src/navPages/SettingScreen';
+// import Clients from './src/navPages/Clients';
+// import ExploreScreen from './src/navPages/ExploreScreen';
+// import SettingScreen from './src/navPages/SettingScreen';
 
-import Chat from './src/navPages/Chat';
-import Dashboard from './src/navPages/Dashboard';
-import Pipelines from './src/navPages/Pipelines';
-import Channel from './src/navPages/Channel';
-import Menu from './src/navPages/Menu';
-import SideMenu from './src/navPages/SideMenu';
+import Chat from './Chat';
+import Dashboard from './Dashboard';
+import Pipelines from './Pipelines';
+import Channel from './Channel';
+import Menu from './Menu';
+import SideMenu from './SideMenu';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();

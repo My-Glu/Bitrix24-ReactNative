@@ -18,6 +18,12 @@ import Login from './src/screens/login/Login';
 import NavScreen from './src/navPages/NavScreen';
 import Splash from './Splash';
 import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
+
+import PipeLine from './src/navPages/Pipelines';
+import Channel from './src/navPages/Channel';
+//import Information from './src/screens/info/Information';
+//import NavScreen from './src/navPages/NavScreen';
+
 import Information from './src/screens/info/Information';
 
 //  import TabNavigator from './src/screens/bottomNav/BottomNavigation';
@@ -39,6 +45,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
         timePassed: false,
+        
     };
 }
 
@@ -52,14 +59,13 @@ setTimePassed() {
     this.setState({timePassed: true});
 }
 
+
+
 render() {
     if (!this.state.timePassed) {
         return <Splash/>;
     } else {
-
-        // return <Information/>;
-        return <Login/>;
-        // return <NavScreen/>;
+        return <Channel/>;
     }
 
 }

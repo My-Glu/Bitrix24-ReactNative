@@ -8,9 +8,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+
+//import Clients from './src/navPages/Clients';
+//import ExploreScreen from './src/navPages/ExploreScreen';
+//import SettingScreen from './src/navPages/SettingScreen';
+
 // import Clients from './src/navPages/Clients';
 // import ExploreScreen from './src/navPages/ExploreScreen';
 // import SettingScreen from './src/navPages/SettingScreen';
+
 
 import Chat from './Chat';
 import Dashboard from './Dashboard';
@@ -204,6 +210,9 @@ function DashboardScreenStack({ navigation }) {
   );
 }
 
+
+
+
 function SettingScreenStack({ navigation }) {
   return (
     <Stack.Navigator
@@ -228,6 +237,8 @@ function SettingScreenStack({ navigation }) {
           title: 'Settings', //Set Header Title
           
         }}/>
+
+
     </Stack.Navigator>
   );
 }
@@ -250,6 +261,10 @@ drawerContent={props => <SideMenu {...props} />}
           options={{ drawerLabel: 'Dashboard' }}
           component={DashboardScreenStack} />
           {/* ---------------Screen Two--------------- */}
+
+          
+
+
         <Drawer.Screen
           name="SettingScreenStack"
           options={{ drawerLabel: 'Setting Screen Option' }}

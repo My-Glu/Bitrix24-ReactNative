@@ -5,12 +5,18 @@ import {View, StyleSheet, Text,TextInput, Image, ScrollView,Button, CheckBox ,Al
 import Icon from 'react-native-vector-icons/FontAwesome5';
 // import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+
+import NavScreen from '../../../src/navPages/NavScreen';
+
 import { NavigationContainer } from '@react-navigation/native';
 import ForgetPassword from '.././forgetPassword/ForgetPassword';
 // import {Actions} from 'react-native-router-flux'
+
 export default class Login extends Component {
+
   constructor(props) {
     super(props);
+
     this.state = {
       isLogin: false
     };
@@ -57,6 +63,7 @@ setLogin() {
      
       return <ForgetPassword/>;
   }
+
     return (
      
      
@@ -141,10 +148,12 @@ setLogin() {
 
   <View style={styles.screenContainer}>
       <Button title="SIGN IN" width="100%" color="#385805" style={{backgroundColor: '#385805'}} 
+
       // onClick={() => navigation.navigate('NavScreen') 
       // onPress={this.handleClick}
       // onClick={this.handleClick}
      />
+
     </View>
 
 

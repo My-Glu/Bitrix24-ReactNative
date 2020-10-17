@@ -15,12 +15,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ListOne from './src/components/ListOne';
 import Login from './src/screens/login/Login';
-import NavScreen from './src/navPages/NavScreen';
 import Splash from './Splash';
 import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
 
+
 import PipeLine from './src/navPages/Pipelines';
 import Channel from './src/navPages/Channel';
+import Menu from './src/navPages/Menu';
+import Dashboard from './src/navPages/Dashboard';
 //import Information from './src/screens/info/Information';
 //import NavScreen from './src/navPages/NavScreen';
 
@@ -38,6 +40,7 @@ import Information from './src/screens/info/Information';
 
 // })
 // export default createAppContainer(App);
+import Routes from './src/navPages/routerFlux';
 
 export default class App extends React.Component {
   
@@ -65,7 +68,10 @@ render() {
     if (!this.state.timePassed) {
         return <Splash/>;
     } else {
-        return <Channel/>;
+        return <Routes/>
+        
+        ;
+        
     }
 
 }

@@ -6,17 +6,34 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 // import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import NavScreen from '../../../src/navPages/NavScreen';
+
+
 
 import { NavigationContainer } from '@react-navigation/native';
 import ForgetPassword from '.././forgetPassword/ForgetPassword';
 // import {Actions} from 'react-native-router-flux'
 
+
+import { Actions } from 'react-native-router-flux';
+
+
+
+
 export default class Login extends Component {
 
+  
+   
+    goToDashboard = () => {
+      Actions.dashboard()
+   }
+  
+   goToForgetPass = () => {
+    Actions.forgetPassword()
+ }
+ 
   constructor(props) {
     super(props);
-
+    
     this.state = {
       isLogin: false
     };
@@ -62,16 +79,17 @@ setLogin() {
     if (this.state.isLogin) {
      
       return <ForgetPassword/>;
+      
   }
 
     return (
-     
+      
      
      <ScrollView style={{backgroundColor: 'white'}}>
       
        
          <View style={styles.container}>
-
+         
              <Image source={require('../../assets/images/noorgrplogo3x.png')}
               resizeMode="center" 
                style={styles.image}
@@ -131,6 +149,7 @@ setLogin() {
 
 {/* <TouchableOpacity onPress={() => this.onPressButton}>  */}
 <TouchableOpacity 
+onPress = {this.goToForgetPass}
 //goto forgetpassword screen
 // onPress={this.setLogin()}
 >
@@ -149,7 +168,7 @@ setLogin() {
   <View style={styles.screenContainer}>
       <Button title="SIGN IN" width="100%" color="#385805" style={{backgroundColor: '#385805'}} 
 
-      // onClick={() => navigation.navigate('NavScreen') 
+onPress = {this.goToDashboard}
       // onPress={this.handleClick}
       // onClick={this.handleClick}
      />
@@ -218,6 +237,7 @@ setLogin() {
       </ScrollView>
 
       );
+      
 
 //         <KeyboardAvoidingView style={styles.containerView} behavior="padding">
 

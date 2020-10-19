@@ -102,9 +102,7 @@ setLogin() {
                   </View>
                  </View>
             
-            
-
-{/* ------------------------------input password -------------------------------------*/}
+            {/* ------------------------------input password -------------------------------------*/}
 
 <View style={styles.containerInput}>
                 <View style={styles.SectionStyle}>
@@ -173,13 +171,6 @@ setLogin() {
   <Image source={require('../../assets/images/instaicon.png')} style={{width:30,height:30,marginLeft:8}}/>
   </View>
 </View>
-
-
-
-
-
-
-
 
   {/* <View style = {{alignItems: 'center'}}>
   <TouchableOpacity>

@@ -22,7 +22,7 @@ import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
 import PipeLine from './src/navPages/Pipelines';
 import Channel from './src/navPages/Channel';
 //import Information from './src/screens/info/Information';
-//import NavScreen from './src/navPages/NavScreen';
+import Employee from './src/navPages/Employee';
 
 import Information from './src/screens/info/Information';
 
@@ -62,13 +62,22 @@ setTimePassed() {
 
 
 render() {
+    
     if (!this.state.timePassed) {
         return <Splash/>;
     } else {
-        return <Channel/>;
+
+        // return <Information/>;
+        return <Employee/>;
+        // return <NavScreen/>;
+        // return <Collaps/>;
     }
 
 }
+
+
+
+
 
 //  <Image source={require('../../assets/images/noorgrplogo3x.png')}
 

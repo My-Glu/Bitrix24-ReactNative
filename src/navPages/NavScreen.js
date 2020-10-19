@@ -165,7 +165,7 @@ function DashboardScreenStack({ navigation }) {
   return (
     <Stack.Navigator initialRouteName="Dashboard">
       <Stack.Screen
-        name="BottomTabStack"
+        name="Main Screen"
         component={BottomTabStack}
         options={({ route }) => ({
           headerTitle: getHeaderTitle(route),

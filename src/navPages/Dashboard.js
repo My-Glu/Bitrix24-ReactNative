@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+
 import { AppRegistry,View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 // import PieChart from 'react-native-pie-chart';
 // import Pie from 'react-native-pie';
 // import {Surface, Shape} from '@react-native-community/art';
+
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import Pie from 'react-native-pie';
+
 
 export default class Dashboard extends Component {
   constructor(props) {
@@ -12,6 +17,7 @@ export default class Dashboard extends Component {
   }
 
   render() {
+
      return (
 
       <ScrollView>
@@ -33,6 +39,7 @@ export default class Dashboard extends Component {
             <Text style={{ fontSize: 13, color: '#49641D' }}>New Orders</Text>
             <Text style={{ color: '#790A96', fontSize: 20 }}>117</Text>
           </View>
+
       </View>
 
 {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -118,8 +125,28 @@ export default class Dashboard extends Component {
 {/* ---------------Sales pie chart--------------------- */}
 <View style={styles.bigCardView}>
 
-
-
+<Pie
+              radius={80}
+              sections={[
+                {
+                  percentage: 10,
+                  color: '#C70039',
+                },
+                {
+                  percentage: 20,
+                  color: '#44CD40',
+                },
+                {
+                  percentage: 30,
+                  color: '#404FCD',
+                },
+                {
+                  percentage: 40,
+                  color: '#EBD22F',
+                },
+              ]}
+              strokeCap={'butt'}
+            />
 
 </View>
 
@@ -127,6 +154,7 @@ export default class Dashboard extends Component {
 </View>
 
       </View>
+
       </ScrollView>
       // end view 
     );

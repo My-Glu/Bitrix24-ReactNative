@@ -21,6 +21,9 @@ import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
 
 import PipeLine from './src/navPages/Pipelines';
 import Channel from './src/navPages/Channel';
+import Clients from './src/navPages/Clients';
+import ViewCompany from './src/navPages/clients/ViewCompany';
+import ClientsEdit from './src/navPages/clients/ClientsEdit';
 import Menu from './src/navPages/Menu';
 import Dashboard from './src/navPages/Dashboard';
 //import Information from './src/screens/info/Information';
@@ -41,6 +44,7 @@ import Information from './src/screens/info/Information';
 // })
 // export default createAppContainer(App);
 import Routes from './src/navPages/routerFlux';
+// import ClientsEdit from './src/navPages/clients/ClientsEdit';
 
 export default class App extends React.Component {
   
@@ -69,8 +73,11 @@ render() {
     if (!this.state.timePassed) {
         return <Splash/>;
     } else {
-
-        return <Routes/>
+        // return <ClientsEdit/>
+        // return <Routes/>
+        // return <ViewCompany/>
+        return <Clients/>
+        // return <Employee/>
 
     }
 

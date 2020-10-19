@@ -6,9 +6,6 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 // import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-
-
-
 import { NavigationContainer } from '@react-navigation/native';
 import ForgetPassword from '.././forgetPassword/ForgetPassword';
 // import {Actions} from 'react-native-router-flux'

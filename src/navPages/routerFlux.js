@@ -49,14 +49,10 @@ const Routes = () => (
         component={ForgetPassword} 
         />
 
-
-
-
       </Scene>
-
-
-      
+    
     </Router>
+    
   );
 
   export default Routes

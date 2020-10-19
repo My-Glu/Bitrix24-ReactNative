@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet,View, Text, StatusBar,Image, Alert } from 'react-native';
 import {Header} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons';
 export default class Employee extends Component {
     constructor(props) {  
         super(props);  
@@ -16,14 +17,26 @@ export default class Employee extends Component {
        <View>
        <Header 
             containerStyle={{backgroundColor: '#fff',}}
-            leftComponent={<Image source={require('.././assets/images/backarrowsmall.png')} />}
-            centerComponent={{text: 'Employee',fontSize:20}}
+            leftComponent={
+                <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
+        }
+            centerComponent={<Text style={{ fontSize:20}}>Employee</Text>
+                // {text: 'All Clients', fontSize:30}
+            }
         
-            rightComponent={<Image source={require('.././assets/images/search.png')}  />}
+            rightComponent={
+            // <Image source={require('../../assets/images/search.png')}  />
+    
+        <Icon name="search-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+               
+    
+    }
             // rightComponent={<Text>Done</Text>}
-            
+            // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
        />
 </View>
+{/* -----Header end */}
+{/* -----Header end */}
 
 {/* item one  */}
           <View>

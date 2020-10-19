@@ -2,11 +2,10 @@ import React from 'react';
 import {StyleSheet, Text, View,TouchableOpacity} from "react-native";
 import {Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
-
+import Employee from '.././navPages/Employee'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SideMenu = (props) => {
-
     
     return(
         <View style={{flex:1}}>
@@ -41,6 +40,7 @@ const SideMenu = (props) => {
                <DrawerItem 
                  icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
                  label="Employees"
+                 onPress={()=> {props.navigation.navigate('Employee')}}
                  width={220}
                  
                  />
@@ -51,6 +51,7 @@ const SideMenu = (props) => {
 <DrawerItem 
                  icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
                  label="Clients"
+                 onPress={()=> {props.navigation.navigate('Clients')}}
                  width={220}
                  
                  />

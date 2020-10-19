@@ -2,7 +2,8 @@ import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as React from 'react';
 import { Button, View, Text, TouchableOpacity, Image } from 'react-native';
-
+import Employee from '.././navPages/Employee'
+import Clients from './Clients'
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -256,19 +257,31 @@ drawerContent={props => <SideMenu {...props} />}
         }}>
           {/* ------------Screen one------------ */}
           
-        <Drawer.Screen
+         <Drawer.Screen
           name="DashboardScreenStack"
           options={{ drawerLabel: 'Dashboard' }}
           component={DashboardScreenStack} />
           {/* ---------------Screen Two--------------- */}
 
-          
-
-
-        <Drawer.Screen
+          <Drawer.Screen
           name="SettingScreenStack"
           options={{ drawerLabel: 'Setting Screen Option' }}
           component={SettingScreenStack} />
+
+           {/* ---------------Screen Three--------------- */}
+
+           <Drawer.Screen
+          name="Employee"
+          options={{ drawerLabel: 'Employees' }}
+          component={Employee} />
+
+          
+          {/* // set nav screen plus side menu onpress */}
+          <Drawer.Screen
+          name="Clients"
+          options={{ drawerLabel: 'All Clients' }}
+          component={Clients} />
+
       </Drawer.Navigator>
 
       {/* --------Navigation Drawer------------- */}

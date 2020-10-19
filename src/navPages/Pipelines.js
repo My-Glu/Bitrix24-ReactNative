@@ -103,7 +103,7 @@ export default class Pipelines extends Component {
 
 
 
-
+{/* -------------Big card view */}
 
         <View style={styles.elevatedView2}>
           <View style={{ marginBottom: 15, marginLeft: 20, marginTop: 8 }}>

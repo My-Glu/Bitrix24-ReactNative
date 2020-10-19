@@ -5,7 +5,7 @@ import { AppRegistry,View, Text, StyleSheet, TouchableOpacity, ScrollView } from
 // import Pie from 'react-native-pie';
 // import {Surface, Shape} from '@react-native-community/art';
 
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+
 import Pie from 'react-native-pie';
 
 

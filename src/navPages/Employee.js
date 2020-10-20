@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet,View, Text, StatusBar,Image, Alert } from 'react-native';
+import { StyleSheet,View, Text, StatusBar,Image, Alert, TouchableOpacity } from 'react-native';
 import {Header} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Actions } from 'react-native-router-flux';
+
 export default class Employee extends Component {
     constructor(props) {  
         super(props);  
    
     }  
+
+    goToDetailsEmployee = () => {
+      Actions.detailsEmployee()
+   }
 
   render() {
     return (
@@ -49,9 +55,13 @@ export default class Employee extends Component {
   </View>
 <View><Text>Shahid Saleem</Text></View>
 
-<View style={{flex:1}}>
-<Image style={{alignSelf:'flex-end' ,marginEnd:'10%'}} source={require('.././assets/images/arrowright.png')} />
-
+<View >
+{/* <Image style={{alignSelf:'flex-end' ,marginEnd:'10%'}} source={require('.././assets/images/arrowright.png')} /> */}
+<TouchableOpacity style={{ width: 200, height: 20 }}
+onPress={this.goToDetailsEmployee}
+>
+                            <Icon name="chevron-forward-outline" style={{ marginLeft: '20%', fontSize: 35, color: '#e2e2e2' }}></Icon>
+                          </TouchableOpacity>
 </View>
 
   </View>

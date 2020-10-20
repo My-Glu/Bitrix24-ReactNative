@@ -28,6 +28,7 @@ import Menu from './src/navPages/Menu';
 import Dashboard from './src/navPages/Dashboard';
 //import Information from './src/screens/info/Information';
 import Employee from './src/navPages/Employee';
+import DetailsEmployee from './src/navPages/employee/DetailsEmployee';
 
 import Information from './src/screens/info/Information';
 
@@ -45,6 +46,16 @@ import Information from './src/screens/info/Information';
 // export default createAppContainer(App);
 import Routes from './src/navPages/routerFlux';
 // import ClientsEdit from './src/navPages/clients/ClientsEdit';
+import ViewLeads from './src/navPages/leads/ViewLeads';
+import EditLeads from './src/navPages/leads/EditLeads';
+import EditDeal from './src/navPages/deals/EditDeal';
+import ViewDeal from './src/navPages/deals/ViewDeal';
+import ViewProduct from './src/navPages/archiveProduct/ViewProduct';
+import EditProduct from './src/navPages/archiveProduct/EditProduct';
+
+import Leads from './src/navPages/Leads';
+import Deals from './src/navPages/Deals';
+import ProductArchives from './src/navPages/ProductArchives';
 
 export default class App extends React.Component {
   
@@ -59,13 +70,12 @@ export default class App extends React.Component {
 componentDidMount() {
     setTimeout( () => {
         this.setTimePassed();
-    },2000);
+    },500);
 }
 
 setTimePassed() {
     this.setState({timePassed: true});
 }
-
 
 
 render() {
@@ -74,9 +84,19 @@ render() {
         return <Splash/>;
     } else {
         // return <ClientsEdit/>
-        // return <Routes/>
+        return <Routes/>
+        // return <DetailsEmployee/>
+        // return <ViewProduct/>
+        // return <EditProduct/>
+        // return <ProductArchives/>
         // return <ViewCompany/>
-        return <Clients/>
+        // return <ViewDeal/>
+        // return <EditDeal/>
+        // return <Clients/>
+        // return <Deals/>
+        // return <Leads/>
+        // return <ViewLeads/>
+        // return <EditLeads/>
         // return <Employee/>
 
     }
@@ -88,8 +108,6 @@ render() {
 
 
 //  <Image source={require('../../assets/images/noorgrplogo3x.png')}
-
-
 
   // render() {
  
@@ -104,19 +122,11 @@ render() {
   //            {/* <Splash /> */}
   //            {/* <Chat/> */}
 
-
-
-
-
   //     </View>
 
   //   );
   // }
 }
-
-
-
-
 
 
 //--------------------bottom nav within nav drawer all ftns-----------------------

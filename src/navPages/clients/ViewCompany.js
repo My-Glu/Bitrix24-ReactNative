@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, ScrollView, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, StatusBar,ScrollView, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
@@ -14,6 +14,31 @@ export default class ViewCompany extends Component {
   render() {
     return (
         <ScrollView>
+             {/* ---------------------------------header--------------------------------- */}
+   <StatusBar backgroundColor="#49641D" animated={true}/>
+          <View>
+          <Header 
+               containerStyle={{backgroundColor: '#fff',}}
+               leftComponent={
+                   <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
+           }
+               centerComponent={<Text style={{ fontSize:20}}>View Company</Text>
+                   // {text: 'All Clients', fontSize:30}
+               }
+           
+               rightComponent={
+               // <Image source={require('../../assets/images/search.png')}  />
+               
+               <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+              
+       
+       }
+               // rightComponent={<Text>Done</Text>}
+               // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+          />
+   </View>
+   {/* -----Header end */}
+
       <View  style={{marginLeft:'8%',marginRight:'8%', marginTop:'5%'}}>
 
        {/*  -----------row one ----------------*/}
@@ -87,24 +112,16 @@ export default class ViewCompany extends Component {
 <Text style={{color:'#C0C0C0'}}>Company Type</Text>
 </View>
 {/* ---------------- */}
-       <View style={styles.Rows}>
-
-  <View style={{flexDirection: 'row', alignItems: 'center', height: 35, }}>
-
-  {/* <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={40} /> */}
-  <View>
-    <Title style={{ color: '#49641D' , fontSize:17}}>Client</Title>
-  </View>
-  
-</View>
-
-<View>
+      {/* ----------------------- */}
+ 
+ <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+  <Title style={{ color: '#49641D' , fontSize:17}}>Client</Title>
   <TouchableOpacity>
-    <Icon name="chevron-forward-outline" style={{ alignSelf: 'flex-end',fontSize: 35, color: '#e2e2e2' }}></Icon>
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
   </TouchableOpacity>
-</View>
+    </View>
 
-</View>
+{/* --------------------------- */}
 
 {/* ------------------------------Horizontal line -------------------------------------- */}
 <View style={{flexDirection: 'row', alignItems: 'center', marginTop:'2%'}}>
@@ -119,25 +136,16 @@ export default class ViewCompany extends Component {
 <Text style={{color:'#C0C0C0'}}>Industry</Text>
 </View>
 {/* ---------------- */}
-       <View style={styles.Rows}>
-
-  <View style={{flexDirection: 'row', alignItems: 'center', height: 35, }}>
-
-  {/* <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={40} /> */}
-  <View>
-    <Title style={{ color: '#49641D' , fontSize:17}}>Information Technology</Title>
-  </View>
-  
-</View>
-
-<View>
+    {/* ----------------------- */}
+ 
+ <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+  <Title style={{ color: '#49641D' , fontSize:17}}>Information Technology</Title>
   <TouchableOpacity>
-    <Icon name="chevron-forward-outline" style={{ alignSelf: 'flex-end',fontSize: 35, color: '#e2e2e2' }}></Icon>
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
   </TouchableOpacity>
-</View>
+    </View>
 
-</View>
-
+{/* --------------------------- */}
 {/* ------------------------------Horizontal line -------------------------------------- */}
 <View style={{flexDirection: 'row', alignItems: 'center', marginTop:'2%'}}>
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
@@ -150,24 +158,16 @@ export default class ViewCompany extends Component {
 <Text style={{color:'#C0C0C0'}}>Employees</Text>
 </View>
 {/* ---------------- */}
-       <View style={styles.Rows}>
-
-  <View style={{flexDirection: 'row', alignItems: 'center', height: 35, }}>
-
-  {/* <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={40} /> */}
-  <View>
-    <Title style={{ color: '#49641D' , fontSize:17}}>Less than 50</Title>
-  </View>
-  
-</View>
-
-<View>
+     {/* ----------------------- */}
+ 
+ <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+  <Title style={{ color: '#49641D' , fontSize:17}}>Less than 50</Title>
   <TouchableOpacity>
-    <Icon name="chevron-forward-outline" style={{ alignSelf: 'flex-end',fontSize: 35, color: '#e2e2e2' }}></Icon>
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
   </TouchableOpacity>
-</View>
+    </View>
 
-</View>
+{/* --------------------------- */}
 
 {/* ------------------------------Horizontal line -------------------------------------- */}
 <View style={{flexDirection: 'row', alignItems: 'center', marginTop:'2%'}}>
@@ -181,25 +181,16 @@ export default class ViewCompany extends Component {
 <Text style={{color:'#C0C0C0'}}>Annual revenue</Text>
 </View>
 {/* ---------------- */}
-       <View style={styles.Rows}>
-
-  <View style={{flexDirection: 'row', alignItems: 'center', height: 35, }}>
-
-  {/* <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={40} /> */}
-  <View>
-    <Title style={{ color: '#49641D' , fontSize:17}}>100</Title>
-  </View>
-  
-</View>
-
-<View>
+      {/* ----------------------- */}
+ 
+ <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+  <Title style={{ color: '#49641D' , fontSize:17}}>100</Title>
   <TouchableOpacity>
-    <Icon name="chevron-forward-outline" style={{ alignSelf: 'flex-end',fontSize: 35, color: '#e2e2e2' }}></Icon>
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
   </TouchableOpacity>
-</View>
+    </View>
 
-</View>
-
+{/* --------------------------- */}
 {/* ------------------------------Horizontal line -------------------------------------- */}
 <View style={{flexDirection: 'row', alignItems: 'center', marginTop:'2%'}}>
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
@@ -212,24 +203,16 @@ export default class ViewCompany extends Component {
 <Text style={{color:'#C0C0C0'}}>Currency</Text>
 </View>
 {/* ---------------- */}
-       <View style={styles.Rows}>
-
-  <View style={{flexDirection: 'row', alignItems: 'center', height: 35, }}>
-
-  {/* <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={40} /> */}
-  <View>
-    <Title style={{ color: '#49641D' , fontSize:17}}>US Dollar</Title>
-  </View>
-  
-</View>
-
-<View>
+       {/* ----------------------- */}
+ 
+ <View style={{flexDirection: 'row',justifyContent: 'space-between'}}>
+  <Title style={{ color: '#49641D' , fontSize:17}}>US Dollar</Title>
   <TouchableOpacity>
-    <Icon name="chevron-forward-outline" style={{ alignSelf: 'flex-end',fontSize: 35, color: '#e2e2e2' }}></Icon>
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
   </TouchableOpacity>
-</View>
+    </View>
 
-</View>
+{/* --------------------------- */}
 
 {/* ------------------------------Horizontal line -------------------------------------- */}
 <View style={{flexDirection: 'row', alignItems: 'center', marginTop:'2%'}}>
@@ -275,25 +258,13 @@ export default class ViewCompany extends Component {
 <Text style={{color:'#C0C0C0'}}>Company Type</Text>
 </View> */}
 {/* ---------------- */}
-       <View style={styles.Rows}>
-
-  <View style={{flexDirection: 'row', alignItems: 'center', height: 35, }}>
-
-  {/* <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={40} /> */}
-  <View>
-    <Title style={{ color: '#49641D' , fontSize:17}}>Available to everyone</Title>
-  </View>
   
-</View>
-
-{/* <View>
-  <TouchableOpacity>
-    <Icon name="chevron-forward-outline" style={{ alignSelf: 'flex-end',fontSize: 35, color: '#e2e2e2' }}></Icon>
-  </TouchableOpacity>
-</View> */}
-
-</View>
-
+<View style={{justifyContent: 'space-between', flexDirection: 'row', marginRight:'5%'}}>
+      <Title style={{ color: '#49641D' , fontSize:14}}>Available to everyone</Title>
+      {/* <ion-icon name="checkmark-circle-outline"></ion-icon> */}
+      <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
+    </View>
+  {/* ---------------- */}
 {/* ------------------------------Horizontal line -------------------------------------- */}
 <View style={{flexDirection: 'row', alignItems: 'center', marginTop:'2%'}}>
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />

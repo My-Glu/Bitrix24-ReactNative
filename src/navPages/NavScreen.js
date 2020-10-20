@@ -3,7 +3,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as React from 'react';
 import { Button, View, Text, TouchableOpacity, Image } from 'react-native';
 import Employee from '.././navPages/Employee'
-import Clients from './Clients'
+import Leads from '.././navPages/Leads'
+import Deals from '.././navPages/Deals'
+import Clients from '.././navPages/Clients'
+import ProductArchives from '.././navPages/ProductArchives'
+// import Clients from './Clients'
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -156,6 +160,11 @@ function BottomTabStack() {
         component={Menu}
         options={{tabBarIcon:()=> (<Icon name="menu" size={24} color='#fff'/>)}}
          />
+        {/* <Tab.Screen
+        name="ProductArchives"
+        component={ProductArchives}
+        options={{tabBarIcon:()=> (<Icon name="menu" size={24} color='#fff'/>)}}
+         /> */}
 
     </Tab.Navigator>
 
@@ -281,6 +290,21 @@ drawerContent={props => <SideMenu {...props} />}
           name="Clients"
           options={{ drawerLabel: 'All Clients' }}
           component={Clients} />
+
+          <Drawer.Screen
+          name="Leads"
+          options={{ drawerLabel: 'All Leads' }}
+          component={Leads} />
+
+          <Drawer.Screen
+          name="Deals"
+          options={{ drawerLabel: 'All Deals' }}
+          component={Deals} />
+
+          <Drawer.Screen
+          name="ProductArchives"
+          options={{ drawerLabel: 'All Products' }}
+          component={ProductArchives} />
 
       </Drawer.Navigator>
 

@@ -73,8 +73,6 @@ export default class ClientsEdit extends Component {
 
 
 
-
-
         {/* -------------row 2------------------------------------------------------------- */}
           
 {/* ----------------- */}
@@ -167,25 +165,12 @@ export default class ClientsEdit extends Component {
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
 
                 </View>
-                {/* ----------------------- */}
-                <View style={{flexDirection: 'row', backgroundColor:'white'}}>
-
-<View style={{flexDirection: 'row', alignItems: 'center', height: 35,  marginLeft:'8%' }}>
-
-{/* <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={40} /> */}
-<View>
+ {/* ----------------------- */}
+ 
+   <View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
   <Title style={{ color: '#49641D' , fontSize:14}}>Client</Title>
-</View>
-
-</View>
-
-<View>
-<TouchableOpacity>
-  <Icon name="chevron-forward-outline" style={{ alignSelf: 'flex-end',fontSize: 35, color: '#e2e2e2' }}></Icon>
-</TouchableOpacity>
-</View>
-
-</View>
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
+    </View>
 
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -212,24 +197,15 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-                <View style={{flexDirection: 'row', backgroundColor:'white'}}>
-
-<View style={{flexDirection: 'row', alignItems: 'center', height: 35,  marginLeft:'8%' }}>
-
-{/* <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={40} /> */}
-<View>
+             {/* ----------------------- */}
+ 
+   <View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
   <Title style={{ color: '#49641D' , fontSize:14}}>Information Technology</Title>
-</View>
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
+    </View>
 
-</View>
+{/* --------------------------- */}
 
-<View>
-<TouchableOpacity>
-  <Icon name="chevron-forward-outline" style={{ alignSelf: 'flex-end',fontSize: 35, color: '#e2e2e2' }}></Icon>
-</TouchableOpacity>
-</View>
-
-</View>
 
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -317,9 +293,11 @@ export default class ClientsEdit extends Component {
                 </View>
 {/* ---------------- */}
 
-<View style={styles.mLeft}>
-    <Title style={{ color: '#49641D' , fontSize:14}}>Available to everyone</Title>
-  </View>
+<View style={{justifyContent: 'space-between', flexDirection: 'row', marginRight:'5%'}}>
+      <Title style={{ color: '#49641D' , fontSize:14, marginLeft:'8%'}}>Available to everyone</Title>
+      {/* <ion-icon name="checkmark-circle-outline"></ion-icon> */}
+      <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
+    </View>
 {/* ---------------- */}
 </View>
 {/* --------------------------- */}

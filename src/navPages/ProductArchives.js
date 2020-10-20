@@ -4,7 +4,7 @@ import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } fr
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
 
-export default class Clients extends Component {
+export default class ProductArchives extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +23,7 @@ export default class Clients extends Component {
                     leftComponent={
                         <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
                 }
-                    centerComponent={<Text style={{ fontSize:20}}>All Clients</Text>
+                    centerComponent={<Text style={{ fontSize:20}}>All Products</Text>
                         // {text: 'All Clients', fontSize:30}
                     }
                     // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
@@ -56,7 +56,7 @@ export default class Clients extends Component {
 
                   <Avatar.Image source={require('.././assets/images/blue6.jpg')} size={50} />
                   <View style={{ marginLeft: 20 }}>
-                    <Title style={{ color: '#49641D' }}>Afia Noor</Title>
+                    <Title style={{ color: '#49641D' }}>Mouse</Title>
                   </View>
 
                 </View>
@@ -83,8 +83,8 @@ export default class Clients extends Component {
             <View style={{ flexDirection: 'row', width: 270 }}>
 
               <View>
-                <Text style={{ marginBottom: 5, color:'#C0C0C0', fontSize: 16 }}>Company Type</Text>
-                <Text style={{ color: '#49641D' }}>Client</Text>
+                <Text style={{ marginBottom: 5, color:'#C0C0C0', fontSize: 16 }}>Price</Text>
+                <Text style={{ color: '#49641D' }}>0%</Text>
               </View>
 
             </View>
@@ -101,8 +101,8 @@ export default class Clients extends Component {
 
 
               <View>
-                <Text style={{ marginBottom: 5, color: '#C0C0C0', fontSize: 16 }}>Industry</Text>
-                <Text style={{ color: '#49641D' }}>Information Technology</Text>
+                <Text style={{ marginBottom: 5, color: '#C0C0C0', fontSize: 16 }}>Unit of measurement</Text>
+                <Text style={{ color: '#49641D' }}>Pcs.</Text>
               </View>
 
             </View>
@@ -112,28 +112,25 @@ export default class Clients extends Component {
           </View>
 
 
- {/* ------------------------------fourth row----------------------------------------------  */}
 
- <View style={{marginLeft: 20 }}>
-            <View style={{ flexDirection: 'row', width: 270 }}>
-
-
-              <View>
-                <Text style={{ marginBottom: 5, color: '#C0C0C0', fontSize: 16 }}>Responsible Person</Text>
-                <Text style={{ color: '#49641D' }}>Farhan Sarwar</Text>
-              </View>
-
-            </View>
-          </View>
 
 {/* ------------More-------------- */}
-          <View style={{backgroundColor:'#FBFFF4',paddingTop:10, paddingBottom:10}}>
+
+<View style={{flexDirection: 'row',justifyContent: 'space-between', marginLeft:'8%'}}>
+  <Title style={{ color: '#49641D' , fontSize:14}}>Edit</Title>
+  <TouchableOpacity>
+  <Title style={{ paddingRight:'5%', color: '#49641D' , fontSize:14}}>Delete</Title>
+  </TouchableOpacity>
+    </View>
+
+
+          {/* <View style={{backgroundColor:'#FBFFF4',paddingTop:10, paddingBottom:10}}>
            <TouchableOpacity 
           //  delayPressIn={1} onPress={() =>}
            >
           <Text style={{textAlign:'right', paddingRight:'5%'}}>More...</Text>
           </TouchableOpacity>
-          </View>      
+          </View>       */}
 
         </View>
         </View>

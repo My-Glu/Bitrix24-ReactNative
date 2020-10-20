@@ -62,6 +62,7 @@ const SideMenu = (props) => {
 <DrawerItem 
                  icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
                  label="Leads"
+                 onPress={()=> {props.navigation.navigate('Leads')}}
                  width={220}
                  
                  />
@@ -72,6 +73,7 @@ const SideMenu = (props) => {
 <DrawerItem 
                  icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
                  label="Deals"
+                 onPress={()=> {props.navigation.navigate('Deals')}}
                  width={220}
                  
                  />
@@ -92,6 +94,7 @@ const SideMenu = (props) => {
                  <DrawerItem 
                  icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
                  label="Product Archives"
+                 onPress={()=> {props.navigation.navigate('ProductArchives')}}
                  width={220}
                  
                  />

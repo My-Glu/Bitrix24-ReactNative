@@ -27,7 +27,7 @@ render() {
         <TouchableOpacity 
 // onPress={this.setBack()}
 >
-        <Image source={require('../../assets/images/backarrowsmall.png')} />
+        {/* <Image source={require('../../assets/images/backarrowsmall.png')} /> */}
 
         </TouchableOpacity>
        {/* <Icon name="menu"  color="black" height="50" width="50" 

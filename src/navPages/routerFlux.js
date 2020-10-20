@@ -3,6 +3,8 @@ import React from 'react';
 import Login from '../screens/login/Login';
 import Channel from './Channel';
 import Pipelines from './Pipelines';
+import Employee from './Employee';
+import DetailsEmployee from './employee/DetailsEmployee';
 import Dashboard from './Dashboard';
 import ForgetPassword from '../screens/forgetPassword/ForgetPassword';
 import NavScreen from '../navPages/NavScreen';
@@ -19,10 +21,10 @@ const Routes = () => (
          key="login" 
          component={Login} 
          hideNavBar={true} 
-         
+        //  initial = {true}
          />
 
-<Scene
+        <Scene
          key="navScreen" 
          component={NavScreen} 
          hideNavBar={true} 
@@ -44,10 +46,30 @@ const Routes = () => (
         component={Channel} 
         />
 
-<Scene 
+       <Scene 
         key="forgetPassword" 
         component={ForgetPassword} 
         />
+
+      <Scene 
+        key="employee" 
+        component={Employee} 
+        />
+
+      <Scene 
+        key="detailsEmployee" 
+        component={DetailsEmployee} 
+        />
+
+{/* 
+    step0: index.d.ts
+     step1: declare a scene for a screen with key, title and Component in router.js
+    step2: make action method in the parent class with the key to child class
+    step3: import action from recatnativerouterflux in the parent
+    step4: declare <rout/> in App.js
+
+
+*/}
 
       </Scene>
     

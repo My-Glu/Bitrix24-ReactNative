@@ -54,7 +54,9 @@ import ViewProduct from './src/navPages/archiveProduct/ViewProduct';
 import EditProduct from './src/navPages/archiveProduct/EditProduct';
 
 import Leads from './src/navPages/Leads';
+import NavScreen from './src/navPages/NavScreen';
 import Deals from './src/navPages/Deals';
+import PopUp from './src/navPages/PopUp';
 import ProductArchives from './src/navPages/ProductArchives';
 
 export default class App extends React.Component {
@@ -66,8 +68,12 @@ export default class App extends React.Component {
         
     };
 }
+// componentDidMount() {
+//     StatusBar.setHidden(true);
+//  }
 
 componentDidMount() {
+    StatusBar.setHidden(true);
     setTimeout( () => {
         this.setTimePassed();
     },500);
@@ -85,6 +91,8 @@ render() {
     } else {
         // return <ClientsEdit/>
         return <Routes/>
+        // return <PopUp/>
+        // return <NavScreen/>
         // return <DetailsEmployee/>
         // return <ViewProduct/>
         // return <EditProduct/>

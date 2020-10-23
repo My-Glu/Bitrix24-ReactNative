@@ -3,7 +3,7 @@ import { View, StatusBar,ScrollView, Text, StyleSheet, TouchableOpacity } from '
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
-
+import MenuViewProduct from './MenuViewProduct'
 export default class ViewProduct extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +12,11 @@ export default class ViewProduct extends Component {
   }
 
   render() {
+
+    let popupRefMenu = React.createRef()
+  const onShowPopupMenu = () =>{ popupRefMenu.show()}
+const onClosePopupMenu = () =>{ popupRefMenu.close()}
+
     return (
         <ScrollView>
 
@@ -30,10 +35,17 @@ export default class ViewProduct extends Component {
                     rightComponent={
                     // <Image source={require('../../assets/images/search.png')}  />
                     // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-            
-                <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
-                       
-            
+            <View>
+                    <TouchableOpacity    onPress={onShowPopupMenu}>
+                    <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+                   </TouchableOpacity>
+    
+                   <MenuViewProduct
+    title=""
+    ref={(target) => popupRefMenu = target}
+    onTouchOutside={onClosePopupMenu}
+    />      
+            </View>
             }
                     // rightComponent={<Text>Done</Text>}
                     // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
@@ -67,8 +79,6 @@ export default class ViewProduct extends Component {
                   </View>
   
   
-  
- 
   
   {/* ------------------row 2----------------------------------------------- */}
   <View  style={{ marginBottom:'2%'}}>

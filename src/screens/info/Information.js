@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
-import { StyleSheet,View,TextInput, Text,ScrollView, StatusBar,Image } from 'react-native';
+import { StyleSheet,View,TextInput, Text,ScrollView, StatusBar,Image, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
+import {Actions} from 'react-native-router-flux';
 export default class Information extends Component {
   constructor(props) {
     super(props);
     this.state = {
     };
   }
+
+  goBackToNavScreen = () => {
+
+    Actions.navScreen()
+  
+  }
+  
+
 
   render() {
     return (
@@ -17,8 +27,14 @@ export default class Information extends Component {
        <View>
        <Header 
             containerStyle={{backgroundColor: '#fff',}}
-            leftComponent={<Image source={require('../../assets/images/backarrowsmall.png')} />}
-            centerComponent={{text: 'Information', fontWeight: 'bold',fontSize:20,style:{...styles.headerTitle}}}
+            leftComponent={
+              <TouchableOpacity
+              onPress={this.goBackToNavScreen}
+              >
+                <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
+                </TouchableOpacity> 
+          }
+            centerComponent={<Text style={{ fontSize:20}}>Information</Text>}
             
             // rightComponent={<Image source={require('../../assets/images/search.png')} style={styles.headerRight} />}
             rightComponent={<Text>Done</Text>}

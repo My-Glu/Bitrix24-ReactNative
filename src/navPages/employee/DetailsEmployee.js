@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet,View,TextInput, Text,ScrollView, StatusBar,Image } from 'react-native';
+import { StyleSheet,View,TextInput, Text,ScrollView, StatusBar,Image, TouchableOpacity } from 'react-native';
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import {Header} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
+import MenuDetailsEmployee from './MenuDetailsEmployee'
 
 export default class DetailsEmployee extends Component {
   constructor(props) {
@@ -12,6 +13,11 @@ export default class DetailsEmployee extends Component {
   }
 
   render() {
+
+    let popupRef = React.createRef()
+    const onShowPopup = () =>{ popupRef.show()}
+  const onClosePopup = () =>{ popupRef.close()}
+
     return (
         <ScrollView>
   {/* ---------------------------------header--------------------------------- */}
@@ -31,7 +37,15 @@ export default class DetailsEmployee extends Component {
                     // <ion-icon name="pencil-outline"></ion-icon>
             <View style={{flexDirection: 'row'}}>
                 <Icon name="search-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+                <TouchableOpacity    onPress={onShowPopup}>
                 <Icon name="pencil-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+                </TouchableOpacity>
+
+<MenuDetailsEmployee
+title=""
+ref={(target) => popupRef = target}
+onTouchOutside={onClosePopup}
+/>
                 </View>     
             
             }

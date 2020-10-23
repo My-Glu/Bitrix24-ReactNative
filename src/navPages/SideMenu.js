@@ -15,7 +15,9 @@ const SideMenu = (props) => {
               <Avatar.Image size={24} source={require('../assets/images/blue6.jpg')} size={65} />
               <View style={{flexDirection:'column', marginLeft: 10}}>
                 <Title style={{color:'green'}}>Farhan Sarwar</Title>
-                <TouchableOpacity delayPressIn={1}>
+                <TouchableOpacity delayPressIn={1}
+                onPress={()=> {props.navigation.navigate('Information')}}
+                >
                 <Caption>Edit Profile</Caption>
                 </TouchableOpacity>
               </View>
@@ -28,7 +30,7 @@ const SideMenu = (props) => {
                  <DrawerItem 
                  icon = { () => (<Icon name="home-outline" style={{fontSize:20,color:'grey'}} /> )}
                  label="My Activities"
-                 onPress={()=> {props.navigation.navigate('Home')}}
+                 onPress={()=> {props.navigation.navigate('MyActivities')}}
                  width={220}
                  
                  
@@ -84,6 +86,7 @@ const SideMenu = (props) => {
 <DrawerItem 
                  icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
                  label="Quotes"
+                 onPress={()=> {props.navigation.navigate('Quotes')}}
                  width={220}
                  
                  />
@@ -115,6 +118,7 @@ const SideMenu = (props) => {
                  <DrawerItem 
                  icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
                  label="Invoices"
+                 onPress={()=> {props.navigation.navigate('Invoices')}}
                  width={220}
                  
                  />
@@ -160,7 +164,7 @@ const SideMenu = (props) => {
                 <DrawerItem
                  icon = { () => (<Icon name="exit-to-app" style={{fontSize:20,color:'grey'}} /> )}
                  label="Switch User"
-                 
+                 onPress={()=> {props.navigation.navigate('SwitchUser')}}
                  />
             </Drawer.Section>
         </View>

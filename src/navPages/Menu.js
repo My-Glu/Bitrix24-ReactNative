@@ -125,7 +125,7 @@ export default class Menu extends Component {
 
                     <View style={styles.registeredName}>
 
-                      <Avatar.Image source={require('../../src/assets/images/Newfolder/flowww.png')} size={30} style={{ marginTop: 10 }} />
+                      <Avatar.Image source={require('../../src/assets/images/flowww.png')} size={30} style={{ marginTop: 10 }} />
                       <View style={{ marginLeft: 20 }}>
                         <Title style={{ color: '#49641D' }}>Shared Drive</Title>
                       </View>

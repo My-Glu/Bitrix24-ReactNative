@@ -3,6 +3,7 @@ import { View, StatusBar,ScrollView, Text, StyleSheet, TouchableOpacity } from '
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
+import MenuViewCompany from './MenuViewCompany'
 
 export default class ViewCompany extends Component {
   constructor(props) {
@@ -12,6 +13,12 @@ export default class ViewCompany extends Component {
   }
 
   render() {
+
+    let popupRef = React.createRef()
+    const onShowPopup = () =>{ popupRef.show()}
+  const onClosePopup = () =>{ popupRef.close()}
+
+
     return (
         <ScrollView>
              {/* ---------------------------------header--------------------------------- */}
@@ -29,8 +36,19 @@ export default class ViewCompany extends Component {
                rightComponent={
                // <Image source={require('../../assets/images/search.png')}  />
                
+               <View >
+              
+               <TouchableOpacity    onPress={onShowPopup}>
                <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
               
+               </TouchableOpacity>
+
+<MenuViewCompany
+title=""
+ref={(target) => popupRef = target}
+onTouchOutside={onClosePopup}
+/>
+               </View>    
        
        }
                // rightComponent={<Text>Done</Text>}

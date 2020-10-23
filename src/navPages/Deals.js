@@ -3,6 +3,10 @@ import { View,StatusBar, Text, StyleSheet, Image, TouchableOpacity } from 'react
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
+import MoreDeals from './deals/MoreDeals';
+import MenuDeal from './deals/MenuDeal';
+import ChangeStageDeal from './deals/ChangeStageDeal';
 
 export default class Deals extends Component {
   constructor(props) {
@@ -11,7 +15,33 @@ export default class Deals extends Component {
     };
   }
 
+  goToViewDeal = () => {
+    Actions.viewDeal()
+ }
+
+ goBackToNavScreen = () => {
+
+  Actions.navScreen()
+
+}
+
+
+
   render() {
+
+    let popupRef = React.createRef()
+    const onShowPopup = () =>{ popupRef.show()}
+  const onClosePopup = () =>{ popupRef.close()}
+
+  let popupRefMenu = React.createRef()
+    const onShowPopupMenu = () =>{ popupRefMenu.show()}
+  const onClosePopupMenu = () =>{ popupRefMenu.close()}
+
+  let popupRefSrc = React.createRef()
+  const onShowPopupSrc = () =>{ popupRefSrc.show()}
+const onClosePopupSrc = () =>{ popupRefSrc.close()}
+
+
     return (
         <View>
 
@@ -21,8 +51,12 @@ export default class Deals extends Component {
                <Header 
                     containerStyle={{backgroundColor: '#fff',}}
                     leftComponent={
-                        <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
-                }
+                      <TouchableOpacity
+                      onPress={this.goBackToNavScreen}
+                      >
+                        <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',fontSize: 25 }}></Icon>
+                        </TouchableOpacity>  
+                      }
                     centerComponent={<Text style={{ fontSize:20}}>All Deals</Text>
                         // {text: 'All Clients', fontSize:30}
                     }
@@ -30,8 +64,17 @@ export default class Deals extends Component {
                     rightComponent={
                     // <Image source={require('../../assets/images/search.png')}  />
             <View style={{flexDirection: 'row'}}>
-                <Icon name="search-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
-                <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+                <Icon name="search-outline" color="#49641D" style={{ paddingLeft: '20%',fontSize: 25 }}></Icon>
+                
+                <TouchableOpacity    onPress={onShowPopupMenu}>
+                <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ paddingLeft: '20%',fontSize: 25 }}></Icon>
+               </TouchableOpacity>
+
+               <MenuDeal
+title=""
+ref={(target) => popupRefMenu = target}
+onTouchOutside={onClosePopupMenu}
+/>
                 </View>     
             
             }
@@ -48,6 +91,9 @@ export default class Deals extends Component {
                 <View style={styles.bigCardView}>
                  
                   <View style={{ marginBottom: 15, marginLeft: '5%', marginTop: '5%' }}>
+                  <TouchableOpacity
+                          onPress={this.goToViewDeal}
+                          >
                     <View style={{ flexDirection: 'row' }}>
         
                       <View style={styles.Rows}>
@@ -55,21 +101,16 @@ export default class Deals extends Component {
                         <View style={styles.registeredName}>
         
                           <Avatar.Image source={require('.././assets/images/blue6.jpg')} size={50} />
-                          <View style={{ marginLeft: 20 }}>
+                          <View style={{ marginLeft: 5, alignSelf: 'center'}}>
                             <Title style={{ color: '#49641D' }}>Flatteys</Title>
                           </View>
-        
+                          <Icon name="chevron-forward-outline" style={{ marginLeft: '20%',alignSelf: 'center',fontSize: 35, color: '#e2e2e2' }}></Icon>
                         </View>
-        
-                        <View>
-                          <TouchableOpacity style={{ width: 200, height: 20 }}>
-                            <Icon name="chevron-forward-outline" style={{ marginLeft: '20%',marginTop: '3%', fontSize: 35, color: '#e2e2e2' }}></Icon>
-                          </TouchableOpacity>
-                        </View>
-        
+                
                       </View>
         
                     </View>
+                    </TouchableOpacity>
               </View>
         
                   <View style={{ width: 320, borderBottomColor: '#00000029', borderBottomWidth: 1, alignSelf: 'center', marginBottom: 10 }}>
@@ -167,27 +208,35 @@ export default class Deals extends Component {
                   </View>
         
         {/* ------------More-------------- */}
-                  <View style={{alignContent:'space-between',backgroundColor:'#FBFFF4',paddingTop:10, paddingBottom:10, flexDirection:'row', marginLeft:'5%'}}>
+                  <View style={{justifyContent:'space-between',backgroundColor:'#FBFFF4',paddingTop:10, paddingBottom:10, flexDirection:'row', marginHorizontal:'2%'}}>
                   
                  
+                  <TouchableOpacity    onPress={onShowPopupSrc}>
+                  <Text style={{textAlign:'left', paddingHorizontal:'2%'}}>Change Stage</Text>
+                  </TouchableOpacity>
+                  <ChangeStageDeal
+title=""
+ref={(target) => popupRefSrc = target}
+onTouchOutside={onClosePopupSrc}
+/>
                   <TouchableOpacity 
                   //  delayPressIn={1} onPress={() =>}
                    >
-                  <Text style={{textAlign:'left', paddingRight:'5%'}}>Change Stage</Text>
+                  <Text style={{ marginRight:'5%',textAlign:'left'}}>Create using source</Text>
                   </TouchableOpacity>
                  
                   <TouchableOpacity 
                   //  delayPressIn={1} onPress={() =>}
+                  onPress={onShowPopup}
                    >
-                  <Text style={{ marginRight:'10%',textAlign:'left'}}>Create using source</Text>
+                  <Text style={{textAlign:'right', paddingHorizontal:'2%'}}>More...</Text>
                   </TouchableOpacity>
-                 
-                  <TouchableOpacity 
-                  //  delayPressIn={1} onPress={() =>}
-                   >
-                  <Text style={{textAlign:'right', paddingRight:'2%'}}>More...</Text>
-                  </TouchableOpacity>
-                 
+                  
+                  <MoreDeals
+title=""
+ref={(target) => popupRef = target}
+onTouchOutside={onClosePopup}
+/>
 
                   </View>      
         
@@ -213,10 +262,11 @@ const styles = StyleSheet.create({
        },
     
        registeredName: {
+         justifyContent: 'space-between',
         flexDirection: 'row',
-        alignItems: 'center',
+        
         height: 50,
-        width: 230,
+        width: '100%',
       },
       Rows: {
         flexDirection: 'row',

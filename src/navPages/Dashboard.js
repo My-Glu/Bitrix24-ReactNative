@@ -29,12 +29,12 @@ export default class Dashboard extends Component {
             <Text style={{ fontSize: 13, color: '#49641D' }}>New Clients</Text>
             <Text style={{ color: '#A6003D', fontSize: 20 }}>11,700</Text>
           </View>
-         <View  style={{ width:'8%'}}></View>
+         <View  style={{ width:'5%'}}></View>
           <View style={styles.cardView}>
             <Text style={{ fontSize: 13, color: '#49641D' }}>New Deals</Text>
             <Text style={{ color: '#C95E00', fontSize: 20 }}>12</Text>
           </View>
-          <View  style={{ width:'8%'}}></View>
+          <View  style={{ width:'5%'}}></View>
           <View style={styles.cardView}>
             <Text style={{ fontSize: 13, color: '#49641D' }}>New Orders</Text>
             <Text style={{ color: '#790A96', fontSize: 20 }}>117</Text>

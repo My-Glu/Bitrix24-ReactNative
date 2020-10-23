@@ -16,9 +16,9 @@ export default class EditProduct extends Component {
     return (
         <ScrollView>
         <View>
-  
+        <StatusBar hidden={true} />
   {/* ---------------------------------header--------------------------------- */}
-  <StatusBar backgroundColor="#49641D" animated={true}/>
+  {/* <StatusBar backgroundColor="#49641D" animated={true}/>
          <View>
          <Header 
               containerStyle={{backgroundColor: '#fff',}}
@@ -38,7 +38,7 @@ export default class EditProduct extends Component {
               // rightComponent={<Text>Done</Text>}
               // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
          />
-  </View>
+  </View> */}
   {/* -----Header end */}
   
   

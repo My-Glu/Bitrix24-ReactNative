@@ -9,16 +9,18 @@ export default class EditDeal extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // statusBar: false
     };
   }
 
   render() {
+    
     return (
         <ScrollView>
         <View>
-  
+        <StatusBar hidden={true} />
   {/* ---------------------------------header--------------------------------- */}
-  <StatusBar backgroundColor="#49641D" animated={true}/>
+  {/* <StatusBar backgroundColor="#49641D" animated={true}/>
          <View>
          <Header 
               containerStyle={{backgroundColor: '#fff',}}
@@ -38,7 +40,7 @@ export default class EditDeal extends Component {
               // rightComponent={<Text>Done</Text>}
               // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
          />
-  </View>
+  </View> */}
   {/* -----Header end */}
   
   
@@ -217,7 +219,7 @@ export default class EditDeal extends Component {
     {/* -------------row  image ------------------ */}
   {/* ----------------- */}
   <View  >
-  <Text style={styles.smText}>Responsible person</Text>
+  <Text style={{fontSize:12, color:'#C0C0C0'   ,marginLeft:'8%' }}>Responsible person</Text>
   </View>
   {/* ----------------- */}
   
@@ -496,11 +498,12 @@ const styles = StyleSheet.create({
        marginLeft:'8%'
    
     },
-    smText:{fontSize:12, color:'#C0C0C0'},
+    smText:{fontSize:12, color:'#C0C0C0' },
     registeredName: {
        flexDirection: 'row',
        alignItems: 'center',
        height: 50,
+
     
      },
      Rows: {

@@ -3,6 +3,10 @@ import { View,StatusBar, Text, StyleSheet, Image, TouchableOpacity } from 'react
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
+import MoreLeads from './leads/MoreLeads';
+import MenuLeads from './leads/MenuLeads';
+import CreateUsingSourceLeads from './leads/CreateUsingSourceLeads';
 
 export default class Leads extends Component {
   constructor(props) {
@@ -11,7 +15,32 @@ export default class Leads extends Component {
     };
   }
 
+  goToViewLead = () => {
+    Actions.viewLeads()
+ }
+
+ goBackToNavScreen = () => {
+
+  Actions.navScreen()
+
+}
+
   render() {
+
+    
+    let popupRef = React.createRef()
+    const onShowPopup = () =>{ popupRef.show()}
+  const onClosePopup = () =>{ popupRef.close()}
+
+  let popupRefMenu = React.createRef()
+  const onShowPopupMenu = () =>{ popupRefMenu.show()}
+const onClosePopupMenu = () =>{ popupRefMenu.close()}
+
+let popupRefSrc = React.createRef()
+  const onShowPopupSrc = () =>{ popupRefSrc.show()}
+const onClosePopupSrc = () =>{ popupRefSrc.close()}
+
+
     return (
         <View>
 
@@ -21,9 +50,13 @@ export default class Leads extends Component {
                <Header 
                     containerStyle={{backgroundColor: '#fff',}}
                     leftComponent={
-                        <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
-                }
-                    centerComponent={<Text style={{ fontSize:20}}>All Deals</Text>
+                      <TouchableOpacity
+              onPress={this.goBackToNavScreen}
+              >
+                <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
+                </TouchableOpacity>    
+                      }
+                    centerComponent={<Text style={{ fontSize:20}}>All Leads</Text>
                         // {text: 'All Clients', fontSize:30}
                     }
                     // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
@@ -31,7 +64,16 @@ export default class Leads extends Component {
                     // <Image source={require('../../assets/images/search.png')}  />
             <View style={{flexDirection: 'row'}}>
                 <Icon name="search-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+                <TouchableOpacity    onPress={onShowPopupMenu}>
                 <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+               </TouchableOpacity>
+
+               <MenuLeads
+title=""
+ref={(target) => popupRefMenu = target}
+onTouchOutside={onClosePopupMenu}
+/>
+                
                 </View>     
             
             }
@@ -48,28 +90,32 @@ export default class Leads extends Component {
                 <View style={styles.bigCardView}>
                  
                   <View style={{ marginBottom: 15, marginLeft: '5%', marginTop: '5%' }}>
-                    <View style={{ flexDirection: 'row' }}>
+                  <TouchableOpacity 
+                          onPress={this.goToViewLead}
+                          >
+                    <View style={{ flexDirection: 'row',  }}>
         
                       <View style={styles.Rows}>
         
                         <View style={styles.registeredName}>
         
                           <Avatar.Image source={require('.././assets/images/blue6.jpg')} size={50} />
-                          <View style={{ marginLeft: 20 }}>
+                          <View style={{ marginLeft: 5 }}>
                             <Title style={{ color: '#49641D' }}>Flatteys</Title>
                           </View>
-        
+                         
+                        
+                          <Icon name="chevron-forward-outline" style={{ marginLeft: '20%',alignSelf: 'center', fontSize: 35, color: '#e2e2e2' }}></Icon>
+                      
+                   
                         </View>
         
-                        <View>
-                          <TouchableOpacity style={{ width: 200, height: 20 }}>
-                            <Icon name="chevron-forward-outline" style={{ marginLeft: '20%',marginTop: '3%', fontSize: 35, color: '#e2e2e2' }}></Icon>
-                          </TouchableOpacity>
-                        </View>
+                       
         
                       </View>
         
                     </View>
+                    </TouchableOpacity>
               </View>
         
                   <View style={{ width: 320, borderBottomColor: '#00000029', borderBottomWidth: 1, alignSelf: 'center', marginBottom: 10 }}>
@@ -126,21 +172,29 @@ export default class Leads extends Component {
                   </View>
         
         {/* ------------More-------------- */}
-                  <View style={{alignContent:'space-between',backgroundColor:'#FBFFF4',paddingTop:10, paddingBottom:10, flexDirection:'row', marginLeft:'5%'}}>
+                  <View style={{justifyContent:'space-between',backgroundColor:'#FBFFF4',paddingTop:10, paddingBottom:10, flexDirection:'row', marginHorizontal:'5%'}}>
                   
                  
+                  <TouchableOpacity    onPress={onShowPopupSrc}>
+                  <Text style={{ textAlign:'left', paddingHorizontal:'2%'}}>Create using source</Text>
+                  </TouchableOpacity>
+                  <CreateUsingSourceLeads
+title=""
+ref={(target) => popupRefSrc = target}
+onTouchOutside={onClosePopupSrc}
+/>
                   <TouchableOpacity 
                   //  delayPressIn={1} onPress={() =>}
+                  onPress={onShowPopup}
                    >
-                  <Text style={{ marginRight:'30%',textAlign:'left', paddingRight:'5%'}}>Create using source</Text>
+                  <Text style={{textAlign:'right',paddingHorizontal:'2%'}}>More...</Text>
                   </TouchableOpacity>
                  
-                  <TouchableOpacity 
-                  //  delayPressIn={1} onPress={() =>}
-                   >
-                  <Text style={{textAlign:'right', paddingRight:'5%'}}>More...</Text>
-                  </TouchableOpacity>
-                 
+                  <MoreLeads
+title=""
+ref={(target) => popupRef = target}
+onTouchOutside={onClosePopup}
+/>
 
                   </View>      
         
@@ -166,12 +220,13 @@ const styles = StyleSheet.create({
        },
     
        registeredName: {
+        justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center',
         height: 50,
-        width: 230,
-      },
+        width:'100%'      },
       Rows: {
+        
         flexDirection: 'row',
         width: '90%'
       },

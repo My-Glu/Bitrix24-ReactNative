@@ -3,6 +3,7 @@ import { View, StatusBar,ScrollView, Text, StyleSheet, TouchableOpacity } from '
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
+import MenuViewLead from './MenuViewLead'
 
 export default class ViewLeads extends Component {
   constructor(props) {
@@ -12,6 +13,11 @@ export default class ViewLeads extends Component {
   }
 
   render() {
+
+    let popupRef = React.createRef()
+    const onShowPopup = () =>{ popupRef.show()}
+  const onClosePopup = () =>{ popupRef.close()}
+
     return (
         <ScrollView>
 
@@ -30,10 +36,18 @@ export default class ViewLeads extends Component {
                     rightComponent={
                     // <Image source={require('../../assets/images/search.png')}  />
                     // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
-            
-                <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
-                       
-            
+                    <View>
+                    <TouchableOpacity    onPress={onShowPopup}>
+                    <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+                   
+                    </TouchableOpacity>
+     
+     <MenuViewLead
+     title=""
+     ref={(target) => popupRef = target}
+     onTouchOutside={onClosePopup}
+     />
+            </View>
             }
                     // rightComponent={<Text>Done</Text>}
                     // <ion-icon name="ellipsis-vertical-outline"></ion-icon>

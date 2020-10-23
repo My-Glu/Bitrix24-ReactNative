@@ -5,8 +5,13 @@ import { Button, View, Text, TouchableOpacity, Image } from 'react-native';
 import Employee from '.././navPages/Employee'
 import Leads from '.././navPages/Leads'
 import Deals from '.././navPages/Deals'
+import Quotes from '.././navPages/Quotes'
+import Invoices from '.././navPages/Invoices'
+import SwitchUser from '.././navPages/SwitchUser'
+import MyActivities from '.././navPages/MyActivities'
 import Clients from '.././navPages/Clients'
 import ProductArchives from '.././navPages/ProductArchives'
+import Information from '.././screens/info/Information'
 // import Clients from './Clients'
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -221,8 +226,6 @@ function DashboardScreenStack({ navigation }) {
 }
 
 
-
-
 function SettingScreenStack({ navigation }) {
   return (
     <Stack.Navigator
@@ -271,20 +274,24 @@ drawerContent={props => <SideMenu {...props} />}
           options={{ drawerLabel: 'Dashboard' }}
           component={DashboardScreenStack} />
           {/* ---------------Screen Two--------------- */}
-
+{/* 
           <Drawer.Screen
           name="SettingScreenStack"
           options={{ drawerLabel: 'Setting Screen Option' }}
-          component={SettingScreenStack} />
+          component={SettingScreenStack} /> */}
 
            {/* ---------------Screen Three--------------- */}
 
+           <Drawer.Screen
+          name="MyActivities"
+          options={{ drawerLabel: 'My Activities' }}
+          component={MyActivities} />
+          
            <Drawer.Screen
           name="Employee"
           options={{ drawerLabel: 'Employees' }}
           component={Employee} />
 
-          
           {/* // set nav screen plus side menu onpress */}
           <Drawer.Screen
           name="Clients"
@@ -302,9 +309,29 @@ drawerContent={props => <SideMenu {...props} />}
           component={Deals} />
 
           <Drawer.Screen
+          name="Quotes"
+          options={{ drawerLabel: 'All Quotes' }}
+          component={Quotes} />
+
+          <Drawer.Screen
           name="ProductArchives"
           options={{ drawerLabel: 'All Products' }}
           component={ProductArchives} />
+          
+          <Drawer.Screen
+          name="Invoices"
+          options={{ drawerLabel: 'All Invoices' }}
+          component={Invoices} />
+
+          <Drawer.Screen
+          name="SwitchUser"
+          options={{ drawerLabel: 'Switch User' }}
+          component={SwitchUser} />
+
+          <Drawer.Screen
+          name="Information"
+          options={{ drawerLabel: 'Information' }}
+          component={Information} />
 
       </Drawer.Navigator>
 

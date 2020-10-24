@@ -4,11 +4,21 @@ import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } fr
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
 import MenuViewProduct from './MenuViewProduct'
+import { Actions } from 'react-native-router-flux';
+
 export default class ViewProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
     };
+  }
+
+
+
+  goBackToAllProducts = () => {
+
+    Actions.productArchives()
+
   }
 
   render() {
@@ -26,8 +36,11 @@ const onClosePopupMenu = () =>{ popupRefMenu.close()}
                <Header 
                     containerStyle={{backgroundColor: '#fff',}}
                     leftComponent={
+                      <TouchableOpacity
+                      onPress={this.goBackToAllProducts}
+                      >
                         <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
-                }
+                        </TouchableOpacity>                 }
                     centerComponent={<Text style={{ fontSize:20}}>View Product</Text>
                         // {text: 'All Clients', fontSize:30}
                     }

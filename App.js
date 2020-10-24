@@ -112,9 +112,6 @@ render() {
 }
 
 
-
-
-
 //  <Image source={require('../../assets/images/noorgrplogo3x.png')}
 
   // render() {

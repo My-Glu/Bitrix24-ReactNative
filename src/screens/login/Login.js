@@ -21,7 +21,7 @@ export default class Login extends Component {
   
    
     goToDashboard = () => {
-      Actions.dashboard()
+      Actions.navScreen()
    }
   
    goToForgetPass = () => {
@@ -95,11 +95,11 @@ setLogin() {
                <Text style={styles.textTitle}>LOGIN</Text>
 {/* ------------------------------Horizontal line -------------------------------------- */}
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: 'black', marginHorizontal: 20, marginTop: 10}} />
+                  <View style={{flex: 1, height: 1, backgroundColor: 'black', marginHorizontal: 20, }} />
 
                 </View>
 
-                <View style={{flex: 1, height:20}}></View>
+                <View style={{flex: 1, height:10}}></View>
 
 {/*-------------------------------- input email ------------------------------------- */}
             
@@ -265,8 +265,8 @@ const styles = StyleSheet.create({
   },
   image: {
       width: 400,
-      height: 250,
-      marginVertical: 5
+      height: 210,
+  
   },
   textTitle: {
       fontFamily: 'Foundation',

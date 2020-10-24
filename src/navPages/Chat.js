@@ -25,6 +25,7 @@ export default class App extends Component {
 
     renderInner = () => (
 
+        // ---------------------- bottom up sheeet design -------------------------------------
         <View style={styles.panel}>
 
             <View style={{flexDirection: 'row',marginBottom:15 ,alignItems:'center',borderBottomColor:'grey',borderBottomWidth:1,borderBottomEndRadius:100,borderBottomStartRadius:100}}>
@@ -42,7 +43,6 @@ export default class App extends Component {
                     
                 </View>
 </View>
-
 
 
                 <TouchableOpacity style={styles.panelButton} onPress={() => this.bs.current.snapTo(1)}>
@@ -83,8 +83,12 @@ export default class App extends Component {
 </View>
 
             </View>
+
+            // -------------------- bottom up sheet design end --------------------
             
       );
+
+    //   --------------------- render header ----------------------
 
       renderHeader = () => (
 
@@ -95,15 +99,15 @@ export default class App extends Component {
             </View>
       );
 
+    //   ------------------ render header end ------------------
+
       bs = React.createRef();
       fall = new Animated.Value(1);
 
     render() {
-
+//  -------------------------------------- Main render -----------------------------
         const { search} = this.state;
         return (
-
-
 
             <View style={styles.container}>
                 <BottomSheet
@@ -142,7 +146,9 @@ export default class App extends Component {
                     />
                 </View> */}
 
+{/*  flat list required  */}
 
+{/* -------------------------------- item 1 --- chat friend one ------------------------- */}
 
                 <View style={styles.tableView}>
 
@@ -167,10 +173,8 @@ export default class App extends Component {
                             </View>
                         </ScrollView>
                     </View>
-
-
-
                 </View>
+                {/* --------------------------------------------- item 1 end --------------------------------------- */}
                 <View style={{marginTop: '50%', marginLeft: '80%' }}>
                     <TouchableOpacity delayPressIn={1} onPress={() => this.bs.current.snapTo(0)}>
                         <Image source={require('../assets/images/plusicon.png')} style={{ height: 60, width: 60 }} />

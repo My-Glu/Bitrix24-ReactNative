@@ -33,128 +33,133 @@ const Routes = () => (
          key="login" 
          component={Login} 
          hideNavBar={true} 
-        //  back={false}
-        //  initial = {true}
+         initial = {true}
          />
 
         <Scene
          key="navScreen" 
          component={NavScreen} 
          hideNavBar={true} 
-         initial = {true}
+
+        //  initial = {true}
          />
 
         <Scene
          key="pipeline" 
          component={Pipelines} 
-         title="pipeline" />
+         title="pipeline" 
+         hideNavBar={true} 
+         />
         
         <Scene 
         key="dashboard" 
         component={Dashboard} 
+        hideNavBar={true} 
         />
 
         <Scene 
         key="channel" 
         component={Channel} 
+        hideNavBar={true} 
         />
 
        <Scene 
         key="forgetPassword" 
         component={ForgetPassword} 
+
         />
 
       <Scene 
         key="employee" 
         component={Employee} 
-       
+        hideNavBar={true} 
         />
 
       <Scene 
         key="detailsEmployee" 
         component={DetailsEmployee} 
-        head={false}
+        hideNavBar={true} 
         />
 
       <Scene 
         key="allClient" 
         component={Clients} 
-        head={false}
+        hideNavBar={true} 
         />
 
       <Scene 
         key="MyActivities" 
         component={MyActivities} 
-        head={false}
+        hideNavBar={true} 
         />
 
       <Scene 
         key="viewCompany" 
         component={ViewCompany} 
-        head={false}
+        hideNavBar={true} 
         />
 
       <Scene 
         key="editClient" 
         component={ClientsEdit} 
-        head={false}
+        hideNavBar={true} 
         />
 
 
       <Scene 
         key="allLeads" 
         component={Leads} 
-        hea={false}
+        hideNavBar={true} 
         />
 
       <Scene 
         key="viewLeads" 
         component={ViewLeads} 
-        back={false}
+        hideNavBar={true} 
         />
 
       <Scene 
         key="editLeads" 
         component={EditLeads} 
-        back={false}
+        hideNavBar={true} 
         />
 
 
       <Scene 
         key="allDeals" 
         component={Deals} 
-        back={false}
+        hideNavBar={true} 
         />
 
       <Scene 
         key="viewDeal" 
         component={ViewDeal}
-        back={false} 
+        hideNavBar={true} 
         />
 
       <Scene 
         key="editDeal" 
         component={EditDeal}
-        back={false} 
+        hideNavBar={true} 
         />
 
 
       <Scene 
         key="productArchives" 
         component={ProductArchives} 
-        back={false}
+        hideNavBar={true} 
         />
 
       <Scene 
         key="viewProduct" 
         component={ViewProduct}
-        back={false} 
+        hideNavBar={true}  
         />
 
       <Scene 
         key="editProducts" 
         component={EditProduct}
-        title="Edit"
+        hideNavBar={true} 
                
         />
 

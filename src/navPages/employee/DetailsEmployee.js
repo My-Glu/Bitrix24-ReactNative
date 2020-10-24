@@ -4,6 +4,7 @@ import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } fr
 import {Header} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MenuDetailsEmployee from './MenuDetailsEmployee'
+import { Actions } from 'react-native-router-flux';
 
 export default class DetailsEmployee extends Component {
   constructor(props) {
@@ -11,6 +12,13 @@ export default class DetailsEmployee extends Component {
     this.state = {
     };
   }
+
+  goBackToEmployee = () => {
+
+    Actions.employee()
+
+  }
+
 
   render() {
 
@@ -26,8 +34,11 @@ export default class DetailsEmployee extends Component {
                <Header 
                     containerStyle={{backgroundColor: '#fff',}}
                     leftComponent={
+                      <TouchableOpacity
+                      onPress={this.goBackToEmployee}
+                      >
                         <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
-                }
+                        </TouchableOpacity>                 }
                     centerComponent={<Text style={{ fontSize:20}}>Employee</Text>
                         // {text: 'All Clients', fontSize:30}
                     }

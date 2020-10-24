@@ -12,6 +12,7 @@ export default class Menu extends Component {
 
   render() {
     return (
+      <ScrollView>
       <View style={styles.container}>
         <View style={{ flexDirection: 'column' }}>
 
@@ -242,9 +243,6 @@ export default class Menu extends Component {
 
             </View>
 
-
-
-
           </View>
 
 
@@ -252,11 +250,7 @@ export default class Menu extends Component {
 
       </View>
 
-
-
-
-
-
+     </ScrollView>
 
 
     );

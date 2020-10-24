@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
 
 export default class EditDeal extends Component {
   constructor(props) {
@@ -13,6 +14,15 @@ export default class EditDeal extends Component {
     };
   }
 
+  goBackToAllDeals = () => {
+
+    Actions.allDeals()
+
+  }
+
+
+
+
   render() {
     
     return (
@@ -20,13 +30,17 @@ export default class EditDeal extends Component {
         <View>
         <StatusBar hidden={true} />
   {/* ---------------------------------header--------------------------------- */}
-  {/* <StatusBar backgroundColor="#49641D" animated={true}/>
+  <StatusBar backgroundColor="#49641D" animated={true}/>
          <View>
          <Header 
               containerStyle={{backgroundColor: '#fff',}}
               leftComponent={
+                <TouchableOpacity
+                onPress={this.goBackToAllDeals}
+                >
                   <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
-          }
+                  </TouchableOpacity>      
+                       }
               centerComponent={<Text style={{ fontSize:20}}>Edit</Text>
                   // {text: 'All Clients', fontSize:30}
               }
@@ -40,7 +54,7 @@ export default class EditDeal extends Component {
               // rightComponent={<Text>Done</Text>}
               // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
          />
-  </View> */}
+  </View>
   {/* -----Header end */}
   
   

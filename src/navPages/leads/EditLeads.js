@@ -27,8 +27,8 @@ export default class EditLeads extends Component {
         <View>
   
   {/* ---------------------------------header--------------------------------- */}
-  <StatusBar backgroundColor="#49641D" animated={true}/>
-         <View>
+ 
+         <View  style={{ marginTop:-20,}}>
          <Header 
               containerStyle={{backgroundColor: '#fff',}}
               leftComponent={
@@ -104,7 +104,7 @@ export default class EditLeads extends Component {
 {/* ----------------------- */}
  
 <View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
-  <Title style={{ color: '#49641D' , fontSize:14}}>Client</Title>
+  <Title style={{ color: '#49641D' , fontSize:14}}>Status Information</Title>
   <TouchableOpacity>
   <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
   </TouchableOpacity>
@@ -160,12 +160,7 @@ export default class EditLeads extends Component {
 
 
 
-        
-  
-  
-  
-  
-  
+ 
           {/* -------------row 4------------------ */}
      {/* ----------------- */}
   <View style={styles.mLeft}>
@@ -735,7 +730,7 @@ export default class EditLeads extends Component {
                   </View>
           {/* -------------row 19 end ------------------ */}
   
-  <View style={{height:200}}></View>
+  <View style={{height:100}}></View>
         </View>
         </ScrollView>
     );

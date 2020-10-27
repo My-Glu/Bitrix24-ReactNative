@@ -29,8 +29,8 @@ export default class DetailsEmployee extends Component {
     return (
         <ScrollView>
   {/* ---------------------------------header--------------------------------- */}
-  <StatusBar backgroundColor="#49641D" animated={true}/>
-               <View>
+
+               <View  style={{ marginTop:-20,}}>
                <Header 
                     containerStyle={{backgroundColor: '#fff',}}
                     leftComponent={

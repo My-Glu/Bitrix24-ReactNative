@@ -13,6 +13,13 @@ export default class MenuLeads extends Component {
     };
   }
 
+  
+  goToNewLead = () => {
+    this.setState({ show: false });
+    Actions.newLead()
+ }
+
+
 //   goToMenuInvoice = () => {
 //     this.setState({ show: false });
 //     // {close}
@@ -103,7 +110,7 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 
    
     <TouchableOpacity
-    //  onPress={this.goToEditLeads}
+     onPress={this.goToNewLead}
      > 
 <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '10%', marginLeft:'25%',}}>
 <Image source={require('../../assets/images/addtask.png') }   />

@@ -52,13 +52,15 @@ import EditDeal from './src/navPages/deals/EditDeal';
 import ViewDeal from './src/navPages/deals/ViewDeal';
 import ViewProduct from './src/navPages/archiveProduct/ViewProduct';
 import EditProduct from './src/navPages/archiveProduct/EditProduct';
+import UserTasks from './src/navPages/employee/UserTasks';
+import DetailsUserTasks from './src/navPages/employee/DetailsUserTasks';
 
 import Leads from './src/navPages/Leads';
 import NavScreen from './src/navPages/NavScreen';
 import Deals from './src/navPages/Deals';
 import PopUp from './src/navPages/PopUp';
 import ProductArchives from './src/navPages/ProductArchives';
-
+//  color: 'rgba(73,100,29,0.5)'
 export default class App extends React.Component {
   
   constructor(props){
@@ -73,7 +75,7 @@ export default class App extends React.Component {
 //  }
 
 componentDidMount() {
-    StatusBar.setHidden(true);
+    StatusBar.setHidden(true, 'none');
     setTimeout( () => {
         this.setTimePassed();
     },500);
@@ -94,6 +96,8 @@ render() {
         // return <PopUp/>
         // return <NavScreen/>
         // return <DetailsEmployee/>
+        // return <UserTasks/>
+        // return <DetailsUserTasks/>
         // return <ViewProduct/>
         // return <EditProduct/>
         // return <ProductArchives/>

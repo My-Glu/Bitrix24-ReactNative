@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet,View,TextInput, Text,ScrollView, StatusBar,Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch, TouchableWithoutFeedback } from 'react-native-paper';
 import {Header} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
 export default class Information extends Component {
@@ -23,8 +24,8 @@ export default class Information extends Component {
       <ScrollView>
       <View>
 {/* ---------------------------------header--------------------------------- */}
-         <StatusBar backgroundColor="#49641D" animated={true}/>
-       <View>
+        
+       <View  style={{ marginTop:-20,}}>
        <Header 
             containerStyle={{backgroundColor: '#fff',}}
             leftComponent={
@@ -52,11 +53,9 @@ export default class Information extends Component {
        />
 </View>
 {/* --------------------------------------Image Block----------------------------- */}
-<View style={{backgroundColor: 'white', paddingVertical:20}}>
-<View style={{flexDirection: 'row', display: 'flex',alignItems: 'center', justifyContent: 'center',marginBottom:20}}>
-   <View  style={styles.circle}>
-    <Text style={{width: 80, textAlign: 'center'}}>Image</Text>
-  </View>
+<View style={{backgroundColor: 'white', paddingVertical:10}}>
+<View style={{flexDirection: 'row', display: 'flex',alignItems: 'center', justifyContent: 'center',marginBottom:10}}>
+<Avatar.Image source={require('../../assets/images/delegate.png')} size={80} />
  
 </View>
 <View style={{justifyContent: 'center', alignItems: 'center', display: 'flex'}}>

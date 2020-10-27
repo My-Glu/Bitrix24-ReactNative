@@ -30,8 +30,8 @@ export default class MyActivities extends Component {
     return (
       <View>
         {/* ---------------------------------header--------------------------------- */}
-        <StatusBar backgroundColor="#49641D" animated={true}/>
-               <View>
+       
+               <View  style={{ marginTop:-20,}}>
                <Header 
                     containerStyle={{backgroundColor: '#fff',}}
                     leftComponent={
@@ -69,6 +69,18 @@ onTouchOutside={onClosePopup}
                />
         </View>
         {/* -----Header end */}
+
+<View>
+
+<View style={{ justifyContent: 'center', marginTop:'10%'}}>
+
+<Text style={{color: 'rgba(10,31,62,0.25)',textAlign: 'center',fontSize:15,}}>No upcoming events</Text>
+
+</View>
+
+
+</View>
+
 
 
 

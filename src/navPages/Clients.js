@@ -47,8 +47,8 @@ const onClosePopup2 = () =>{ popupRef2.close()}
       <View>
 
  {/* ---------------------------------header--------------------------------- */}
-        <StatusBar backgroundColor="#49641D" animated={true}/>
-               <View>
+      
+               <View  style={{ marginTop:-20,}}>
                <Header 
                     containerStyle={{backgroundColor: '#fff',}}
                     leftComponent={
@@ -88,7 +88,7 @@ onTouchOutside={onClosePopup2}
         {/* -----Header end */}
 
 
-
+<View  style={{marginLeft:'10%', marginRight:'10%'}}>
         {/* -------------Big card view */}
 
         <View style={styles.bigCardView}>
@@ -197,6 +197,10 @@ onTouchOutside={onClosePopup}
 
         </View>
         </View>
+
+        </View>
+        // end tag 
+
     );
   }
 }

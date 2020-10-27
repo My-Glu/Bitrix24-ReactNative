@@ -158,16 +158,16 @@ export default class App extends Component {
 
                                 <View style={styles.registeredName}>
 
-                                    <Avatar.Image size={24} source={require('../assets/images/blue6.jpg')} size={65} />
+                                    <Avatar.Image source={require('../assets/images/blue6.jpg')} size={60} />
                                     <View style={{ marginLeft: 10 }}>
-                                        <Title style={{ color: 'green', }}>Farhan Sarwer ("Its You")</Title>
-                                        <Caption style={{ fontWeight: 'bold' }}>Employee </Caption>
+                                        <Title style={{ color: '#49641D', fontSize:15, width: '100%', fontFamily:'segoesb', minWidth:'70%'}}>Farhan Sarwer ("its You")</Title>
+                                        <Caption style={{ fontSize:15, marginTop:-5, color: 'rgba(73,100,29,0.5)'}}>Employee </Caption>
                                     </View>
                                 </View>
-
+<View style={{minWidth:20}}></View>
                                 <View>
-                                    <TouchableOpacity style={{ width: 100, height: 30 }}>
-                                        <Caption style={{ fontWeight: 'bold' }}>Wed </Caption>
+                                    <TouchableOpacity style={{ width: '100%' }}>
+                                        <Caption style={{ fontWeight: 'bold', fontSize:10 }}>Wed </Caption>
                                     </TouchableOpacity>
                                 </View>
                             </View>
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
 
 
     tableView: {
-                width: 500,
+        width: '100%',
         height: 200,
         marginLeft: 7,
         marginTop: 30,
@@ -230,18 +230,18 @@ const styles = StyleSheet.create({
 
     rowsView: {
                 height: 300,
-        width: 600,
+        width: '100%',
 
     },
     Rows: {
                 flexDirection: 'row',
         marginBottom: 5,
-        width: 500
+        width: '100%'
     },
     registeredName: {
                 flexDirection: 'row',
         height: 100,
-        width: 320,
+        width: '85%',
     },
     panel: {
         

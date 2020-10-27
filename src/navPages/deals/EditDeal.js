@@ -28,10 +28,10 @@ export default class EditDeal extends Component {
     return (
         <ScrollView>
         <View>
-        <StatusBar hidden={true} />
+        
   {/* ---------------------------------header--------------------------------- */}
-  <StatusBar backgroundColor="#49641D" animated={true}/>
-         <View>
+  
+         <View  style={{ marginTop:-20,}}>
          <Header 
               containerStyle={{backgroundColor: '#fff',}}
               leftComponent={
@@ -492,7 +492,7 @@ export default class EditDeal extends Component {
           {/* -------------row 13 end ------------------ */}
   
   
-  <View style={{height:200}}></View>
+  <View style={{height:100}}></View>
         </View>
         </ScrollView>
   

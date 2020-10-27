@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { Actions } from 'react-native-router-flux';
 
 export default class Menu extends Component {
   constructor(props) {
@@ -9,6 +10,13 @@ export default class Menu extends Component {
     this.state = {
     };
   }
+
+
+  
+  goToCalender = () => {
+    Actions.calendar()
+ }
+
 
   render() {
     return (
@@ -59,6 +67,8 @@ export default class Menu extends Component {
                 <View style={{ flexDirection: 'row', width: 270 }}>
 
 
+<TouchableOpacity onPress={this.goToCalender}>
+
                   <View style={styles.Rows}>
 
                     <View style={styles.registeredName}>
@@ -75,7 +85,7 @@ export default class Menu extends Component {
                       </TouchableOpacity>
                     </View>
                   </View>
-
+                  </TouchableOpacity>
 
 
 

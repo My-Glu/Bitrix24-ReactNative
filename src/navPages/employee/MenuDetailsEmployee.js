@@ -13,6 +13,19 @@ export default class MenuViewDeal extends Component {
     };
   }
 
+
+  goToUserTasks = () => {
+    this.setState({ show: false });
+    Actions.userTasks()
+ }
+ 
+ goToUserFiles = () => {
+  this.setState({ show: false });
+  Actions.userFiles()
+}
+
+
+
 //   goToEditLeads = () => {
 //     this.setState({ show: false });
 //     // {close}
@@ -103,18 +116,20 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 
    
     <TouchableOpacity
-    //  onPress={this.goToEditLeads}
+     onPress={this.goToUserTasks}
      > 
 <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '10%',}}>
 {/* <Image source={require('../../assets/images/edit.png') }   /> */}
 
-
 <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>User tasks </Text>
+
 </View>
 
     </TouchableOpacity>
 
-    <TouchableOpacity>
+    <TouchableOpacity
+    onPress={this.goToUserFiles}
+    >
     {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>All Products </Text> */}
 
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%',  }}>

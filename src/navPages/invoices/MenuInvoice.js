@@ -13,6 +13,14 @@ export default class MenuInvoice extends Component {
     };
   }
 
+  goToCreateInvoice = () => {
+    this.setState({ show: false });
+    Actions.createInvoice()
+   
+ }
+
+
+
 //   goToMenuInvoice = () => {
 //     this.setState({ show: false });
 //     // {close}
@@ -90,6 +98,7 @@ this.setState({ show: false });
       visible= {show}
       onRequestClose={this.close}
       >
+        
 <View style={{flex: 1, backgroundColor:'#000000AA',alignItems:'center', justifyContent:'center'}}>
 
 {this.renderOutsideTouchable(onTouchOutside)}
@@ -103,7 +112,7 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 
    
     <TouchableOpacity
-    //  onPress={this.goToEditLeads}
+    onPress={this.goToCreateInvoice}
      > 
 <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '10%', marginLeft:'25%',}}>
 <Image source={require('../../assets/images/addtask.png') }   />

@@ -27,9 +27,8 @@ export default class Leads extends Component {
 
   render() {
 
-    
-    let popupRef = React.createRef()
-    const onShowPopup = () =>{ popupRef.show()}
+  let popupRef = React.createRef()
+  const onShowPopup = () =>{ popupRef.show()}
   const onClosePopup = () =>{ popupRef.close()}
 
   let popupRefMenu = React.createRef()
@@ -42,7 +41,7 @@ const onClosePopupSrc = () =>{ popupRefSrc.close()}
 
 
     return (
-        <View>
+        <View  style={{ marginTop:-20,}}>
 
         {/* ---------------------------------header--------------------------------- */}
         <StatusBar backgroundColor="#49641D" animated={true}/>
@@ -109,10 +108,7 @@ onTouchOutside={onClosePopupMenu}
                       
                    
                         </View>
-        
-                       
-        
-                      </View>
+                             </View>
         
                     </View>
                     </TouchableOpacity>
@@ -120,8 +116,6 @@ onTouchOutside={onClosePopupMenu}
         
                   <View style={{ width: 320, borderBottomColor: '#00000029', borderBottomWidth: 1, alignSelf: 'center', marginBottom: 10 }}>
                   </View>
-        
-             
         
          {/* ------------------------------second row----------------------------------------------  */}
         

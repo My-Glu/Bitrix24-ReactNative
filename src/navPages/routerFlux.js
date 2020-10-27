@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from '../screens/login/Login';
 import Channel from './Channel';
+import Menu from './Menu';
 import Pipelines from './Pipelines';
 import Clients from './Clients';
 import ViewCompany from './clients/ViewCompany';
@@ -13,13 +14,27 @@ import MyActivities from './MyActivities';
 import Employee from './Employee';
 import Leads from './Leads';
 import Deals from './Deals';
+import Quotes from './Quotes';
 import ProductArchives from './ProductArchives';
 import ViewProduct from './archiveProduct/ViewProduct';
 import EditProduct from './archiveProduct/EditProduct';
 import DetailsEmployee from './employee/DetailsEmployee';
 import Dashboard from './Dashboard';
+import Invoices from './Invoices';
 import ForgetPassword from '../screens/forgetPassword/ForgetPassword';
 import NavScreen from '../navPages/NavScreen';
+import UserTasks from '../navPages/employee/UserTasks';
+import UserFiles from '../navPages/employee/UserFiles';
+import Calendar from './menu/Calendar';
+import NewEvent from './menu/NewEvent';
+import NewLead from './leads/NewLead';
+import NewDeal from './deals/NewDeal';
+import NewCompany from './clients/NewCompany';
+import CreateProduct from './archiveProduct/CreateProduct';
+import CreateInvoice from './invoices/CreateInvoice';
+import CreateQuote from './quotes/CreateQuote';
+import DetailsUserTasks from '../navPages/employee/DetailsUserTasks';
+
 
 import { Router, Scene } from 'react-native-router-flux';
 
@@ -105,7 +120,6 @@ const Routes = () => (
         hideNavBar={true} 
         />
 
-
       <Scene 
         key="allLeads" 
         component={Leads} 
@@ -124,6 +138,12 @@ const Routes = () => (
         hideNavBar={true} 
         />
 
+<Scene 
+        key="newLead" 
+        component={NewLead} 
+        hideNavBar={true} 
+        />
+
 
       <Scene 
         key="allDeals" 
@@ -131,6 +151,11 @@ const Routes = () => (
         hideNavBar={true} 
         />
 
+      <Scene 
+        key="newDeal" 
+        component={NewDeal}
+        hideNavBar={true} 
+        />
       <Scene 
         key="viewDeal" 
         component={ViewDeal}
@@ -143,7 +168,6 @@ const Routes = () => (
         hideNavBar={true} 
         />
 
-
       <Scene 
         key="productArchives" 
         component={ProductArchives} 
@@ -155,14 +179,85 @@ const Routes = () => (
         component={ViewProduct}
         hideNavBar={true}  
         />
+      <Scene 
+        key="createProduct" 
+        component={CreateProduct}
+        hideNavBar={true}  
+        />
 
       <Scene 
         key="editProducts" 
         component={EditProduct}
         hideNavBar={true} 
-               
         />
 
+      <Scene 
+        key="userTasks" 
+        component={UserTasks}
+        hideNavBar={true} 
+        /> 
+
+      <Scene 
+        key="detailsUserTasks" 
+        component={DetailsUserTasks}
+        hideNavBar={true} 
+        /> 
+
+      <Scene 
+        key="userFiles" 
+        component={UserFiles}
+        hideNavBar={true} 
+        /> 
+     
+      <Scene 
+        key="calendar" 
+        component={Calendar}
+        hideNavBar={true} 
+        /> 
+     
+      <Scene 
+        key="menu" 
+        component={Menu}
+        hideNavBar={true} 
+        /> 
+     
+    
+      <Scene 
+        key="newEvent" 
+        component={NewEvent}
+        hideNavBar={true} 
+        /> 
+     
+      <Scene 
+        key="newCompany" 
+        component={NewCompany}
+        hideNavBar={true} 
+        /> 
+     
+      <Scene 
+        key="createInvoice" 
+        component={CreateInvoice}
+        hideNavBar={true} 
+        /> 
+
+      <Scene 
+        key="allInvoices" 
+        component={Invoices}
+        hideNavBar={true} 
+        /> 
+
+      <Scene 
+        key="allQuotes" 
+        component={Quotes}
+        hideNavBar={true} 
+        /> 
+     
+      <Scene 
+        key="createQuote" 
+        component={CreateQuote}
+        hideNavBar={true} 
+        /> 
+     
       </Scene>
     
     </Router>
@@ -178,5 +273,4 @@ const Routes = () => (
     step3: import action from recatnativerouterflux in the parent
     step4: declare <rout/> in App.js
     step5: import all routing screens to rout.js
-
 */}

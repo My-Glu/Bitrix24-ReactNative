@@ -13,6 +13,14 @@ export default class MenuQuotes extends Component {
     };
   }
 
+
+  goToCreateQuote = () => {
+    this.setState({ show: false });
+    Actions.createQuote()
+   
+ }
+
+
 //   goToEditLeads = () => {
 //     this.setState({ show: false });
 //     // {close}
@@ -103,7 +111,7 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 
    
     <TouchableOpacity
-    //  onPress={this.goToEditLeads}
+     onPress={this.goToCreateQuote}
      > 
 <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '10%', marginLeft:'25%',}}>
 <Image source={require('../../assets/images/addtask.png') }   />

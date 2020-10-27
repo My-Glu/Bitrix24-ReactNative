@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import {View, StyleSheet, Text,TextInput, Image, ScrollView,Button, CheckBox ,Alert, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text,TextInput, Image,Dimensions, ScrollView,Button, CheckBox ,Alert, TouchableOpacity} from 'react-native';
 // import styles from "./style";
 // import { Button } from 'react-native-elements';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 // import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -14,7 +15,8 @@ import ForgetPassword from '.././forgetPassword/ForgetPassword';
 import { Actions } from 'react-native-router-flux';
 
 
-
+const deviceHeight = Dimensions.get('window').height
+const deviceWidth = Dimensions.get('window').width
 
 export default class Login extends Component {
 
@@ -92,7 +94,7 @@ setLogin() {
                style={styles.image}
                  />
 
-               <Text style={styles.textTitle}>LOGIN</Text>
+               <Text style={styles.textTitle }>LOGIN</Text>
 {/* ------------------------------Horizontal line -------------------------------------- */}
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
                   <View style={{flex: 1, height: 1, backgroundColor: 'black', marginHorizontal: 20, }} />
@@ -135,12 +137,13 @@ setLogin() {
                  </View>
 {/*----------------------Remember me ---and---- forgot password------------------------------------------------ */}
                  
-<View style={{ flexDirection: 'row' , marginBottom:20}}>
+<View style={{ flexDirection: 'row' , marginBottom:20, paddingHorizontal:'5%'}}>
                <View style={{ flexDirection: 'row' }}>
                   <CheckBox style={{ height: 20, width: 20, borderColor: '#aaa' , marginRight: 10 }}     />
-                  <Text>Remember me?</Text>
+                  <Text style={{fontSize: RFValue(14)}}>Remember me?</Text>
                   </View>
-<View style={{ flex:0.78, alignItems: 'flex-end'}}></View>
+                  <View style={{ width: '5%'}}></View>
+<View style={{ flex:0.78, alignItems: 'flex-end',}}></View>
 
 {/* <TouchableOpacity onPress={() => this.onPressButton}>  */}
 <TouchableOpacity 
@@ -150,7 +153,7 @@ onPress = {this.goToForgetPass}
 >
 
 <View>
-                  <Text style={[styles.textBody], {alignSelf: 'flex-end'}}
+                  <Text style={[styles.textBody], {alignSelf: 'flex-end',fontSize: RFValue(14)}}
                   >Forgot Password?</Text>
                   </View>
 
@@ -260,8 +263,10 @@ onPress = {this.goToDashboard}
 const styles = StyleSheet.create({
   container: {
       flex: 1,
+      
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      height: deviceHeight,
   },
   image: {
       width: 400,
@@ -269,7 +274,7 @@ const styles = StyleSheet.create({
   
   },
   textTitle: {
-      fontFamily: 'Foundation',
+      fontFamily: 'berlinaansdemibold',
       fontSize: 40,
       marginTop: -10,
   },

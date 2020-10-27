@@ -158,12 +158,9 @@ fall = new Animated.Value(1);
 
     return (
       <View  style={styles.container}>
-                  
-               
+                               
 {/* ---------------------------------header--------------------------------- */}
-
-       
-       <Header 
+     <Header 
             containerStyle={{backgroundColor: '#fff',}}
             leftComponent={
               <TouchableOpacity
@@ -244,6 +241,7 @@ fall = new Animated.Value(1);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop:-20,
 },
 SearchBar: {
   alignItems: 'center',

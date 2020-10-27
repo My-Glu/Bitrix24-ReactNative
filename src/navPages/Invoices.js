@@ -29,8 +29,8 @@ export default class Invoices extends Component {
 
 
     return (
-      
-               <View>
+      <View>
+               <View  style={{ marginTop:-20,}}>
                <Header 
                     containerStyle={{backgroundColor: '#fff',}}
                     leftComponent={
@@ -66,6 +66,22 @@ onTouchOutside={onClosePopup}
                />
         </View>
     
+   {/* // ------------------------header end -------------------------- */}
+
+   <View>
+
+   <View style={{ justifyContent: 'center', marginTop:'10%'}}>
+   
+   <Text style={{color: 'rgba(10,31,62,0.25)',textAlign: 'center',fontSize:15,}}>Empty invoice</Text>
+   
+   </View>
+   </View>
+   
+   
+   
+   </View>
+       
+
 
     );
   }

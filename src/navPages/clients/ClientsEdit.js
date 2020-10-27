@@ -23,13 +23,13 @@ export default class ClientsEdit extends Component {
 
   render() {
     return (
-        
+        <View  >
         <ScrollView>
-      <View>
+      <View >
 
 {/* ---------------------------------header--------------------------------- */}
-<StatusBar backgroundColor="#49641D" animated={true}/>
-       <View>
+
+       <View style={{marginTop:-20,}} >
        <Header 
             containerStyle={{backgroundColor: '#fff',}}
             leftComponent={
@@ -38,7 +38,7 @@ export default class ClientsEdit extends Component {
                 >
                   <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
                   </TouchableOpacity>        }
-            centerComponent={<Text style={{ fontSize:20}}>All Clients</Text>
+            centerComponent={<Text style={{ fontSize:20}}>Edit</Text>
                 // {text: 'All Clients', fontSize:30}
             }
         
@@ -668,9 +668,10 @@ export default class ClientsEdit extends Component {
                 </View>
         {/* -------------row 16 end ------------------ */}
 
-<View style={{height:200}}></View>
+<View style={{height:100}}></View>
       </View>
       </ScrollView>
+      </View>
     );
   }
 }

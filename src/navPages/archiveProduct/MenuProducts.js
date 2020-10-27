@@ -13,12 +13,19 @@ export default class MenuProducts extends Component {
     };
   }
 
+  goToCreateProduct = () => {
+    this.setState({ show: false });
+    Actions.createProduct()
+   
+ }
+
+
+
 //   goToEditLeads = () => {
 //     this.setState({ show: false });
 //     // {close}
 //     // {this.close}
 //     Actions.editLeads()
-
 //  }
 
 
@@ -103,7 +110,7 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 
    
     <TouchableOpacity
-    //  onPress={this.goToEditLeads}
+     onPress={this.goToCreateProduct}
      > 
 <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '10%', marginLeft:'25%',}}>
 <Image source={require('../../assets/images/addtask.png') }   />

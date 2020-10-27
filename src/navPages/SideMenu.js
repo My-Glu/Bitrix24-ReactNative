@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View,TouchableOpacity} from "react-native";
+import {StyleSheet, Text, View,TouchableOpacity, Image} from "react-native";
 import {Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import Employee from '.././navPages/Employee'
@@ -12,7 +12,7 @@ const SideMenu = (props) => {
             <DrawerContentScrollView {...props}>
             <View style={styles.userInfoSection}>
             <View style={{flexDirection:'row',marginTop:25,alignItems:'center'}}>
-              <Avatar.Image size={24} source={require('../assets/images/blue6.jpg')} size={65} />
+              <Avatar.Image source={require('../assets/images/blue6.jpg')} size={65} />
               <View style={{flexDirection:'column', marginLeft: 10}}>
                 <Title style={{color:'green'}}>Farhan Sarwar</Title>
                 <TouchableOpacity delayPressIn={1}
@@ -28,85 +28,99 @@ const SideMenu = (props) => {
                   <View style={{flexDirection:'row',alignItems:'center',width:150}}>
                       
                  <DrawerItem 
-                 icon = { () => (<Icon name="home-outline" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/myactivities.png')} tintColor='#49641D' style={{width:19, height:18,}}/>)}
                  label="My Activities"
                  onPress={()=> {props.navigation.navigate('MyActivities')}}
                  width={220}
-                 
-                 
                  />
-                 <Icon name="arrow-right" style={{fontSize:18}}/>
+                 <Icon name="arrow-right" style={{fontSize:18}}
+                 onPress={()=> {props.navigation.navigate('MyActivities')}}
+                 />
                  </View>
 
                  <View style={{flexDirection:'row',alignItems:'center',width:150}}>
                <DrawerItem 
-                 icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/employees.png')} tintColor='#49641D' style={{width:21, height:21}}/> )}
                  label="Employees"
                  onPress={()=> {props.navigation.navigate('Employee')}}
                  width={220}
                  
                  />
-                 <Icon name="arrow-right" style={{fontSize:18}}/>
+                 <Icon name="arrow-right" style={{fontSize:18}}
+                 onPress={()=> {props.navigation.navigate('Employee')}}
+                 />
                  </View>
 
                  <View style={{flexDirection:'row',alignItems:'center',width:150}}>
 <DrawerItem 
-                 icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/clients.png')} tintColor='#49641D' style={{width:20, height:20, }}/>  )}
                  label="Clients"
                  onPress={()=> {props.navigation.navigate('Clients')}}
                  width={220}
                  
                  />
-                 <Icon name="arrow-right" style={{fontSize:18}}/>
+                 <Icon name="arrow-right" style={{fontSize:18}}
+                 onPress={()=> {props.navigation.navigate('Clients')}}
+                 />
                  </View>
 
-                 <View style={{flexDirection:'row',alignItems:'center',width:150}}>
+                 <View style={{flexDirection:'row',alignItems:'center',width:150}}
+                //  onPress={()=> {props.navigation.navigate('Leads')}}
+                 >
 <DrawerItem 
-                 icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/leads.png')} tintColor='#49641D' style={{width:19, height:18,}}/> )}
                  label="Leads"
                  onPress={()=> {props.navigation.navigate('Leads')}}
                  width={220}
                  
                  />
-                 <Icon name="arrow-right" style={{fontSize:18}}/>
+                 <Icon name="arrow-right" style={{fontSize:18}}
+                 onPress={()=> {props.navigation.navigate('Leads')}}
+                 />
                  </View>
 
                  <View style={{flexDirection:'row',alignItems:'center',width:150}}>
 <DrawerItem 
-                 icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/deals.png')} tintColor='#49641D' style={{width:20, height:20, marginHorizontal:1}}/> )}
                  label="Deals"
                  onPress={()=> {props.navigation.navigate('Deals')}}
                  width={220}
                  
                  />
-                 <Icon name="arrow-right" style={{fontSize:18}}/>
+                 <Icon name="arrow-right" style={{fontSize:18}}
+                 onPress={()=> {props.navigation.navigate('Deals')}}
+                 />
                  </View>
 
                  <View style={{flexDirection:'row',alignItems:'center',width:150}}>
 <DrawerItem 
-                 icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/quotes.png')} tintColor='#49641D' style={{width:19, height:19, marginHorizontal:2}}/>)}
                  label="Quotes"
                  onPress={()=> {props.navigation.navigate('Quotes')}}
                  width={220}
                  
                  />
-                 <Icon name="arrow-right" style={{fontSize:18}}/>
+                 <Icon name="arrow-right" style={{fontSize:18}}
+                 onPress={()=> {props.navigation.navigate('Quotes')}}
+                 />
                  </View>
 
                  <View style={{flexDirection:'row',alignItems:'center',width:150}}>
                  <DrawerItem 
-                 icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/productarch.png')} tintColor='#49641D' style={{width:19, height:19, }}/> )}
                  label="Product Archives"
                  onPress={()=> {props.navigation.navigate('ProductArchives')}}
                  width={220}
                  
                  />
-                 <Icon name="arrow-right" style={{fontSize:18}}/>
+                 <Icon name="arrow-right" style={{fontSize:18}}
+                 onPress={()=> {props.navigation.navigate('ProductArchives')}}
+                 />
                  </View>
 
                  <View style={{flexDirection:'row',alignItems:'center',width:150}}>
                  <DrawerItem 
-                 icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/qualitychk.png')} tintColor='#49641D' style={{width:22, height:21,}}/> )}
                  label="Quality Check"
                  width={220}
                  
@@ -116,18 +130,20 @@ const SideMenu = (props) => {
 
                  <View style={{flexDirection:'row',alignItems:'center',width:150}}>
                  <DrawerItem 
-                 icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/invoices.png')} tintColor='#49641D' style={{width:18, height:18,}}/>)}
                  label="Invoices"
                  onPress={()=> {props.navigation.navigate('Invoices')}}
                  width={220}
                  
                  />
-                 <Icon name="arrow-right" style={{fontSize:18}}/>
+                 <Icon name="arrow-right" style={{fontSize:18}}
+                 onPress={()=> {props.navigation.navigate('Invoices')}}
+                 />
                  </View>
 
                  <View style={{flexDirection:'row',alignItems:'center',width:150}}>
                  <DrawerItem 
-                 icon = { () => (<Icon name="account-outline" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/payments.png')} tintColor='#49641D' style={{width:18, height:18,}}/> )}
                  label="Payments"
                  width={220}
                  
@@ -138,13 +154,7 @@ const SideMenu = (props) => {
 
               </Drawer.Section>
                  
-              
-              
-
-
-                
-
-                 
+                  
 
               
               
@@ -152,9 +162,10 @@ const SideMenu = (props) => {
               
             </DrawerContentScrollView>
 
+            {/* <Image  source={require('../assets/images/invoices.png')} tintColor='#49641D' style={{width:18, height:18,}}/> */}
             <Drawer.Section>
                 <DrawerItem
-                 icon = { () => (<Icon name="exit-to-app" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/logout.png')} tintColor='#49641D' style={{width:18, height:18,}}/> )}
                  label="Sign Out"
                  
                  />
@@ -162,7 +173,7 @@ const SideMenu = (props) => {
 
             <Drawer.Section>
                 <DrawerItem
-                 icon = { () => (<Icon name="exit-to-app" style={{fontSize:20,color:'grey'}} /> )}
+                 icon = { () => (<Image  source={require('../assets/images/switch.png')} tintColor='#49641D' style={{width:18, height:18,}}/> )}
                  label="Switch User"
                  onPress={()=> {props.navigation.navigate('SwitchUser')}}
                  />

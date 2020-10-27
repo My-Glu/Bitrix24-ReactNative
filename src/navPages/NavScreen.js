@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as React from 'react';
-import { Button, View, Text, TouchableOpacity, Image } from 'react-native';
+import { Button, View, Text, TouchableOpacity, Image, Dimensions } from 'react-native';
 import Employee from '.././navPages/Employee'
 import Leads from '.././navPages/Leads'
 import Deals from '.././navPages/Deals'
@@ -38,6 +38,10 @@ import SideMenu from './SideMenu';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const Tab = createBottomTabNavigator();
+
+
+const deviceHeight = Dimensions.get('window').height
+const deviceWidth = Dimensions.get('window').width
 
 const NavigationDrawerStructure = (props)=> {
   //Structure for the navigatin Drawer
@@ -107,11 +111,12 @@ function BottomTabStack() {
           backgroundColor: '#49641D',
           borderTopRightRadius: 20,
           borderTopLeftRadius: 20,
-         
+       height:deviceHeight*0.085,
         },
         labelStyle: {
           textAlign: 'center',
-          fontSize: 11
+          fontSize: 11,
+          
         },
       }}>
         
@@ -142,12 +147,14 @@ function BottomTabStack() {
         name="DASHBOARD"
         component={Dashboard}
         options={{tabBarIcon:()=> (<Icon name="dashboard" size={24} color='#fff'/>)}}
+        
          />
 
         <Tab.Screen
         name="PIPELINES"
         component={Pipelines}
-        options={{tabBarIcon:()=> (<Icon name="chat" size={24} color='#fff'/>)}}
+        options={{tabBarIcon:()=> (<Image source={require('.././assets/images/pipelines.png')} style={{height:22, width:22}} />)
+      }}
          />
 
         <Tab.Screen
@@ -158,12 +165,12 @@ function BottomTabStack() {
         <Tab.Screen
         name="CHANNEL"
         component={Channel}
-        options={{tabBarIcon:()=> (<Icon name="chat" size={24} color='#fff'/>)}}
+        options={{tabBarIcon:()=>(<Image source={require('.././assets/images/channel.png')} style={{height:22, width:22}} />)}}
          />
         <Tab.Screen
         name="MENU"
         component={Menu}
-        options={{tabBarIcon:()=> (<Icon name="menu" size={24} color='#fff'/>)}}
+        options={{tabBarIcon:()=> (<Image source={require('.././assets/images/menu.png')} style={{height:20, width:20}} />)}}
          />
         {/* <Tab.Screen
         name="ProductArchives"

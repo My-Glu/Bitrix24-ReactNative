@@ -22,6 +22,11 @@ export default class MenuDeal extends Component {
 //  }
 
 
+goToNewDeal = () => {
+  this.setState({ show: false });
+  Actions.newDeal()
+}
+
   show = () => {
 this.setState({ show: true });
   }
@@ -103,7 +108,7 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 
    
     <TouchableOpacity
-    //  onPress={this.goToEditLeads}
+     onPress={this.goToNewDeal}
      > 
 <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '10%', marginLeft:'25%',}}>
 <Image source={require('../../assets/images/addtask.png') }   />
@@ -186,7 +191,7 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 
 
 </View>
-
+{/* --------------------------- */}
 </View>
 
       </Modal>

@@ -26,8 +26,8 @@ export default class EditProduct extends Component {
         <StatusBar hidden={true} />
 
   {/* ---------------------------------header--------------------------------- */}
-  <StatusBar backgroundColor="#49641D" animated={true}/>
-         <View>
+
+         <View style={{ marginTop:-20,}}>
          <Header 
               containerStyle={{backgroundColor: '#fff',}}
               leftComponent={

@@ -157,12 +157,12 @@ export default class Pipelines extends Component {
             <Text numberOfLines={1} style={{ fontSize: RFValue(12), color: '#49641D', fontFamily:'segoe-ui' }}>Leads Over Call</Text>
             <Text style={{ color: '#A6003D', fontSize: RFValue(20), fontFamily:'segoe-ui' }}>11</Text>
           </View>
-         <View  style={{ width:'5%'}}></View>
+         <View  style={{ width:'2%'}}></View>
           <View style={styles.cardView}>
             <Text numberOfLines={1} style={{ fontSize: RFValue(12), color: '#49641D' ,fontFamily:'segoe-ui'}}>Leads Over Mail</Text>
             <Text style={{ color: '#C95E00', fontSize:  RFValue(20) , fontFamily:'segoe-ui'}}>12</Text>
           </View>
-          <View  style={{ width:'5%'}}></View>
+          <View  style={{ width:'2%'}}></View>
           <View style={styles.cardView}>
             <Text numberOfLines={1} style={{ fontSize: RFValue(12), color: '#49641D', fontFamily:'segoe-ui' }}>New Leads</Text>
             <Text style={{ color: '#790A96', fontSize:  RFValue(20), fontFamily:'segoe-ui' }}>117</Text>
@@ -636,7 +636,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     paddingVertical: '1%',
     height: '60%',
-    width: '30%',
+    width: '32%',
     backgroundColor: 'white',
     elevation: 5,
     shadowColor: '#000',

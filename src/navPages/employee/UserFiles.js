@@ -111,8 +111,8 @@ onTouchOutside={onClosePopupMenu}
        onPress={this.goToDetailsEmployee}
          >
         <View style={{flexDirection: 'row', justifyContent: 'space-between',alignItems: 'center',marginBottom:10}}>
-        <Icon name="folder" style={{  fontSize: 35, color: '#e2e2e2' }}></Icon>
-  {/* <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={50} /> */}
+        {/* <Icon name="folder" style={{  fontSize: 35, color: '#e2e2e2' }}></Icon> */}
+  <Image source={require('../../assets/images/folderlg.png')} style={{width:30, height:30}} />
   
   <View><Text>Shahid Saleem</Text></View>
 

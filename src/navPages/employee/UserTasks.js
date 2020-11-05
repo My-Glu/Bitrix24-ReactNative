@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Header,SearchBar, Input} from 'react-native-elements';
-import { StyleSheet,View, Text, StatusBar,Image, Alert, TouchableOpacity, ScrollView, TextInput, Dimensions } from 'react-native';
+import { StyleSheet,View, Text, FlatList,StatusBar,Image, Alert, TouchableOpacity, ScrollView, TextInput, Dimensions } from 'react-native';
 import { Avatar, Title, Caption } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
@@ -33,6 +33,13 @@ export default class UserTasks extends Component {
     Actions.detailsUserTasks()
  }
   
+
+ goToSearchScreen = () => {
+
+  Actions.search()
+
+}
+
  goBackToDetailsEmployee = () => {
   Actions.detailsEmployee()
 
@@ -64,8 +71,12 @@ export default class UserTasks extends Component {
     
             <View style={{flexDirection: 'row'}}>
 
-            <Icon name="search-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
-            <TouchableOpacity    
+<TouchableOpacity
+            onPress={this.goToSearchScreen}
+            >
+        <Icon name="search-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+        </TouchableOpacity>
+         <TouchableOpacity    
             onPress={onShowPopupMenu}
             >
             <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
@@ -108,7 +119,21 @@ onTouchOutside={onClosePopupMenu}
 
 {/* ----------------------------item 1 end-------------------------- */}
 
+
+
+
+
 {/* -----------------------item 2 ------------------------- */}
+
+<View>
+<FlatList 
+                    data={[  
+                        {title: 'Logo Design'},{title: 'Android Developer'}, {title: 'Web Developer'},{title: 'SEO Expert'},  
+                      
+                    ]} 
+
+                    renderItem={({item}) =>  
+                 
 <View>
   <TouchableOpacity
     onPress={this.goToDetailsUserTasks}  
@@ -140,6 +165,11 @@ onTouchOutside={onClosePopupMenu}
 </View>
 </TouchableOpacity>
 </View>
+                
+                    }
+                   />
+                      </View>
+
 {/* -------------------------------item 2 end ----------------- */}
 
 

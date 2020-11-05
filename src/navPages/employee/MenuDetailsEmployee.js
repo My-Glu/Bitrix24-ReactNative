@@ -121,7 +121,7 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '10%',}}>
 {/* <Image source={require('../../assets/images/edit.png') }   /> */}
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>User tasks </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>User tasks </Text>
 
 </View>
 
@@ -130,13 +130,13 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
     <TouchableOpacity
     onPress={this.goToUserFiles}
     >
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>All Products </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}>All Products </Text> */}
 
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%',  }}>
 {/* <Image source={require('../../assets/images/delete.png') }  /> */}
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>User files </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>User files </Text>
 </View>
 
 
@@ -144,12 +144,12 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 
 
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>My Products </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}>My Products </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', }}>
 {/* <Image source={require('../../assets/images/myinvoice.png') }   /> */}
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>User messages </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>User messages </Text>
 </View>
     </TouchableOpacity>
 

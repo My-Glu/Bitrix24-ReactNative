@@ -5,12 +5,14 @@ import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } fr
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
+import {Picker} from '@react-native-community/picker';
+import RoundCheckbox from 'react-native-round-checkbox';
 
 export default class EditDeal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // statusBar: false
+      // statusBar: true
     };
   }
 
@@ -19,9 +21,6 @@ export default class EditDeal extends Component {
     Actions.allDeals()
 
   }
-
-
-
 
   render() {
     
@@ -76,8 +75,8 @@ export default class EditDeal extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} color="#49641D" value="Name" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} color="#49641D" placeholder="Name" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -105,11 +104,34 @@ export default class EditDeal extends Component {
                   </View>
     {/* ----------------------- */}
  
-<View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
-  <Title style={{ color: '#49641D' , fontSize:14}}>New</Title>
-  <TouchableOpacity>
-  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
-  </TouchableOpacity>
+<View style={{flexDirection: 'row',justifyContent: 'space-between',alignItems: 'center', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+  {/* <Title style={{ color: '#49641D' , fontSize:14}}>New</Title> */}
+
+
+  <View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+  <Picker   
+  style={{backgroundColor: 'white'}}
+                        selectedValue={this.state.dealstage}  
+                        onValueChange={(itemValue, itemPosition) =>  
+                            this.setState({dealstage: itemValue, choosenIndex: itemPosition})}  
+                    >  
+                     <Picker.Item label="New" value="new" />  
+                    <Picker.Item label="Sent to client" value="stc" />  
+                    <Picker.Item label="Accepted" value="acp" />  
+                    <Picker.Item label="Declined" value="dcl" />  
+                    <Picker.Item label="Analyze decline" value="ad" />  
+                    {/* <Picker.Item label="React Native" value="rn" />   */}
+                </Picker>
+                </View>
+
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
+   
+
+
+  {/* <TouchableOpacity> */}
+  {/* <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon> */}
+  {/* </TouchableOpacity> */}
     </View>
 
 {/* --------------------------- */}
@@ -138,11 +160,34 @@ export default class EditDeal extends Component {
                   </View>
               {/* ----------------------- */}
  
-<View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
-  <Title style={{ color: '#49641D' , fontSize:14}}>US Dollar</Title>
+<View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center',backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+ 
+ 
+<View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+<Picker   
+style={{backgroundColor: 'white'}}
+                      selectedValue={this.state.currency}  
+                      onValueChange={(itemValue, itemPosition) =>  
+                          this.setState({currency: itemValue, choosenIndex: itemPosition})}  
+                  >  
+                  <Picker.Item label="US Dollar" value="no" />  
+                  <Picker.Item label="Euro" value="yes" />  
+                  <Picker.Item label="China Yuan Renminbi" value="yes" />  
+                  <Picker.Item label="Brazilian Real" value="yes" />  
+                  <Picker.Item label="Indian Rupee" value="yes" />  
+                  {/* <Picker.Item label="React Native" value="rn" />   */}
+              </Picker>
+              </View>
+
+<Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
+ 
+ 
+ 
+  {/* <Title style={{ color: '#49641D' , fontSize:14}}>US Dollar</Title>
   <TouchableOpacity>
   <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
-  </TouchableOpacity>
+  </TouchableOpacity> */}
     </View>
 
 {/* --------------------------- */}
@@ -170,8 +215,8 @@ export default class EditDeal extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Amount" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Amount" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -305,8 +350,8 @@ export default class EditDeal extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Today" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Today" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -332,8 +377,8 @@ export default class EditDeal extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="08/09/2020" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="08/09/2020" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -358,8 +403,8 @@ export default class EditDeal extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Sales" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Sales" color="#49641D" editable={true} />
 
 {/* ---------------------- */}
 
@@ -370,10 +415,22 @@ export default class EditDeal extends Component {
                   </View>
   {/* ---------------- */}
   
-  <View style={{justifyContent: 'space-between', flexDirection: 'row', marginRight:'5%'}}>
+  <View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', marginRight:'5%'}}>
       <Title style={{ color: '#49641D' , fontSize:14, marginLeft:'8%'}}>Available to everyone</Title>
       {/* <ion-icon name="checkmark-circle-outline"></ion-icon> */}
-      <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
+      {/* <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon> */}
+  
+     
+<RoundCheckbox
+            size={24}
+            borderColor={'black'}
+            backgroundColor={"#49641D"}
+            iconColor={'white'}
+            checked={this.state.isSelected}
+            onValueChange={(newValue) => {this.setState({isSelected:true})}}
+        />
+
+  
     </View>
   {/* ---------------- */}
 {/* ---------------------- */}
@@ -400,8 +457,8 @@ export default class EditDeal extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Select" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -424,8 +481,8 @@ export default class EditDeal extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Select" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -451,8 +508,8 @@ export default class EditDeal extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Comment" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Comment" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -480,8 +537,8 @@ export default class EditDeal extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Select" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}

@@ -4,6 +4,8 @@ import { StyleSheet,View, Text, StatusBar,Image, Alert, TouchableOpacity, Scroll
 import { Avatar, Title, Caption } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
+import RoundCheckbox from 'react-native-round-checkbox';
+import {Picker} from '@react-native-community/picker';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 export default class calender extends Component {
@@ -75,8 +77,8 @@ export default class calender extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} color="#49641D" value="Company name" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} color="#49641D" placeholder="Company name" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -101,8 +103,8 @@ export default class calender extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Change" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Change" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -114,8 +116,6 @@ export default class calender extends Component {
 
 
 
-
-
         {/* -------------row 3------------------ */}
 {/* ----------------- */}
 <View style={styles.mLeft}>
@@ -124,11 +124,15 @@ export default class calender extends Component {
 {/* ----------------- */}
 
         {/* ------------------------------Horizontal line -------------------------------------- */}
+
+
 <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
 
                 </View>
                 {/* ----------------------- */}
+                
+<View style={{backgroundColor: 'white'}}>
                 <View style={ { backgroundColor: 'white',  marginLeft:'8%'}}>
                 <View style={styles.Rows}>
 
@@ -148,6 +152,9 @@ export default class calender extends Component {
 <Text style={{color:'#49641D'}}>Change</Text>
 </View>
 {/* ------------------ */}
+
+</View>
+
 {/* <View>
 <TouchableOpacity style={{ width: 300, height: 20 }}>
   <Icon name="chevron-forward-outline" style={{ marginLeft: '20%',marginTop: '3%', fontSize: 35, color: '#e2e2e2' }}></Icon>
@@ -166,7 +173,6 @@ export default class calender extends Component {
 
 
 
-
         {/* -------------row 4------------------ */}
         {/* ----------------- */}
 <View style={styles.mLeft}>
@@ -181,9 +187,35 @@ export default class calender extends Component {
                 </View>
  {/* ----------------------- */}
  
-   <View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+ <View style={{backgroundColor: 'white'}}>
+   <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+
+ 
+   <View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+<Picker   
+style={{backgroundColor: 'white'}}
+                      selectedValue={this.state.companytype}  
+                      onValueChange={(itemValue, itemPosition) =>  
+                          this.setState({companytype: itemValue, choosenIndex: itemPosition})}  
+                  >  
+                  <Picker.Item label="Client" value="client" />  
+                  <Picker.Item label="Supplier" value="sply" />  
+                  <Picker.Item label="Competitor" value="cmpt" />  
+                  <Picker.Item label="Partner" value="ptnr" />  
+                  <Picker.Item label="Other" value="other" />  
+                  {/* <Picker.Item label="React Native" value="rn" />   */}
+              </Picker>
+              </View>
+
+<Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
+
+ {/*  
   <Title style={{ color: '#49641D' , fontSize:14}}>Client</Title>
   <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
+    */}
+
+    </View>
     </View>
 
 {/* --------------------------- */}
@@ -212,10 +244,39 @@ export default class calender extends Component {
                 </View>
                 {/* ----------------------- */}
              {/* ----------------------- */}
+ <View style={{ backgroundColor: 'white'}}>
+   <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+
+
+   <View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+<Picker   
+style={{backgroundColor: 'white'}}
+                      selectedValue={this.state.ind}  
+                      onValueChange={(itemValue, itemPosition) =>  
+                          this.setState({ind: itemValue, choosenIndex: itemPosition})}  
+                  >  
+                  <Picker.Item label="Information Technology" value="it" />  
+                  <Picker.Item label="Telecommunication" value="tcom" />  
+                  <Picker.Item label="Manufacturing" value="mft" />  
+                  <Picker.Item label="Banking Services" value="bsrvc" />  
+                  <Picker.Item label="Consulting" value="conslt" />  
+                  <Picker.Item label="Finance" value="fnc" />  
+                  <Picker.Item label="Government" value="govt" />  
+                  <Picker.Item label="Delivery" value="dlv" />  
+                  <Picker.Item label="Entertainment" value="ent" />  
+                  <Picker.Item label="Non-Profit" value="nonp" />  
+                  <Picker.Item label="Other" value="oth" />  
+                  {/* <Picker.Item label="React Native" value="rn" />   */}
+              </Picker>
+              </View>
+
+<Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
  
-   <View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
-  <Title style={{ color: '#49641D' , fontSize:14}}>Information Technology</Title>
-  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
+
+  {/* <Title style={{ color: '#49641D' , fontSize:14}}>Information Technology</Title>
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon> */}
+    </View>
     </View>
 
 {/* --------------------------- */}
@@ -246,9 +307,39 @@ export default class calender extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Less than 50" color="#49641D" editable={false} />
-</View>
+<View style={{backgroundColor: 'white'}}>
+                <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+
+<View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+<Picker   
+style={{backgroundColor: 'white'}}
+                   selectedValue={this.state.ind}  
+                   onValueChange={(itemValue, itemPosition) =>  
+                       this.setState({ind: itemValue, choosenIndex: itemPosition})}  
+               >  
+               <Picker.Item label="Less than 50" value="it" />  
+               <Picker.Item label="50 to 250" value="tcom" />  
+               <Picker.Item label="250 to 500" value="mft" />  
+               <Picker.Item label="Over 500" value="bsrvc" />  
+              
+           </Picker>
+           </View>
+
+<Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
+
+
+
+
+{/* <Title style={{ color: '#49641D' , fontSize:14}}>Information Technology</Title>
+<Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon> */}
+ </View>
+ </View>
+
+
+        {/* <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Less than 50" color="#49641D" editable={true} />
+</View> */}
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
      <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
@@ -256,6 +347,35 @@ export default class calender extends Component {
 
                 </View>
         {/* -------------row 6 end ------------------ */}
+
+
+
+        {/* -------------row 6.1  ------------------ */}
+       {/* ----------------- */}
+       <View style={styles.mLeft}>
+<Text style={styles.smText}>Annual revenue</Text>
+</View>
+{/* ----------------- */}
+    {/* ------------------------------Horizontal line -------------------------------------- */}
+    <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2,}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+                {/* ----------------------- */}
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Annual revenue" color="#49641D" editable={true} />
+</View>
+{/* --------------------------- */}
+     {/* ------------------------------Horizontal line -------------------------------------- */}
+     <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+        {/* -------------row 2 end ------------------ */}
+
+
+
+        {/* -------------row 6.1 end ------------------ */}
 
 
 
@@ -274,9 +394,42 @@ export default class calender extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="US Dollars" color="#49641D" editable={false} />
-</View>
+
+                <View style={{backgroundColor: 'white'}}>
+<View style={{flexDirection: 'row',justifyContent: 'space-between',alignItems: 'center', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+  
+  
+<View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+<Picker   
+style={{backgroundColor: 'white'}}
+                      selectedValue={this.state.currencys}  
+                      onValueChange={(itemValue, itemPosition) =>  
+                          this.setState({currencys: itemValue, choosenIndex: itemPosition})}  
+                  >  
+                  <Picker.Item label="US Dollar" value="no" />  
+                  <Picker.Item label="Euro" value="eu" />  
+                  <Picker.Item label="China Yuan Renminbi" value="cyr" />  
+                  <Picker.Item label="Brazilian Real" value="br" />  
+                  <Picker.Item label="Indian Rupee" value="ir" />  
+                  {/* <Picker.Item label="React Native" value="rn" />   */}
+              </Picker>
+              </View>
+
+<Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
+ 
+  
+  {/* <Title style={{ color: '#49641D' , fontSize:14}}>US Dollar</Title>
+  <TouchableOpacity>
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
+  </TouchableOpacity> */}
+    </View>
+    </View>
+
+
+        {/* <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="US Dollars" color="#49641D" editable={true} />
+</View> */}
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
      <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
@@ -297,8 +450,8 @@ export default class calender extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Comment" minHeight={60} color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Comment" minHeight={60} color="#49641D" editable={true} />
  
    {/* ------------------------------Horizontal line -------------------------------------- */}
    <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -307,10 +460,20 @@ export default class calender extends Component {
                 </View>
 {/* ---------------- */}
 
-<View style={{justifyContent: 'space-between', flexDirection: 'row', marginRight:'5%'}}>
+<View style={{justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center', marginRight:'5%'}}>
       <Title style={{ color: '#49641D' , fontSize:14, marginLeft:'8%'}}>Available to everyone</Title>
       {/* <ion-icon name="checkmark-circle-outline"></ion-icon> */}
-      <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
+   
+      {/* <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon> */}
+      
+<RoundCheckbox
+            size={24}
+            borderColor={'black'}
+            backgroundColor={"#49641D"}
+            iconColor={'white'}
+            checked={this.state.isSelected}
+            onValueChange={(newValue) => {this.setState({isSelected:true})}}
+        />
     </View>
 {/* ---------------- */}
 </View>
@@ -330,26 +493,26 @@ export default class calender extends Component {
 
         {/* -------------row 9------------------ */}
         {/* ----------------- */}
-<View style={styles.mLeft}>
+{/* <View style={styles.mLeft}>
 <Text style={styles.smText}>Logo</Text>
-</View>
+</View> */}
 {/* ----------------- */}
 
         {/* ------------------------------Horizontal line -------------------------------------- */}
-<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2,}}>
+{/* <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2,}}>
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Change" color="#49641D" editable={false} />
-</View>
+        {/* <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Change" color="#49641D" editable={true} />
+</View> */}
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
-     <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
+     {/* <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
 
-                </View>
+                </View> */}
         {/* -------------row 9 end ------------------ */}
 
 
@@ -369,8 +532,8 @@ export default class calender extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -397,8 +560,8 @@ export default class calender extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -425,8 +588,8 @@ export default class calender extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -453,8 +616,8 @@ export default class calender extends Component {
 
                 </View>
                 {/* -------------1---------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Street, Building" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Street, Building" color="#49641D" editable={true} />
 
  {/* ------------------------------sm Horizontal line -------------------------------------- */}
  <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -463,7 +626,7 @@ export default class calender extends Component {
                 </View>
 {/* ------------------------------sm Horizontal line end-------------------------------------- */}
  {/* -------------2---------- */}
-<TextInput style={styles.pLeft} value="Suite/ Apartment" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Suite/ Apartment" color="#49641D" editable={true} />
 
  {/* ------------------------------sm Horizontal line -------------------------------------- */}
  <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -472,7 +635,7 @@ export default class calender extends Component {
                 </View>
 
 {/* -------------3-------------- */}
-<TextInput style={styles.pLeft} value="City" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="City" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -482,7 +645,7 @@ export default class calender extends Component {
                 </View>
 
 {/* -------------4-------------- */}
-<TextInput style={styles.pLeft} value="Region" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Region" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -492,7 +655,7 @@ export default class calender extends Component {
                 </View>
 
 {/* -------------5-------------- */}
-<TextInput style={styles.pLeft} value="State/ Province" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="State/ Province" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -502,7 +665,7 @@ export default class calender extends Component {
                 </View>
 
 {/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Zip" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Zip" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 
@@ -513,7 +676,7 @@ export default class calender extends Component {
                 </View>
 
 {/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Company" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Company" color="#49641D" editable={true} />
 {/* --------------------------- */}
 </View>
 {/* ------------------------------sm Horizontal line end-------------------------------------- */}
@@ -542,8 +705,8 @@ export default class calender extends Component {
 
                 </View>
                 {/* -------------1---------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Street, Building" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Street, Building" color="#49641D" editable={true} />
 
  {/* ------------------------------sm Horizontal line -------------------------------------- */}
  <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -552,7 +715,7 @@ export default class calender extends Component {
                 </View>
 {/* ------------------------------sm Horizontal line end-------------------------------------- */}
  {/* -------------2---------- */}
-<TextInput style={styles.pLeft} value="Suite/ Apartment" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Suite/ Apartment" color="#49641D" editable={true} />
 
  {/* ------------------------------sm Horizontal line -------------------------------------- */}
  <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -561,7 +724,7 @@ export default class calender extends Component {
                 </View>
 
 {/* -------------3-------------- */}
-<TextInput style={styles.pLeft} value="City" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="City" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -571,7 +734,7 @@ export default class calender extends Component {
                 </View>
 
 {/* -------------4-------------- */}
-<TextInput style={styles.pLeft} value="Region" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Region" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -581,7 +744,7 @@ export default class calender extends Component {
                 </View>
 
 {/* -------------5-------------- */}
-<TextInput style={styles.pLeft} value="State/ Province" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="State/ Province" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -591,7 +754,7 @@ export default class calender extends Component {
                 </View>
 
 {/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Zip" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Zip" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 
@@ -602,7 +765,7 @@ export default class calender extends Component {
                 </View>
 
 {/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Company" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Company" color="#49641D" editable={true} />
 {/* --------------------------- */}
 </View>
 {/* ------------------------------sm Horizontal line end-------------------------------------- */}
@@ -631,8 +794,8 @@ export default class calender extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="banking details" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="banking details" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -658,8 +821,10 @@ export default class calender extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Select" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+                <TouchableOpacity>
+  <Text style={{paddingVertical:'3%', marginLeft:'8%', color:'#49641D'}}>Select</Text>
+  </TouchableOpacity>
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}

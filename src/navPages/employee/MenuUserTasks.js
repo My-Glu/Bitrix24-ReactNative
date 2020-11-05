@@ -106,10 +106,10 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
     //  onPress={this.goToEditLeads}
      > 
 <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '10%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/addtask.png') }   />
+<Image source={require('../../assets/images/markallread.png') } style={{width:20, height:20}}    />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Mark all as read </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Mark all as read </Text>
 </View>
 
     </TouchableOpacity>
@@ -118,10 +118,10 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
     {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>All Invoice </Text> */}
 
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%', }}>
-<Image source={require('../../assets/images/allinvoice.png') }  />
+<Image source={require('../../assets/images/deadline.png') } style={{width:18, height:18}}  />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Deadlines </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Deadlines </Text>
 </View>
 
 
@@ -131,10 +131,10 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
     <TouchableOpacity>
     {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>My Invoioce </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/myinvoice.png') }   />
+<Image source={require('../../assets/images/showcompleted.png') } style={{width:20, height:20}}   />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Show completed</Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Show completed</Text>
 </View>
     </TouchableOpacity>
 
@@ -142,38 +142,38 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
     <TouchableOpacity>
     {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}> </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/customfilter.png') }   />
+<Image source={require('../../assets/images/ongoing.png') }  style={{width:18, height:18}}  />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Ongoing</Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Ongoing</Text>
 </View>
 
     </TouchableOpacity>
     <TouchableOpacity>
     {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/configurefilter.png') }   />
+<Image source={require('../../assets/images/assisting.png') }  style={{width:20, height:20}}  />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Assisting </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Assisting </Text>
 </View>
     </TouchableOpacity>
     <TouchableOpacity>
     {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>Visible Fields </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/visiblefields.png') }   />
+<Image source={require('../../assets/images/setbyset.png') }  style={{width:20, height:20}}  />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Set by me </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Set by me </Text>
 </View>
     </TouchableOpacity>
     <TouchableOpacity>
     {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>Sort By </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/sortby.png') }   />
+<Image source={require('../../assets/images/following.png') } style={{width:20, height:20}}   />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Following</Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Following</Text>
 </View>
     </TouchableOpacity>
 

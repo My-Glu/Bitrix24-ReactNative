@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const deviceHeight = Dimensions.get('window').height
 const deviceWidth = Dimensions.get('window').width
 
-export default class MenuDeal extends Component {
+export default class MenuUserFiles extends Component {
   constructor(props) {
     super(props);
     this.state = {

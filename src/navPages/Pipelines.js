@@ -34,18 +34,18 @@ export default class Pipelines extends Component {
 <View style={styles.bigCardView}>
          
          {/* ------------------------------ row one  ----------------------------------------------  */}
-
+<View style={{backgroundColor: 'white', }}>
          <View style={{flexDirection: 'row',  justifyContent:'center', marginLeft:'5%', }}>
        
          <View style={{ marginVertical: '5%', width: '35%'}}>
               <Text  numberOfLines={1} style={{  color: '#49641D',fontFamily:'segoe-ui',fontSize:RFValue(12) }}>All Deals</Text>
-              <Text style={{  fontSize:  RFValue(20) ,color: '#000000' ,fontFamily:'segoe-ui'}}><Text>Rs.</Text>277,112</Text>
+              <Text style={{  fontSize:  RFValue(20) ,color: '#000000' ,fontFamily:'segoe-ui'}}><Text style={{  fontFamily:'segoe-ui' }}>Rs.</Text>277</Text>
               <Text numberOfLines={1} style={{ width: 150, color: '#49641D' }}>15 Deals</Text>
             </View>
             <View  style={{ width:'20%'}}></View>
             <View style={{ marginVertical: '5%',  width: '35%'}}>
               <Text numberOfLines={1} style={{  color: '#49641D',fontFamily:'segoe-ui',fontSize:RFValue(12) }}>Won Deals</Text>
-              <Text style={{  fontSize:  RFValue(20) ,color: '#4EE15C',fontFamily:'segoe-ui'}}><Text>Rs.</Text>57,112</Text>
+              <Text style={{  fontSize:  RFValue(20) ,color: '#4EE15C',fontFamily:'segoe-ui'}}><Text style={{  fontFamily:'segoe-ui' }}>Rs.</Text>571</Text>
               <Text numberOfLines={1} style={{ color: '#49641D' }}>22 Deals</Text>
             </View>
 
@@ -64,13 +64,13 @@ export default class Pipelines extends Component {
        
        <View style={{ marginVertical: '5%',  width: '35%'}}>
             <Text numberOfLines={1} style={{  color: '#49641D',fontFamily:'segoe-ui', fontSize:RFValue(12) }}>In Process Deals</Text>
-            <Text  style={{  fontSize:  RFValue(20) ,color: '#C3BD00',fontFamily:'segoe-ui'}}><Text>Rs.</Text>27,112</Text>
+            <Text  style={{  fontSize:  RFValue(20) ,color: '#C3BD00',fontFamily:'segoe-ui'}}><Text style={{  fontFamily:'segoe-ui' }}>Rs.</Text>272</Text>
             <Text numberOfLines={1} style={{ width: 150, color: '#49641D' }}>4 Deals</Text>
           </View>
           <View  style={{ width:'20%'}}></View>
           <View style={{ marginVertical: '5%',  width: '35%'}}>
             <Text numberOfLines={1} style={{  color: '#49641D',fontFamily:'segoe-ui',fontSize:RFValue(12) }}>Lost Deals</Text>
-            <Text  style={{  fontSize:  RFValue(20) ,color: '#EB3232',fontFamily:'segoe-ui'}}><Text>Rs.</Text>117,112</Text>
+            <Text  style={{  fontSize:  RFValue(20) ,color: '#EB3232',fontFamily:'segoe-ui'}}><Text style={{ fontFamily:'segoe-ui' }}>Rs.</Text>117</Text>
             <Text numberOfLines={1} style={{ color: '#49641D' }}>10 Deals</Text>
           </View>
           
@@ -84,12 +84,12 @@ export default class Pipelines extends Component {
 
           <View style={{ alignItems: 'center' , marginVertical: 10 }}>
             <TouchableOpacity>
-              <Text style={{ fontSize: RFValue(11), color: '#3B86FF',fontFamily:'segoe-ui' }}>
+              <Text style={{ fontSize: RFValue(12), color: '#3B86FF',fontFamily:'segoe-ui' }}>
                 View All Deals
             </Text>
             </TouchableOpacity>
           </View>
-
+          </View>
         </View>
 
 
@@ -154,17 +154,17 @@ export default class Pipelines extends Component {
    {/* -------------------- 3 card views in row ------------------------------ */}
    <View style={{ flexDirection: 'row', alignSelf: 'center', marginBottom: 20, marginTop: -10, marginHorizontal:'5%' }}>
           <View style={styles.cardView}>
-            <Text numberOfLines={1} style={{ fontSize: RFValue(12), color: '#49641D', fontFamily:'segoe-ui' }}>Leads Over Call</Text>
+            <Text adjustsFontSizeToFit numberOfLines={1} style={{ fontSize: RFValue(12), color: '#49641D', fontFamily:'segoe-ui' }}>Leads Over Call</Text>
             <Text style={{ color: '#A6003D', fontSize: RFValue(20), fontFamily:'segoe-ui' }}>11</Text>
           </View>
          <View  style={{ width:'2%'}}></View>
           <View style={styles.cardView}>
-            <Text numberOfLines={1} style={{ fontSize: RFValue(12), color: '#49641D' ,fontFamily:'segoe-ui'}}>Leads Over Mail</Text>
+            <Text adjustsFontSizeToFit numberOfLines={1} style={{ fontSize: RFValue(12), color: '#49641D' ,fontFamily:'segoe-ui'}}>Leads Over Mail</Text>
             <Text style={{ color: '#C95E00', fontSize:  RFValue(20) , fontFamily:'segoe-ui'}}>12</Text>
           </View>
           <View  style={{ width:'2%'}}></View>
           <View style={styles.cardView}>
-            <Text numberOfLines={1} style={{ fontSize: RFValue(12), color: '#49641D', fontFamily:'segoe-ui' }}>New Leads</Text>
+            <Text adjustsFontSizeToFit numberOfLines={1} style={{ fontSize: RFValue(12), color: '#49641D', fontFamily:'segoe-ui' }}>New Leads</Text>
             <Text style={{ color: '#790A96', fontSize:  RFValue(20), fontFamily:'segoe-ui' }}>117</Text>
           </View>
 
@@ -573,14 +573,14 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     borderTopColor: 'grey',
-    borderTopWidth: 1,
+    borderTopWidth: 0,
     backgroundColor: 'white',
     marginTop: '5%',
     paddingTop: '2%',
     paddingBottom: '2%',
     width: '90%',
     alignSelf: 'center',
-    elevation: 2,
+    elevation: 1,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.05,

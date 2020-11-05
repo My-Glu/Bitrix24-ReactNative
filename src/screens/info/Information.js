@@ -55,7 +55,7 @@ export default class Information extends Component {
 {/* --------------------------------------Image Block----------------------------- */}
 <View style={{backgroundColor: 'white', paddingVertical:10}}>
 <View style={{flexDirection: 'row', display: 'flex',alignItems: 'center', justifyContent: 'center',marginBottom:10}}>
-<Avatar.Image source={require('../../assets/images/delegate.png')} size={80} />
+<Avatar.Image backgroundColor='#ffffff' source={require('../../assets/images/userprog.png')} size={80} />
  
 </View>
 <View style={{justifyContent: 'center', alignItems: 'center', display: 'flex'}}>

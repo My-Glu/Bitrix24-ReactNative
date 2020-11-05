@@ -188,7 +188,8 @@ onTouchOutside={onClosePopupMenu}
                       </View>
 
                       <View style={{ justifyContent: 'center'}}>
-                      <Icon name="flame" color="#C0C0C0" style={{fontSize: 25 ,}}></Icon>
+                      {/* <Icon name="flame" color="#C0C0C0" style={{fontSize: 25 ,}}></Icon> */}
+                      <Image source={require('../../assets/images/fire.png')} style={{width:25, height:25}}/>
                       </View>
         
                     </View>

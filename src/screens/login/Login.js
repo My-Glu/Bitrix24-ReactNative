@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
-import {View, StyleSheet, Text,TextInput, Image,Dimensions, ScrollView,Button, CheckBox ,Alert, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text,TextInput, Image,Dimensions, ScrollView,Button, Alert, TouchableOpacity} from 'react-native';
 // import styles from "./style";
 // import { Button } from 'react-native-elements';
+import CheckBox from '@react-native-community/checkbox';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Icon from 'react-native-vector-icons/FontAwesome5';
+// import {CheckBox} from '@react-native-community/checkbox' 
 // import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-
 import { NavigationContainer } from '@react-navigation/native';
 import ForgetPassword from '.././forgetPassword/ForgetPassword';
 // import {Actions} from 'react-native-router-flux'
 
-
 import { Actions } from 'react-native-router-flux';
-
 
 const deviceHeight = Dimensions.get('window').height
 const deviceWidth = Dimensions.get('window').width
 
 export default class Login extends Component {
-
+ 
+  // const LoginScreen = props => {
   
-   
+    // }
+  
     goToDashboard = () => {
-      Actions.navScreen()
+      // Actions.navScreen()
+      // Actions.navScreen({onBack: () => console.log('custom back callback') });
+      Actions.navScreen({onBack: () => Actions.login()});
    }
   
    goToForgetPass = () => {
@@ -34,8 +37,12 @@ export default class Login extends Component {
     super(props);
     
     this.state = {
-      isLogin: false
+      username: '',
+    password: '',
+       message: '',
+      isLogIn: false
     };
+    
     // this.onPressButton = this.onPressButton.bind(this);
 
   }
@@ -71,16 +78,19 @@ export default class Login extends Component {
 // }
 
 setLogin() {
-  this.setState({isLogin: true});
+  this.setState({isLogIn: true});
 }
 
   render() {
-    if (this.state.isLogin) {
-     
-      return <ForgetPassword/>;
-      
+    if (this.state.isLogIn) {
+      return <ForgetPassword/>; 
   }
 
+  // let [userEmail, setUserEmail] = useState('');
+  // let [userPassword, setUserPassword] = useState('');
+  // let [loading, setLoading] = useState(false);
+  // let [errortext, setErrortext] = useState(''); 
+  
     return (
       
      
@@ -131,6 +141,7 @@ setLogin() {
                           placeholder="Enter Your Password Here"
                           underlineColorAndroid="transparent"
                           pass={true}
+                          secureTextEntry={true}
                                  />
 
                   </View>
@@ -208,9 +219,7 @@ onPress = {this.goToDashboard}
     <Text>Remember me</Text>
   </View>
 
-
-
-                           <Text style={[styles.textBody], {alignSelf: 'flex-start'}}>Remember me?              </Text>
+                          <Text style={[styles.textBody], {alignSelf: 'flex-start'}}>Remember me?              </Text>
                     <Text style={[styles.textBody], {alignSelf: 'flex-end'}}>               Forgot Password?</Text>
                 </View> */}
 

@@ -5,6 +5,8 @@ import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } fr
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
+import {Picker} from '@react-native-community/picker';
+import RoundCheckbox from 'react-native-round-checkbox';
 
 export default class ClientsEdit extends Component {
   constructor(props) {
@@ -73,8 +75,9 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} color="#49641D" value="Company name" editable={false} />
+        {/* <View pointerEvents="auto" style={{backgroundColor:'white'}}> */}
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} color="#49641D" placeholder="Company name" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -99,8 +102,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Change" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Change" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -178,12 +181,31 @@ export default class ClientsEdit extends Component {
 
                 </View>
  {/* ----------------------- */}
- 
-   <View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
-  <Title style={{ color: '#49641D' , fontSize:14}}>Client</Title>
-  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
-    </View>
+ <View style={{backgroundColor: 'white'}}>
+   <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center',backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+  {/* <Title style={{ color: '#49641D' , fontSize:14}}>Client</Title> */}
 
+  <View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+<Picker   
+style={{backgroundColor: 'white'}}
+                      selectedValue={this.state.companytype}  
+                      onValueChange={(itemValue, itemPosition) =>  
+                          this.setState({companytype: itemValue, choosenIndex: itemPosition})}  
+                  >  
+                  <Picker.Item label="Client" value="client" />  
+                  <Picker.Item label="Merchant" value="client" />  
+                  {/* <Picker.Item label="React Native" value="rn" />   */}
+              </Picker>
+              </View>
+
+<Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
+
+
+
+  {/* <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon> */}
+    </View>
+    </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
      <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
@@ -211,9 +233,29 @@ export default class ClientsEdit extends Component {
                 {/* ----------------------- */}
              {/* ----------------------- */}
  
-   <View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
-  <Title style={{ color: '#49641D' , fontSize:14}}>Information Technology</Title>
-  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
+   <View style={{flexDirection: 'row',justifyContent: 'space-between',alignItems: 'center', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+  {/* <Title style={{ color: '#49641D' , fontSize:14}}>Information Technology</Title> */}
+
+
+  <View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+  <Picker   
+  style={{backgroundColor: 'white'}}
+                        selectedValue={this.state.industry}  
+                        onValueChange={(itemValue, itemPosition) =>  
+                            this.setState({industry: itemValue, choosenIndex: itemPosition})}  
+                    >  
+                    <Picker.Item label="Information Technology" value="it" />  
+                    <Picker.Item label="Marketing" value="mar" />  
+                    {/* <Picker.Item label="React Native" value="rn" />   */}
+                </Picker>
+                </View>
+
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
+   
+
+
+  {/* <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon> */}
     </View>
 
 {/* --------------------------- */}
@@ -244,8 +286,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Less than 50" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Less than 50" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -272,8 +314,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="US Dollars" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="US Dollars" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -295,8 +337,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Comment" minHeight={60} color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Comment" minHeight={60} color="#49641D" editable={true} />
  
    {/* ------------------------------Horizontal line -------------------------------------- */}
    <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -305,10 +347,23 @@ export default class ClientsEdit extends Component {
                 </View>
 {/* ---------------- */}
 
-<View style={{justifyContent: 'space-between', flexDirection: 'row', marginRight:'5%'}}>
+<View style={{justifyContent: 'space-between', alignItems: 'center',flexDirection: 'row', marginRight:'5%'}}>
       <Title style={{ color: '#49641D' , fontSize:14, marginLeft:'8%'}}>Available to everyone</Title>
       {/* <ion-icon name="checkmark-circle-outline"></ion-icon> */}
-      <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
+      {/* <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon> */}
+    
+    
+<RoundCheckbox
+            size={24}
+            borderColor={'black'}
+            backgroundColor={"#49641D"}
+            iconColor={'white'}
+            checked={this.state.isSelected}
+            onValueChange={(newValue) => {this.setState({isSelected:true})}}
+        />
+
+    
+    
     </View>
 {/* ---------------- */}
 </View>
@@ -339,8 +394,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Change" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Change" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -367,8 +422,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -395,8 +450,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -423,8 +478,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -451,8 +506,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* -------------1---------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Street, Building" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Street, Building" color="#49641D" editable={true} />
 
  {/* ------------------------------sm Horizontal line -------------------------------------- */}
  <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -461,7 +516,7 @@ export default class ClientsEdit extends Component {
                 </View>
 {/* ------------------------------sm Horizontal line end-------------------------------------- */}
  {/* -------------2---------- */}
-<TextInput style={styles.pLeft} value="Suite/ Apartment" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Suite/ Apartment" color="#49641D" editable={true} />
 
  {/* ------------------------------sm Horizontal line -------------------------------------- */}
  <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -470,7 +525,7 @@ export default class ClientsEdit extends Component {
                 </View>
 
 {/* -------------3-------------- */}
-<TextInput style={styles.pLeft} value="City" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="City" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -480,7 +535,7 @@ export default class ClientsEdit extends Component {
                 </View>
 
 {/* -------------4-------------- */}
-<TextInput style={styles.pLeft} value="Region" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Region" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -490,7 +545,7 @@ export default class ClientsEdit extends Component {
                 </View>
 
 {/* -------------5-------------- */}
-<TextInput style={styles.pLeft} value="State/ Province" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="State/ Province" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -500,7 +555,7 @@ export default class ClientsEdit extends Component {
                 </View>
 
 {/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Zip" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Zip" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 
@@ -511,7 +566,7 @@ export default class ClientsEdit extends Component {
                 </View>
 
 {/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Company" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Company" color="#49641D" editable={true} />
 {/* --------------------------- */}
 </View>
 {/* ------------------------------sm Horizontal line end-------------------------------------- */}
@@ -540,8 +595,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* -------------1---------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Street, Building" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Street, Building" color="#49641D" editable={true} />
 
  {/* ------------------------------sm Horizontal line -------------------------------------- */}
  <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -550,7 +605,7 @@ export default class ClientsEdit extends Component {
                 </View>
 {/* ------------------------------sm Horizontal line end-------------------------------------- */}
  {/* -------------2---------- */}
-<TextInput style={styles.pLeft} value="Suite/ Apartment" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Suite/ Apartment" color="#49641D" editable={true} />
 
  {/* ------------------------------sm Horizontal line -------------------------------------- */}
  <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -559,7 +614,7 @@ export default class ClientsEdit extends Component {
                 </View>
 
 {/* -------------3-------------- */}
-<TextInput style={styles.pLeft} value="City" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="City" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -569,7 +624,7 @@ export default class ClientsEdit extends Component {
                 </View>
 
 {/* -------------4-------------- */}
-<TextInput style={styles.pLeft} value="Region" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Region" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -579,7 +634,7 @@ export default class ClientsEdit extends Component {
                 </View>
 
 {/* -------------5-------------- */}
-<TextInput style={styles.pLeft} value="State/ Province" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="State/ Province" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -589,7 +644,7 @@ export default class ClientsEdit extends Component {
                 </View>
 
 {/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Zip" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Zip" color="#49641D" editable={true} />
 {/* --------------------------- */}
 
 
@@ -600,7 +655,7 @@ export default class ClientsEdit extends Component {
                 </View>
 
 {/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Company" color="#49641D" editable={false} />
+<TextInput style={styles.pLeft} placeholder="Company" color="#49641D" editable={true} />
 {/* --------------------------- */}
 </View>
 {/* ------------------------------sm Horizontal line end-------------------------------------- */}
@@ -629,8 +684,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="banking details" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="banking details" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -657,8 +712,8 @@ export default class ClientsEdit extends Component {
 
                 </View>
                 {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Select" color="#49641D" editable={false} />
+        <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}

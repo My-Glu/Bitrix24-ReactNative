@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as React from 'react';
-import { Button, View, Text, TouchableOpacity, Image, Dimensions } from 'react-native';
+import { Button, View, Text, TouchableOpacity, Image, Dimensions,BackHandler, } from 'react-native';
 import Employee from '.././navPages/Employee'
 import Leads from '.././navPages/Leads'
 import Deals from '.././navPages/Deals'
@@ -12,6 +12,8 @@ import MyActivities from '.././navPages/MyActivities'
 import Clients from '.././navPages/Clients'
 import ProductArchives from '.././navPages/ProductArchives'
 import Information from '.././screens/info/Information'
+import Icon5 from 'react-native-vector-icons/FontAwesome5';
+
 // import Clients from './Clients'
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -49,6 +51,8 @@ const NavigationDrawerStructure = (props)=> {
     //Props to open/close the drawer
     props.navigationProps.toggleDrawer();
   };
+
+  
 
   return (
     <View style={{ flexDirection: 'row', marginLeft:10 }}>
@@ -116,6 +120,7 @@ function BottomTabStack() {
         labelStyle: {
           textAlign: 'center',
           fontSize: 11,
+          fontFamily:'segoe-ui'
           
         },
       }}>
@@ -140,8 +145,6 @@ function BottomTabStack() {
           //   <MaterialCommunityIcons name="settings" color={color} size={size} />
           // ),
         }} /> */}
-
-
 
         <Tab.Screen 
         name="DASHBOARD"
@@ -197,8 +200,10 @@ function DashboardScreenStack({ navigation }) {
           },
           headerTintColor: '#49641D', //Set Header text color
           headerTitleStyle: {
-            fontWeight: 'bold', //Set Header text style
+          fontWeight: 'bold', //Set Header text style
           },
+         headerRight:()=> <Icon5 name="bell" style={{fontSize:22,paddingRight:5,paddingLeft:5,color:'#000000'}} />
+         ,
         })}
       /> 
     </Stack.Navigator>

@@ -17,6 +17,7 @@ import ListOne from './src/components/ListOne';
 import Login from './src/screens/login/Login';
 import Splash from './Splash';
 import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
+import OTPScreen from './src/screens/forgetPassword/OTPScreen';
 
 
 import PipeLine from './src/navPages/Pipelines';
@@ -24,18 +25,20 @@ import Channel from './src/navPages/Channel';
 import Clients from './src/navPages/Clients';
 import ViewCompany from './src/navPages/clients/ViewCompany';
 import ClientsEdit from './src/navPages/clients/ClientsEdit';
+// import CustomPie from './src/navPages/pie/CustomPie';
 import Menu from './src/navPages/Menu';
 import Dashboard from './src/navPages/Dashboard';
 //import Information from './src/screens/info/Information';
 import Employee from './src/navPages/Employee';
 import DetailsEmployee from './src/navPages/employee/DetailsEmployee';
+import Calendar from './src/navPages/menu/Calendar';
+import NewEvent from './src/navPages/menu/NewEvent';
 
 import Information from './src/screens/info/Information';
 
 //  import TabNavigator from './src/screens/bottomNav/BottomNavigation';
 // import Chat from './src/screens/bottomNav/Chat';
 // import Navigation from './Navigation';
-
 
 // const App = createStackNavigator({
 
@@ -50,6 +53,12 @@ import ViewLeads from './src/navPages/leads/ViewLeads';
 import EditLeads from './src/navPages/leads/EditLeads';
 import EditDeal from './src/navPages/deals/EditDeal';
 import ViewDeal from './src/navPages/deals/ViewDeal';
+import NewDeal from './src/navPages/deals/NewDeal';
+import NewCompany from './src/navPages/clients/NewCompany';
+import NewLead from './src/navPages/leads/NewLead';
+import UserChat from './src/navPages/chat/UserChat';
+import MessageBubble from './src/navPages/chat/MessageBubble';
+import BottomView from './src/navPages/chat/BottomView';
 import ViewProduct from './src/navPages/archiveProduct/ViewProduct';
 import EditProduct from './src/navPages/archiveProduct/EditProduct';
 import UserTasks from './src/navPages/employee/UserTasks';
@@ -85,7 +94,6 @@ setTimePassed() {
     this.setState({timePassed: true});
 }
 
-
 render() {
     
     if (!this.state.timePassed) {
@@ -93,6 +101,13 @@ render() {
     } else {
         // return <ClientsEdit/>
         return <Routes/>
+        // return <MessageBubble/>
+        // return <OTPScreen/>
+        // return <UserChat/>
+        // return <BottomView/>
+        // return <NewEvent/>
+        // return <Calendar/>
+        // return <CustomPie/>
         // return <PopUp/>
         // return <NavScreen/>
         // return <DetailsEmployee/>
@@ -103,6 +118,9 @@ render() {
         // return <ProductArchives/>
         // return <ViewCompany/>
         // return <ViewDeal/>
+        // return <NewDeal/>
+        // return <NewCompany/>
+        // return <NewLead/>
         // return <EditDeal/>
         // return <Clients/>
         // return <Deals/>

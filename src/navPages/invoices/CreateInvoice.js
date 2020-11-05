@@ -246,41 +246,7 @@ export default class CreateInvoice extends Component {
         {/* -------------row 7 end ------------------ */}
         {/* -------------row 8 ------------------ */}
 {/* ----------------- */}
-<View style={styles.mLeft}>
-<Text style={styles.smText}>Comment</Text>
-</View>
-{/* ----------------- */}
 
-        {/* ------------------------------Horizontal line -------------------------------------- */}
-<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2,}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-                {/* ----------------------- */}
-        <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Comment" minHeight={60} color="#49641D" editable={false} />
- 
-   {/* ------------------------------Horizontal line -------------------------------------- */}
-   <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-{/* ---------------- */}
-
-<View style={{justifyContent: 'space-between', flexDirection: 'row', marginRight:'5%'}}>
-      <Title style={{ color: '#49641D' , fontSize:14, marginLeft:'8%'}}>Available to everyone</Title>
-      {/* <ion-icon name="checkmark-circle-outline"></ion-icon> */}
-      <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
-    </View>
-{/* ---------------- */}
-</View>
-{/* --------------------------- */}
-    
-     {/* ------------------------------Horizontal line -------------------------------------- */}
-     <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-                </View>
-     
 
         {/* -------------row 8 end ------------------ */}
 
@@ -291,7 +257,7 @@ export default class CreateInvoice extends Component {
         {/* -------------row 9------------------ */}
         {/* ----------------- */}
 <View style={styles.mLeft}>
-<Text style={styles.smText}>Logo</Text>
+<Text style={styles.smText}>Reason of refusal</Text>
 </View>
 {/* ----------------- */}
 
@@ -302,7 +268,7 @@ export default class CreateInvoice extends Component {
                 </View>
                 {/* ----------------------- */}
         <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Change" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} value="Reason of refusal" color="#49641D" editable={false} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -319,7 +285,7 @@ export default class CreateInvoice extends Component {
         {/* -------------row 10------------------ */}
         {/* ----------------- */}
 <View style={styles.mLeft}>
-<Text style={styles.smText}>Work phone</Text>
+<Text style={styles.smText}>Invoice date </Text>
 </View>
 {/* ----------------- */}
 
@@ -330,7 +296,7 @@ export default class CreateInvoice extends Component {
                 </View>
                 {/* ----------------------- */}
         <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} value="Invoice date " color="#49641D" editable={false} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -347,7 +313,7 @@ export default class CreateInvoice extends Component {
         {/* -------------row 11------------------ */}
         {/* ----------------- */}
 <View style={styles.mLeft}>
-<Text style={styles.smText}>Email</Text>
+<Text style={styles.smText}>Pay before</Text>
 </View>
 {/* ----------------- */}
 
@@ -358,7 +324,7 @@ export default class CreateInvoice extends Component {
                 </View>
                 {/* ----------------------- */}
         <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} value="Pay before" color="#49641D" editable={false} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -369,13 +335,64 @@ export default class CreateInvoice extends Component {
         {/* -------------row 11 end ------------------ */}
 
 
+       {/* -------------row 11 new------------------ */}
+{/* ----------------- */}
+<View style={styles.mLeft}>
+<Text style={styles.smText}>Responsible person</Text>
+</View>
+{/* ----------------- */}
+
+        {/* ------------------------------Horizontal line -------------------------------------- */}
+<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+                {/* ----------------------- */}
+                <View style={ { backgroundColor: 'white',  marginLeft:'8%'}}>
+                <View style={styles.Rows}>
+
+<View style={styles.registeredName}>
+
+<Avatar.Image source={require('../../assets/images/blue6.jpg')} size={40} />
+<View style={{ marginLeft: 20 }}>
+  <Title style={{ color: '#49641D' , fontSize:17}}>Farhan Sarwar</Title>
+</View>
+
+</View>
+
+
+</View>
+{/* ------------------------------Horizontal line -------------------------------------- */}
+<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#F0F0F0'}} />
+
+                </View>
+{/* ------------------- */}
+<View  style={{ marginTop:'3%'}}>
+<Text style={{color:'#49641D'}}>Change</Text>
+</View>
+{/* ------------------ */}
+{/* <View>
+<TouchableOpacity style={{ width: 300, height: 20 }}>
+  <Icon name="chevron-forward-outline" style={{ marginLeft: '20%',marginTop: '3%', fontSize: 35, color: '#e2e2e2' }}></Icon>
+</TouchableOpacity>
+</View> */}
+
+</View>
+{/* --------------------------- */}
+     {/* ------------------------------Horizontal line -------------------------------------- */}
+     <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+        {/* -------------row 11 new end ------------------ */}
 
 
 
         {/* -------------row 12------------------ */}
         {/* ----------------- */}
 <View style={styles.mLeft}>
-<Text style={styles.smText}>Website</Text>
+<Text style={styles.smText}>Invoice currency</Text>
 </View>
 {/* ----------------- */}
 
@@ -386,7 +403,7 @@ export default class CreateInvoice extends Component {
                 </View>
                 {/* ----------------------- */}
         <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} value="RUB" color="#49641D" editable={false} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -401,9 +418,8 @@ export default class CreateInvoice extends Component {
 
 
         {/* -------------row 13------------------ */}
-        {/* ----------------- */}
-<View style={styles.mLeft}>
-<Text style={styles.smText}>Street address</Text>
+        <View style={styles.mLeft}>
+<Text style={styles.smText}>Deal</Text>
 </View>
 {/* ----------------- */}
 
@@ -412,87 +428,20 @@ export default class CreateInvoice extends Component {
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
 
                 </View>
-                {/* -------------1---------- */}
+                {/* ----------------------- */}
         <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Street, Building" color="#49641D" editable={false} />
-
- {/* ------------------------------sm Horizontal line -------------------------------------- */}
- <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-{/* ------------------------------sm Horizontal line end-------------------------------------- */}
- {/* -------------2---------- */}
-<TextInput style={styles.pLeft} value="Suite/ Apartment" color="#49641D" editable={false} />
-
- {/* ------------------------------sm Horizontal line -------------------------------------- */}
- <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-
-{/* -------------3-------------- */}
-<TextInput style={styles.pLeft} value="City" color="#49641D" editable={false} />
-{/* --------------------------- */}
-
-{/* ------------------------------sm Horizontal line -------------------------------------- */}
-<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-
-{/* -------------4-------------- */}
-<TextInput style={styles.pLeft} value="Region" color="#49641D" editable={false} />
-{/* --------------------------- */}
-
-{/* ------------------------------sm Horizontal line -------------------------------------- */}
-<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-
-{/* -------------5-------------- */}
-<TextInput style={styles.pLeft} value="State/ Province" color="#49641D" editable={false} />
-{/* --------------------------- */}
-
-{/* ------------------------------sm Horizontal line -------------------------------------- */}
-<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-
-{/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Zip" color="#49641D" editable={false} />
-{/* --------------------------- */}
-
-
-{/* ------------------------------sm Horizontal line -------------------------------------- */}
-<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-
-{/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Company" color="#49641D" editable={false} />
-{/* --------------------------- */}
+  <TextInput style={styles.pLeft} value="Select" color="#49641D" editable={false} />
 </View>
-{/* ------------------------------sm Horizontal line end-------------------------------------- */}
-
+{/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
      <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
 
                 </View>
-        {/* -------------row 13 end ------------------ */}
-
-
-
-
-
+        {/* -------------row 13 end------------------ */}
         {/* -------------row 14------------------ */}
-                {/* ----------------- */}
-<View style={styles.mLeft}>
-<Text style={styles.smText}>Legal address</Text>
+        <View style={styles.mLeft}>
+<Text style={styles.smText}>Quote</Text>
 </View>
 {/* ----------------- */}
 
@@ -501,72 +450,11 @@ export default class CreateInvoice extends Component {
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
 
                 </View>
-                {/* -------------1---------- */}
+                {/* ----------------------- */}
         <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="Street, Building" color="#49641D" editable={false} />
-
- {/* ------------------------------sm Horizontal line -------------------------------------- */}
- <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-{/* ------------------------------sm Horizontal line end-------------------------------------- */}
- {/* -------------2---------- */}
-<TextInput style={styles.pLeft} value="Suite/ Apartment" color="#49641D" editable={false} />
-
- {/* ------------------------------sm Horizontal line -------------------------------------- */}
- <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-
-{/* -------------3-------------- */}
-<TextInput style={styles.pLeft} value="City" color="#49641D" editable={false} />
-{/* --------------------------- */}
-
-{/* ------------------------------sm Horizontal line -------------------------------------- */}
-<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-
-{/* -------------4-------------- */}
-<TextInput style={styles.pLeft} value="Region" color="#49641D" editable={false} />
-{/* --------------------------- */}
-
-{/* ------------------------------sm Horizontal line -------------------------------------- */}
-<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-
-{/* -------------5-------------- */}
-<TextInput style={styles.pLeft} value="State/ Province" color="#49641D" editable={false} />
-{/* --------------------------- */}
-
-{/* ------------------------------sm Horizontal line -------------------------------------- */}
-<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-
-{/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Zip" color="#49641D" editable={false} />
-{/* --------------------------- */}
-
-
-{/* ------------------------------sm Horizontal line -------------------------------------- */}
-<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
-                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
-
-                </View>
-
-{/* -------------6-------------- */}
-<TextInput style={styles.pLeft} value="Company" color="#49641D" editable={false} />
-{/* --------------------------- */}
+  <TextInput style={styles.pLeft} value="Select" color="#49641D" editable={false} />
 </View>
-{/* ------------------------------sm Horizontal line end-------------------------------------- */}
-
+{/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
      <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
                   <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
@@ -581,7 +469,7 @@ export default class CreateInvoice extends Component {
         {/* -------------row 15------------------ */}
         {/* ----------------- */}
 <View style={styles.mLeft}>
-<Text style={styles.smText}>Banking details</Text>
+<Text style={styles.smText}>Contractor</Text>
 </View>
 {/* ----------------- */}
 
@@ -592,7 +480,17 @@ export default class CreateInvoice extends Component {
                 </View>
                 {/* ----------------------- */}
         <View pointerEvents="none" style={{backgroundColor:'white'}}>
-  <TextInput style={styles.pLeft} value="banking details" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} value="Select contact" color="#49641D" editable={false} />
+</View>
+{/* --------------------------- */}
+     {/* ------------------------------Horizontal line -------------------------------------- */}
+     <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginHorizontal:'8%'}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+                {/* ----------------------- */}
+        <View pointerEvents="none" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} value="Select company" color="#49641D" editable={false} />
 </View>
 {/* --------------------------- */}
      {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -609,7 +507,7 @@ export default class CreateInvoice extends Component {
         {/* -------------row 16------------------ */}
         {/* ----------------- */}
 <View style={styles.mLeft}>
-<Text style={styles.smText}>Company's contact</Text>
+<Text style={styles.smText}>Contact person</Text>
 </View>
 {/* ----------------- */}
 
@@ -629,6 +527,104 @@ export default class CreateInvoice extends Component {
 
                 </View>
         {/* -------------row 16 end ------------------ */}
+
+        {/* -------------row 17 ------------------ */}
+        <View style={styles.mLeft}>
+<Text style={styles.smText}>Payment method (will be available once you select a company or contact)</Text>
+</View>
+{/* ----------------- */}
+
+        {/* ------------------------------Horizontal line -------------------------------------- */}
+<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+ {/* ----------------------- */}
+ 
+   <View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+  <Title style={{ color: '#49641D' , fontSize:14}}></Title>
+  <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
+    </View>
+
+{/* --------------------------- */}
+     {/* ------------------------------Horizontal line -------------------------------------- */}
+     <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+        {/* -------------row 17 end ------------------ */}
+
+        {/* -------------row 18 ------------------ */}
+        <View style={styles.mLeft}>
+<Text style={styles.smText}>Sales representative's comment</Text>
+</View>
+{/* ----------------- */}
+
+        {/* ------------------------------Horizontal line -------------------------------------- */}
+<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2,}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+                {/* ----------------------- */}
+        <View pointerEvents="none" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} value="Sales representative's comment" color="#49641D" editable={false} />
+</View>
+{/* --------------------------- */}
+     {/* ------------------------------Horizontal line -------------------------------------- */}
+     <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+        {/* -------------row 18 end ------------------ */}
+
+        {/* -------------row 19 ------------------ */}
+        <View style={styles.mLeft}>
+<Text style={styles.smText}>Invoice notes (appears on invoice)</Text>
+</View>
+{/* ----------------- */}
+
+        {/* ------------------------------Horizontal line -------------------------------------- */}
+<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2,}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+                {/* ----------------------- */}
+        <View pointerEvents="none" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} value="Invoice notes (appears on invoice)" color="#49641D" editable={false} />
+</View>
+{/* --------------------------- */}
+     {/* ------------------------------Horizontal line -------------------------------------- */}
+     <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+        {/* -------------row 19 end ------------------ */}
+
+        {/* -------------row 20 ------------------ */}
+        <View style={styles.mLeft}>
+<Text style={styles.smText}>Invoice products and / services*</Text>
+</View>
+{/* ----------------- */}
+
+        {/* ------------------------------Horizontal line -------------------------------------- */}
+<View style={{flexDirection: 'row', alignItems: 'center', marginTop:2,}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+                {/* ----------------------- */}
+        <View pointerEvents="none" style={{backgroundColor:'white'}}>
+  <TextInput style={styles.pLeft} value="Curretly with ID RUB was not found" color="#B90D0D" editable={false} />
+</View>
+{/* --------------------------- */}
+     {/* ------------------------------Horizontal line -------------------------------------- */}
+     <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+
+                </View>
+        {/* -------------row 20 end ------------------ */}
+
+        {/* -------------row 21 ------------------ */}
+        {/* -------------row 21 end ------------------ */}
 
 <View style={{height:100}}></View>
       </View>

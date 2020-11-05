@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import 'react-native-gesture-handler';
-
-import { Alert, View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
-import { Header } from 'react-native-elements'
-
-import { Avatar, Title, Caption } from 'react-native-paper';
-import { SearchBar, Input } from 'react-native-elements';
 import Animated from 'react-native-reanimated';
 import BottomSheet from 'reanimated-bottom-sheet';
+import { Actions } from 'react-native-router-flux';
+import { StyleSheet,View, Text, StatusBar,Image, FlatList, Alert, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
+import { Avatar, Title, Caption } from 'react-native-paper';
+import {Header,SearchBar, Input} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+
+const deviceHeight = Dimensions.get('window').height
+const deviceWidth = Dimensions.get('window').width
 
 export default class App extends Component {
 
@@ -21,6 +24,10 @@ export default class App extends Component {
 
     updateSearch = (search) => {
         this.setState({ search });
+    };
+
+    goToUserChat = () => {
+        Actions.userChat()
     };
 
     renderInner = () => (
@@ -150,7 +157,33 @@ export default class App extends Component {
 
 {/* -------------------------------- item 1 --- chat friend one ------------------------- */}
 
-                <View style={styles.tableView}>
+
+<View style={{marginLeft:'5%',marginRight:'5%', marginTop: '5%'}} >
+<TouchableOpacity 
+onPress={this.goToUserChat}
+>
+<View style={{flexDirection: 'row' ,  justifyContent:'space-between', }}>
+    <View style={{flexDirection: 'row'}}>
+<Avatar.Image style={{position: 'relative'}} source={require('../assets/images/blue6.jpg')} size={50} />
+                                    <View style={{ marginLeft:'5%' }}>
+                                        <Title style={{ color: '#49641D', fontSize:14,  fontFamily:'segoesb',}}>Farhan Sarwer<Text style={{fontSize:12}}>("its You")</Text></Title>
+                                        <Caption style={{ fontSize:15, marginTop:-5, color: 'rgba(73,100,29,0.5)'}}>Employee </Caption>
+                                    </View>
+                               
+                                    </View>
+                                <View>
+                                    <TouchableOpacity >
+                                        <Caption style={{ fontWeight: 'bold', fontSize:10 }}>Wed </Caption>
+                                    </TouchableOpacity>
+                                    </View>
+</View>
+</TouchableOpacity>
+
+</View>
+
+
+
+                {/* <View style={styles.tableView}>
 
                     <View style={styles.rowsView}>
                         <ScrollView>
@@ -173,9 +206,17 @@ export default class App extends Component {
                             </View>
                         </ScrollView>
                     </View>
-                </View>
+                </View> */}
                 {/* --------------------------------------------- item 1 end --------------------------------------- */}
-                <View style={{marginTop: '50%', marginLeft: '80%' }}>
+               
+                {/* --------------------------------------------- item 2 --------------------------------------- */}
+               
+    
+                {/* --------------------------------------------- item 2 end --------------------------------------- */}
+            
+            
+            
+                <View style={{ top: deviceHeight*0.7, left: deviceWidth*0.8,alignItems:'flex-end', position: 'absolute'}}>
                     <TouchableOpacity delayPressIn={1} onPress={() => this.bs.current.snapTo(0)}>
                         <Image source={require('../assets/images/plusicon.png')} style={{ height: 60, width: 60 }} />
                     </TouchableOpacity>
@@ -236,6 +277,7 @@ const styles = StyleSheet.create({
     Rows: {
                 flexDirection: 'row',
         marginBottom: 5,
+      
         width: '100%'
     },
     registeredName: {

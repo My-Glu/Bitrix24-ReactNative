@@ -109,19 +109,19 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 <Image source={require('../../assets/images/addtask.png') }   />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Add Task </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Add Task </Text>
 </View>
 
     </TouchableOpacity>
 
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>All Products </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}>All Products </Text> */}
 
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%', }}>
 <Image source={require('../../assets/images/addtask.png') }  />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Add Subtask </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Add Subtask </Text>
 </View>
 
 
@@ -129,68 +129,68 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 
 
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>My Products </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}>My Products </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
 <Image source={require('../../assets/images/favourites.png') }   />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Add to favorites </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Add to favorites </Text>
 </View>
     </TouchableOpacity>
 
 
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}> </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}> </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
 <Image source={require('../../assets/images/start.png') }   />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Start </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Start </Text>
 </View>
 
     </TouchableOpacity>
    
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
 <Image source={require('../../assets/images/close.png') }   />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Close </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Close </Text>
 </View>
     </TouchableOpacity>
 
     
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
 <Image source={require('../../assets/images/delegate.png') }   />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Delegate </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Delegate </Text>
 </View>
     </TouchableOpacity>
    
 
  
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
 <Image source={require('../../assets/images/edit.png') }   />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Edit </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Edit </Text>
 </View>
     </TouchableOpacity>
 
 
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/delete.png') }   />
+<Image source={require('../../assets/images/delete.png') }  style={{width:20, height:20}} />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Delete </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Delete </Text>
 </View>
     </TouchableOpacity>
 

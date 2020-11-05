@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,StatusBar, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View,StatusBar, Text, StyleSheet, Image,FlatList, TouchableOpacity } from 'react-native';
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
@@ -24,6 +24,14 @@ export default class Leads extends Component {
   Actions.navScreen()
 
 }
+
+
+goToSearchScreen = () => {
+
+  Actions.search()
+
+}
+
 
   render() {
 
@@ -62,7 +70,10 @@ const onClosePopupSrc = () =>{ popupRefSrc.close()}
                     rightComponent={
                     // <Image source={require('../../assets/images/search.png')}  />
             <View style={{flexDirection: 'row'}}>
+                 <TouchableOpacity
+              onPress={this.goToSearchScreen}>
                 <Icon name="search-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+              </TouchableOpacity>
                 <TouchableOpacity    onPress={onShowPopupMenu}>
                 <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
                </TouchableOpacity>
@@ -83,116 +94,139 @@ onTouchOutside={onClosePopupMenu}
         {/* -----Header end */}
         
         
+<FlatList  
+                    data={[  
+                        {key: 'Shahid Saleem'},{key: 'Azeem Murtaza'}, {key: 'Imran khan'},{key: 'Hooram Sultan'},  
+                        {key: 'Meherma Sultan'},  {key: 'Afia Noor'},  {key: 'sadaf Noor'}, {key: 'asfa Noor'},
+                    ]}  
+                    renderItem={({item}) =>  
+                    <View >
+                       
+   {/* -------------Big card view */}
         
-                {/* -------------Big card view */}
-        
-                <View style={styles.bigCardView}>
+   <View style={styles.bigCardView}>
                  
-                  <View style={{ marginBottom: 15, marginLeft: '5%', marginTop: '5%' }}>
-                  <TouchableOpacity 
-                          onPress={this.goToViewLead}
-                          >
-                    <View style={{ flexDirection: 'row',  }}>
-        
-                      <View style={styles.Rows}>
-        
-                        <View style={styles.registeredName}>
-        
-                          <Avatar.Image source={require('.././assets/images/blue6.jpg')} size={50} />
-                          <View style={{ marginLeft: 5 }}>
-                            <Title style={{ color: '#49641D' }}>Flatteys</Title>
-                          </View>
-                         
+                 <View style={{ marginBottom: 15, marginLeft: '5%', marginTop: '5%' }}>
+                 <TouchableOpacity 
+                         onPress={this.goToViewLead}
+                         >
+                   <View style={{ flexDirection: 'row',  }}>
+       
+                     <View style={styles.Rows}>
+       
+                       <View style={styles.registeredName}>
+       
+                         <Avatar.Image source={require('.././assets/images/blue6.jpg')} size={50} />
+                         <View style={{ marginLeft: 5 }}>
+                           <Title style={{ color: '#49641D' }}>{item.key}</Title>
+                         </View>
                         
-                          <Icon name="chevron-forward-outline" style={{ marginLeft: '20%',alignSelf: 'center', fontSize: 35, color: '#e2e2e2' }}></Icon>
-                      
-                   
-                        </View>
-                             </View>
-        
-                    </View>
-                    </TouchableOpacity>
-              </View>
-        
-                  <View style={{ width: 320, borderBottomColor: '#00000029', borderBottomWidth: 1, alignSelf: 'center', marginBottom: 10 }}>
-                  </View>
-        
-         {/* ------------------------------second row----------------------------------------------  */}
-        
-         <View style={{ marginBottom: 15, marginLeft: 20 }}>
-                    <View style={{ flexDirection: 'row', width: 270 }}>
-        
-                      <View>
-                        <Text style={{ marginBottom: 5, color:'#C0C0C0', fontSize: 16 }}>Id</Text>
-                        <Text style={{ color: '#49641D' }}>2</Text>
-                      </View>
-        
-                    </View>
-        
-                  </View>
-        
-                  <View style={{ width: 320, borderBottomColor: '#00000029', borderBottomWidth: 1, alignSelf: 'center', marginBottom: 10 }}>
-                  </View>
-        
-                    {/* ------------------------------third row----------------------------------------------  */}
-        
-                    <View style={{ marginBottom: 15, marginLeft: 20 }}>
-                    <View style={{ flexDirection: 'row', width: 270 }}>
-        
-        
-                      <View>
-                        <Text style={{ marginBottom: 5, color: '#C0C0C0', fontSize: 16 }}>Status- <Text style={{ color: '#49641D' }}>Good Lead</Text></Text>
-                        <Text style={{ color: '#49641D' }}>-----------------------------</Text>
-                      </View>
-        
-                    </View>
-                  </View>
-        
-                  <View style={{ width: 320, borderBottomColor: '#00000029', borderBottomWidth: 1, alignSelf: 'center', marginBottom: 10 }}>
-                  </View>
-        
-        
-         {/* ------------------------------fourth row----------------------------------------------  */}
-        
-         <View style={{marginLeft: 20 }}>
-                    <View style={{ flexDirection: 'row', width: 270 }}>
-        
-                      <View>
-                        <Text style={{ marginBottom: 5, color: '#C0C0C0', fontSize: 16 }}>Created on</Text>
-                        <Text style={{ color: '#49641D' }}>08/09/2020</Text>
-                      </View>
-        
-                    </View>
-                  </View>
-        
-        {/* ------------More-------------- */}
-                  <View style={{justifyContent:'space-between',backgroundColor:'#FBFFF4',paddingTop:10, paddingBottom:10, flexDirection:'row', marginHorizontal:'5%'}}>
-                  
+                       
+                         <Icon name="chevron-forward-outline" style={{ marginLeft: '20%',alignSelf: 'center', fontSize: 35, color: '#e2e2e2' }}></Icon>
+                     
+                       </View>
+                            </View>
+       
+                   </View>
+                   </TouchableOpacity>
+             </View>
+       
+                  {/* ------------------------------Horizontal line -------------------------------------- */}
+                  <View style={{flexDirection: 'row', alignItems: 'center', marginVertical:'1%' , marginLeft:'5%', marginRight:'5%'}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+                </View>
+{/* ------------------------------------------------ */}
+        {/* ------------------------------second row----------------------------------------------  */}
+       
+        <View style={{ marginBottom: 15, marginLeft: 20 }}>
+                   <View style={{ flexDirection: 'row', width: 270 }}>
+       
+                     <View>
+                       <Text style={{ marginBottom: 5, color:'#C0C0C0', fontSize: 16 }}>Id</Text>
+                       <Text style={{ color: '#49641D' }}>2</Text>
+                     </View>
+       
+                   </View>
+       
+                 </View>
+       
+                {/* ------------------------------Horizontal line -------------------------------------- */}
+                <View style={{flexDirection: 'row', alignItems: 'center', marginVertical:'1%' , marginLeft:'5%', marginRight:'5%'}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+                </View>
+{/* ------------------------------------------------ */}
+       
+                   {/* ------------------------------third row----------------------------------------------  */}
+       
+                   <View style={{ marginBottom: 15, marginLeft: 20 }}>
+                   <View style={{ flexDirection: 'row', width: 270 }}>
+       
+       
+                     <View>
+                       <Text style={{ marginBottom: 5, color: '#C0C0C0', fontSize: 16 }}>Status- <Text style={{ color: '#49641D' }}>Good Lead</Text></Text>
+                       <Text style={{ color: '#49641D' }}>-----------------------------</Text>
+                     </View>
+       
+                   </View>
+                 </View>
+       
+                 {/* ------------------------------Horizontal line -------------------------------------- */}
+                 <View style={{flexDirection: 'row', alignItems: 'center', marginVertical:'1%' , marginLeft:'5%', marginRight:'5%'}}>
+                  <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+                </View>
+{/* ------------------------------------------------ */}
+       
+       
+        {/* ------------------------------fourth row----------------------------------------------  */}
+       
+        <View style={{marginLeft: 20 }}>
+                   <View style={{ flexDirection: 'row', width: 270 }}>
+       
+                     <View>
+                       <Text style={{ marginBottom: 5, color: '#C0C0C0', fontSize: 16 }}>Created on</Text>
+                       <Text style={{ color: '#49641D' }}>08/09/2020</Text>
+                     </View>
+       
+                   </View>
+                 </View>
+       
+       {/* ------------More-------------- */}
+                 <View style={{justifyContent:'space-between',backgroundColor:'#FBFFF4',paddingTop:10, paddingBottom:10, flexDirection:'row', marginHorizontal:'5%'}}>
                  
-                  <TouchableOpacity    onPress={onShowPopupSrc}>
-                  <Text style={{ textAlign:'left', paddingHorizontal:'2%'}}>Create using source</Text>
-                  </TouchableOpacity>
-                  <CreateUsingSourceLeads
+                
+                 <TouchableOpacity    onPress={onShowPopupSrc}>
+                 <Text style={{ textAlign:'left', paddingHorizontal:'2%'}}>Create using source</Text>
+                 </TouchableOpacity>
+                 <CreateUsingSourceLeads
 title=""
 ref={(target) => popupRefSrc = target}
 onTouchOutside={onClosePopupSrc}
 />
-                  <TouchableOpacity 
-                  //  delayPressIn={1} onPress={() =>}
-                  onPress={onShowPopup}
-                   >
-                  <Text style={{textAlign:'right',paddingHorizontal:'2%'}}>More...</Text>
-                  </TouchableOpacity>
-                 
-                  <MoreLeads
+                 <TouchableOpacity 
+                 //  delayPressIn={1} onPress={() =>}
+                 onPress={onShowPopup}
+                  >
+                 <Text style={{textAlign:'right',paddingHorizontal:'2%'}}>More...</Text>
+                 </TouchableOpacity>
+                
+                 <MoreLeads
 title=""
 ref={(target) => popupRef = target}
 onTouchOutside={onClosePopup}
 />
 
-                  </View>      
+                 </View>      
+       
+               </View>
+
+        <View>
+       
+        </View>
+                               </View>}
+                    ItemSeparatorComponent={this.renderSeparator}  
+                />
         
-                </View>
+             
                 </View>
     );
   }

@@ -12,7 +12,7 @@ const SideMenu = (props) => {
             <DrawerContentScrollView {...props}>
             <View style={styles.userInfoSection}>
             <View style={{flexDirection:'row',marginTop:25,alignItems:'center'}}>
-              <Avatar.Image source={require('../assets/images/blue6.jpg')} size={65} />
+              <Avatar.Image backgroundColor="#ffffff" source={require('../assets/images/userprog.png')} size={65} />
               <View style={{flexDirection:'column', marginLeft: 10}}>
                 <Title style={{color:'green'}}>Farhan Sarwar</Title>
                 <TouchableOpacity delayPressIn={1}

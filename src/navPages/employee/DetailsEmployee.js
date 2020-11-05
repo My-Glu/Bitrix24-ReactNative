@@ -13,10 +13,15 @@ export default class DetailsEmployee extends Component {
     };
   }
 
+
+  goToSearchScreen = () => {
+
+    Actions.search()
+
+  }
+
   goBackToEmployee = () => {
-
     Actions.employee()
-
   }
 
 
@@ -39,7 +44,7 @@ export default class DetailsEmployee extends Component {
                       >
                         <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
                         </TouchableOpacity>                 }
-                    centerComponent={<Text style={{ fontSize:20}}>Employee</Text>
+                    centerComponent={<Text style={{ fontSize:20}}>{this.props.val}</Text>
                         // {text: 'All Clients', fontSize:30}
                     }
                     // <ion-icon name="ellipsis-vertical-outline"></ion-icon>
@@ -47,7 +52,11 @@ export default class DetailsEmployee extends Component {
                     // <Image source={require('../../assets/images/search.png')}  />
                     // <ion-icon name="pencil-outline"></ion-icon>
             <View style={{flexDirection: 'row'}}>
+               <TouchableOpacity   
+                 onPress={this.goToSearchScreen}
+                >
                 <Icon name="search-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+                </TouchableOpacity>
                 <TouchableOpacity    onPress={onShowPopup}>
                 <Icon name="pencil-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
                 </TouchableOpacity>
@@ -75,7 +84,7 @@ onTouchOutside={onClosePopup}
  
 </View>
 <View style={{justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
-<Text style={styles.textTitle}>Shahid Saleem</Text>
+<Text style={styles.textTitle}>{this.props.val}</Text>
 <Text style={styles.text}>IOS Developer</Text>
 </View>
 </View>

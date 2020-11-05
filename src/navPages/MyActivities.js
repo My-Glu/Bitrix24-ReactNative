@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { View,StatusBar, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch, TouchableWithoutFeedback } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {Header} from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
+import {Header,SearchBar, Input} from 'react-native-elements';
 import MenuMyActivities from './myActivities/MenuMyActivities'
 
 export default class MyActivities extends Component {
@@ -16,6 +16,12 @@ export default class MyActivities extends Component {
   goBackToNavScreen = () => {
 
     Actions.navScreen()
+
+  }
+  
+  goToSearchScreen = () => {
+
+    Actions.search()
 
   }
   
@@ -48,8 +54,12 @@ export default class MyActivities extends Component {
                     rightComponent={
                     // <Image source={require('../../assets/images/search.png')}  />
             <View style={{flexDirection: 'row'}}>
+               
+               <TouchableOpacity   
+                 onPress={this.goToSearchScreen}
+                >
                 <Icon name="search-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
-                
+                </TouchableOpacity>
                 
                 <TouchableOpacity   
                 onPress={onShowPopup}

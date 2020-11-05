@@ -41,7 +41,7 @@ export default class ViewCompany extends Component {
                 >
                   <Icon name="chevron-back-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
                   </TouchableOpacity>           }
-               centerComponent={<Text style={{ fontSize:20}}>View Company</Text>
+               centerComponent={<Text style={{ fontSize:20}}>{this.props.val1}</Text>
                    // {text: 'All Clients', fontSize:30}
                }
            
@@ -75,13 +75,14 @@ onTouchOutside={onClosePopup}
     <View  style={{ marginBottom:'2%'}}>
 <Text style={{color:'#C0C0C0'}}>Company Name</Text>
 </View>
+
        <View style={styles.Rows}>
 
   <View style={styles.registeredName}>
 
   <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={50} />
-  <View style={{ marginLeft: 20 }}>
-    <Title style={{ color: '#49641D' }}>Afia Noor</Title>
+  <View style={{ marginLeft: '5%' }}>
+    <Text style={{ color: '#49641D', fontSize: 16, fontFamily: 'segoe-ui'}}>{this.props.val1}</Text>
   </View>
   
 </View>

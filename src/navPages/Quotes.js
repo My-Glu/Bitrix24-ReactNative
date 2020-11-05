@@ -20,6 +20,13 @@ export default class Quotes extends Component {
   
   }
   
+  
+goToSearchScreen = () => {
+
+  Actions.search()
+
+}
+
 
   render() {
 
@@ -50,7 +57,11 @@ export default class Quotes extends Component {
                     rightComponent={
                     // <Image source={require('../../assets/images/search.png')}  />
             <View style={{flexDirection: 'row'}}>
+                <TouchableOpacity
+              onPress={this.goToSearchScreen}>
+
                 <Icon name="search-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>
+              </TouchableOpacity>
                
                 <TouchableOpacity    onPress={onShowPopup}>
                 <Icon name="ellipsis-vertical-outline" color="#49641D" style={{ marginLeft: '20%',marginTop: '3%',fontSize: 25 }}></Icon>

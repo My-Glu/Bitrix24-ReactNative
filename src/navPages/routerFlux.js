@@ -15,6 +15,7 @@ import Employee from './Employee';
 import Leads from './Leads';
 import Deals from './Deals';
 import Quotes from './Quotes';
+import SearchScreen from './SearchScreen';
 import ProductArchives from './ProductArchives';
 import ViewProduct from './archiveProduct/ViewProduct';
 import EditProduct from './archiveProduct/EditProduct';
@@ -26,6 +27,8 @@ import NavScreen from '../navPages/NavScreen';
 import UserTasks from '../navPages/employee/UserTasks';
 import UserFiles from '../navPages/employee/UserFiles';
 import Calendar from './menu/Calendar';
+import MyDrive from './menu/MyDrive';
+import UserChat from './chat/UserChat';
 import NewEvent from './menu/NewEvent';
 import NewLead from './leads/NewLead';
 import NewDeal from './deals/NewDeal';
@@ -34,7 +37,6 @@ import CreateProduct from './archiveProduct/CreateProduct';
 import CreateInvoice from './invoices/CreateInvoice';
 import CreateQuote from './quotes/CreateQuote';
 import DetailsUserTasks from '../navPages/employee/DetailsUserTasks';
-
 
 import { Router, Scene } from 'react-native-router-flux';
 
@@ -55,6 +57,7 @@ const Routes = () => (
          key="navScreen" 
          component={NavScreen} 
          hideNavBar={true} 
+         renderBackButton={()=>{}}
 
         //  initial = {true}
          />
@@ -256,6 +259,25 @@ const Routes = () => (
         key="createQuote" 
         component={CreateQuote}
         hideNavBar={true} 
+        />
+
+      <Scene 
+        key="myDrive" 
+        component={MyDrive}
+        hideNavBar={true} 
+        /> 
+
+      <Scene 
+        key="userChat" 
+        component={UserChat}
+        hideNavBar={true} 
+        /> 
+
+      <Scene 
+        key="search" 
+        component={SearchScreen}
+        hideNavBar={false} 
+        title={"Search"}
         /> 
      
       </Scene>

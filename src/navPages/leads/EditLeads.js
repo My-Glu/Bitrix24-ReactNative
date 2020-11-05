@@ -5,6 +5,8 @@ import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } fr
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
+import {Picker} from '@react-native-community/picker';
+import RoundCheckbox from 'react-native-round-checkbox';
 
 export default class EditLeads extends Component {
   constructor(props) {
@@ -72,8 +74,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} color="#49641D" value="Lead name" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} color="#49641D" placeholder="Lead name" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -83,8 +85,7 @@ export default class EditLeads extends Component {
           {/* -------------row 1 end ------------------ */}
   
   
-  
-  
+ 
   
           {/* -------------row 2------------------------------------------------------------- */}
             
@@ -102,13 +103,18 @@ export default class EditLeads extends Component {
                   {/* ----------------------- */}
 
 {/* ----------------------- */}
- 
+
+<View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} color="#49641D" placeholder="Status Information" editable={true} />
+  </View>
+
+{/*  
 <View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
   <Title style={{ color: '#49641D' , fontSize:14}}>Status Information</Title>
   <TouchableOpacity>
   <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
   </TouchableOpacity>
-    </View>
+    </View> */}
 
 {/* --------------------------- */}
 
@@ -139,12 +145,33 @@ export default class EditLeads extends Component {
                   </View>
                   {/* ----------------------- */}
           {/* ----------------------- */}
- 
-<View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
-  <Title style={{ color: '#49641D' , fontSize:14}}>US Dollar</Title>
+ <View Style={{ backgroundColor:'white'}}>
+<View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+  
+<View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+<Picker   
+style={{backgroundColor: 'white'}}
+                      selectedValue={this.state.lang}  
+                      onValueChange={(itemVal, itemPos) =>  
+                          this.setState({lang: itemVal, choosenIndex: itemPos})}  
+                  >  
+                 <Picker.Item label="US Dollar" value="us" />  
+                <Picker.Item label="Euro" value="eu" />  
+                <Picker.Item label="China Yuan Renminbi" value="cyr" />  
+                <Picker.Item label="Brazilian Real" value="br" />  
+                <Picker.Item label="Indian Rupee" value="ir" />  
+                  {/* <Picker.Item label="React Native" value="rn" />   */}
+              </Picker>
+              </View>
+  
+              <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
+   
+  {/* <Title style={{ color: '#49641D' , fontSize:14}}>US Dollar</Title>
   <TouchableOpacity>
   <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
-  </TouchableOpacity>
+  </TouchableOpacity> */}
+    </View>
     </View>
 
 {/* --------------------------- */}
@@ -174,8 +201,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Deal Opportunity" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Deal Opportunity" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -196,14 +223,49 @@ export default class EditLeads extends Component {
   </View>
   {/* ----------------- */}
   
-          {/* ------------------------------Horizontal line -------------------------------------- */}
-  {/* ----------------------- */}
+         {/* ------------------------------Horizontal line -------------------------------------- */}
+         <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
+                    <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+       </View>
+       
+        {/* ----------------------- */}
  
-<View style={{flexDirection: 'row',justifyContent: 'space-between', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
-  <Title style={{ color: '#49641D' , fontSize:14}}>Call</Title>
+<View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center', backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
+ 
+  
+<View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+<Picker   
+style={{backgroundColor: 'white'}}
+                      selectedValue={this.state.lang}  
+                      onValueChange={(itemVal, itemPos) =>  
+                          this.setState({lang: itemVal, choosenIndex: itemPos})}  
+                  >  
+                 <Picker.Item label="Call" value="no" />  
+                <Picker.Item label="E-Mail" value="email" />  
+                <Picker.Item label="Website" value="web" />  
+                <Picker.Item label="Advertising" value="adv" />  
+                <Picker.Item label="Existing Client" value="exclient" />  
+                <Picker.Item label="By Recommendation" value="recm" />  
+                <Picker.Item label="Show/Exhibition" value="show" />  
+                <Picker.Item label="CRM Form" value="crmform" />  
+                <Picker.Item label="Callback" value="cback" />  
+                <Picker.Item label="Sales Boost" value="sboot" />  
+                <Picker.Item label="Online Store" value="ostore" />  
+                <Picker.Item label="Other" value="other" />  
+               
+                  {/* <Picker.Item label="React Native" value="rn" />   */}
+              </Picker>
+              </View>
+  
+              <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
+   
+ 
+ 
+  {/* <Title style={{ color: '#49641D' , fontSize:14}}>Call</Title>
   <TouchableOpacity>
   <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2' }}></Icon>
-  </TouchableOpacity>
+  </TouchableOpacity> */}
     </View>
 
 {/* --------------------------- */}
@@ -233,8 +295,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Source Information" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Source Information" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -300,10 +362,22 @@ export default class EditLeads extends Component {
                   </View>
   {/* ---------------- */}
   
-  <View style={{justifyContent: 'space-between', flexDirection: 'row', marginRight:'5%'}}>
+  <View style={{justifyContent: 'space-between', flexDirection: 'row' ,alignItems: 'center', marginRight:'5%'}}>
       <Title style={{ color: '#49641D' , fontSize:14}}>Available to everyone</Title>
       {/* <ion-icon name="checkmark-circle-outline"></ion-icon> */}
-      <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon>
+      {/* <Icon name="checkmark-circle-outline" color="#49641D" style={{ marginLeft: '10%',marginTop: '3%',fontSize: 25 }}></Icon> */}
+  
+     
+<RoundCheckbox
+            size={24}
+            borderColor={'black'}
+            backgroundColor={"#49641D"}
+            iconColor={'white'}
+            checked={this.state.isSelected}
+            onValueChange={(newValue) => {this.setState({isSelected:true})}}
+        />
+
+  
     </View>
   {/* ---------------- */}
   {/* </View> */}
@@ -335,8 +409,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Not Selected" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Not Selected" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -361,8 +435,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Last name" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Last name" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -385,8 +459,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Name" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Name" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -409,8 +483,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Second name" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Second name" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -436,8 +510,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Date of Birth" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Date of Birth" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -465,8 +539,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -493,8 +567,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -521,8 +595,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Add" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -544,8 +618,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Company name" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Company name" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -568,8 +642,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Position" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Position" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -597,8 +671,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* -------------1---------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Street, Building" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Street, Building" color="#49641D" editable={true} />
   
    {/* ------------------------------sm Horizontal line -------------------------------------- */}
    <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -607,7 +681,7 @@ export default class EditLeads extends Component {
                   </View>
   {/* ------------------------------sm Horizontal line end-------------------------------------- */}
    {/* -------------2---------- */}
-  <TextInput style={styles.pLeft} value="Suite/ Apartment" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} placeholder="Suite/ Apartment" color="#49641D" editable={true} />
   
    {/* ------------------------------sm Horizontal line -------------------------------------- */}
    <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -616,7 +690,7 @@ export default class EditLeads extends Component {
                   </View>
   
   {/* -------------3-------------- */}
-  <TextInput style={styles.pLeft} value="City" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} placeholder="City" color="#49641D" editable={true} />
   {/* --------------------------- */}
   
   {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -626,7 +700,7 @@ export default class EditLeads extends Component {
                   </View>
   
   {/* -------------4-------------- */}
-  <TextInput style={styles.pLeft} value="Region" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} placeholder="Region" color="#49641D" editable={true} />
   {/* --------------------------- */}
   
   {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -636,7 +710,7 @@ export default class EditLeads extends Component {
                   </View>
   
   {/* -------------5-------------- */}
-  <TextInput style={styles.pLeft} value="State/ Province" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} placeholder="State/ Province" color="#49641D" editable={true} />
   {/* --------------------------- */}
   
   {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -646,7 +720,7 @@ export default class EditLeads extends Component {
                   </View>
   
   {/* -------------6-------------- */}
-  <TextInput style={styles.pLeft} value="Zip" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} placeholder="Zip" color="#49641D" editable={true} />
   {/* --------------------------- */}
   
   
@@ -657,7 +731,7 @@ export default class EditLeads extends Component {
                   </View>
   
   {/* -------------6-------------- */}
-  <TextInput style={styles.pLeft} value="Company" color="#49641D" editable={false} />
+  <TextInput style={styles.pLeft} placeholder="Company" color="#49641D" editable={true} />
   {/* --------------------------- */}
   </View>
   {/* ------------------------------sm Horizontal line end-------------------------------------- */}
@@ -691,8 +765,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Comment" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Comment" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -719,8 +793,8 @@ export default class EditLeads extends Component {
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="none" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} value="Select" color="#49641D" editable={false} />
+          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true} />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -746,7 +820,7 @@ const styles = StyleSheet.create({
     },
     pLeft:{
    
-       marginLeft:'8%'
+       marginLeft:'7%'
    
     },
     smText:{fontSize:12, color:'#C0C0C0'},

@@ -108,22 +108,22 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
     //  onPress={this.goToEditLeads}
      > 
 <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '10%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/edit.png') }   />
+<Image source={require('../../assets/images/edit.png') }  style={{width:20, height:20}} />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Edit </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Edit </Text>
 </View>
 
     </TouchableOpacity>
 
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>All Products </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}>All Products </Text> */}
 
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%', }}>
-<Image source={require('../../assets/images/delete.png') }  />
+<Image source={require('../../assets/images/delete.png') } style={{width:20, height:20}} />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Delete </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Delete </Text>
 </View>
 
 
@@ -131,32 +131,32 @@ style={{backgroundColor:'#FFFFFF', width: '100%',maxHeight: deviceHeight * 0.7, 
 
 
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}> </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}> </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/history.png') }   />
+<Image source={require('../../assets/images/history.png') }  style={{width:20, height:20}} />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>History </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>History </Text>
 </View>
 
     </TouchableOpacity>
     <TouchableOpacity>
-    {/* <Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
+    {/* <Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , margin:15, textAlign:'center'}}>Configure Filter </Text> */}
     <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/activities.png') }   />
+<Image source={require('../../assets/images/activities.png') }  style={{width:20, height:20}} />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Activities </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Activities </Text>
 </View>
     </TouchableOpacity>
 
 
     <TouchableOpacity>
        <View style={{flexDirection: 'row', justifyContent: 'flex-start', marginTop: '5%', marginLeft:'25%',}}>
-<Image source={require('../../assets/images/deals.png') }   />
+<Image source={require('../../assets/images/deals.png') }  style={{width:20, height:20}} />
 
 
-<Text style={{color:'#49641D', fontSize:18, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Deals </Text>
+<Text style={{color:'#49641D', fontSize:16, fontWeight:'500' , marginLeft:'10%', textAlign:'center'}}>Deals </Text>
 </View>
     </TouchableOpacity>
    

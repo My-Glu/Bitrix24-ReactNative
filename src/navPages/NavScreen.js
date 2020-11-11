@@ -273,7 +273,7 @@ function NavScreen() {
     <NavigationContainer>
 
 <Drawer.Navigator
-drawerContent={props => <SideMenu {...props} />}
+drawerContent={props => <SideMenu {...props}/>}
       // options={{tabBarIcon:()=> (<Icon name="menu" size={24} color='#49641D'/>)}}
         drawerContentOptions={{
           activeTintColor: '#49641D',

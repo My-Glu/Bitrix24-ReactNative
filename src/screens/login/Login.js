@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, StyleSheet, Text,TextInput, Image,Dimensions, ScrollView,Button, Alert, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text,TextInput, Image,Dimensions, AsyncStorage, ScrollView,Button, Alert, TouchableOpacity} from 'react-native';
 // import styles from "./style";
 // import { Button } from 'react-native-elements';
 import CheckBox from '@react-native-community/checkbox';
@@ -7,6 +7,7 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 // import {CheckBox} from '@react-native-community/checkbox' 
 // import { NavigationContainer } from '@react-navigation/native';
+// import AsyncStorage from '@react-native-community/async-storage'
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import ForgetPassword from '.././forgetPassword/ForgetPassword';
@@ -37,13 +38,42 @@ export default class Login extends Component {
     super(props);
     
     this.state = {
+      responseData:{},
       username: '',
     password: '',
        message: '',
-      isLogIn: false
+      isLogIn: false,
+      sessionOn: false,
+      token:'',
+      email:'',
     };
     
     // this.onPressButton = this.onPressButton.bind(this);
+
+  }
+
+  
+  saveData= () => {
+
+
+    // let userEmail = email;
+    // AsyncStorage.setItem('email1', JSON.stringify(userEmail));
+    // AsyncStorage.setItem('email1', JSON.stringify(this.state.email));
+    AsyncStorage.setItem('email1', this.state.email);
+    AsyncStorage.setItem('SESSION', this.state.sessionOn);
+
+  }
+
+
+  displayData= async()=> {
+
+    try{
+let uEmail = await AsyncStorage.getItem('email1');
+Alert.alert(uEmail);
+    }
+    catch(error){
+Alert.alert(error)
+    }
 
   }
 
@@ -77,6 +107,105 @@ export default class Login extends Component {
 //   },2000);
 // }
 
+
+// componentDidMount() {
+//   this.fetchData();
+// }
+
+
+// storeSession = async () => {
+//   try {
+//     await AsyncStorage.setItem('SESSION', this.state.sessionOn)
+//   } catch (e) {
+//     // saving error
+//   }
+// }
+
+
+// $value = AsyncStorage.getItem('SESSION')
+
+// getSession = async () => {
+//   try {
+//     const value = await AsyncStorage.getItem('SESSION')
+//     if(value !== null) {
+//       // value previously stored
+//     }
+//   } catch(e) {
+//     // error reading value
+//   }
+// }
+
+
+Login= async()=> {
+
+  const response = await fetch(`http://34.210.75.190/api/login?email=${this.state.username}&password=${this.state.password}`,
+  {method: 'POST',
+  headers: {
+  'Content-Type': 'application/json'},
+  // body: JSON.stringify({
+  //   // "provider": "email",
+  //   "data":
+  //    {
+  //       "email": this.state.username,
+  //       "password": this.state.password
+  //   }
+  // })
+  }).then((response) => response.json())
+  .then((res) => {
+// if(typeof(res.message) != "undefined"){
+//  Alert.alert("Error1", "Error: "+ res.message);
+// }else
+this.setState({email: res.User.EMAIL})
+ if(res.status == 0){
+  Alert.alert("Response0", "Status: "+ res.status +"\n Message "+res.message);
+}else if(res.status === 1){
+  // Alert.alert("Response1", "Error: "+ res.status +" "+res.message);
+  Actions.navScreen({userEmail: res.User.EMAIL});
+ this.setState({sessionOn:true})
+  // this.saveData().bind(this, res.User.EMAIL);
+  this.saveData();
+
+  // this.displayData();
+  // this.setState({sessionOn:true})
+  // AsyncStorage.setItem('SESSION', true)
+  // AsyncStorage.setItem('SESSION', true)
+
+
+}else if(res.status === 2){
+  // {this.goToDashboard}
+  // Actions.navScreen({onBack: () => Actions.login()});
+  // Actions.onboard(this, this.state.username, this.state.password);
+  Actions.onboard({email: this.state.username, password: this.state.password});
+  // Alert.alert("Response", "Status: "+ res.status +"\nMessage: "+res.message);
+}
+else{
+  // this.setState({ auth_token: res.auth_token });
+  Alert.alert("Oops", "Something went wrong");
+  }
+}).catch((error) => {
+   console.error(error);
+  });
+
+  // const json = await response.json()
+  // // .then((response) => response.json())
+  //  .catch((error) => console.warn("fetch error:", error))
+  // this.setState({data: json.results});
+
+}
+
+
+componentDidMount() {
+//  let value = AsyncStorage.getItem('SESSION')
+  // const value = AsyncStorage.getItem('SESSION')
+
+  // if(value=="true"){
+  if(AsyncStorage.getItem('SESSION')){
+    Actions.navScreen();
+    // Actions.navScreen({onBack: () => Actions.login()});
+  }
+}
+
+
 setLogin() {
   this.setState({isLogIn: true});
 }
@@ -96,7 +225,6 @@ setLogin() {
      
      <ScrollView style={{backgroundColor: 'white'}}>
       
-       
          <View style={styles.container}>
          
              <Image source={require('../../assets/images/noorgrplogo3x.png')}
@@ -105,6 +233,7 @@ setLogin() {
                  />
 
                <Text style={styles.textTitle }>LOGIN</Text>
+
 {/* ------------------------------Horizontal line -------------------------------------- */}
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
                   <View style={{flex: 1, height: 1, backgroundColor: 'black', marginHorizontal: 20, }} />
@@ -121,9 +250,12 @@ setLogin() {
                 <Icon name="user" style={{fontSize:22,paddingRight:5,paddingLeft:5,color:'#00000029'}} />
 
                          <TextInput
-                         style={{flex:1}}
+                          style={{flex:1}}
+                          autoCapitalize={"none"}
                           placeholder="Enter Your Email Here"
                           underlineColorAndroid="transparent"
+                          onChangeText={ input =>
+                          this.setState({username : input }) }
                                  />
 
                   </View>
@@ -138,10 +270,13 @@ setLogin() {
 
                          <TextInput
                          style={{flex:1}}
+                         autoCapitalize={"none"}
                           placeholder="Enter Your Password Here"
                           underlineColorAndroid="transparent"
                           pass={true}
                           secureTextEntry={true}
+                          onChangeText={ TextInputValue =>
+                            this.setState({password : TextInputValue }) }
                                  />
 
                   </View>
@@ -175,9 +310,11 @@ onPress = {this.goToForgetPass}
   {/* ------------------------------Button signin----------------------------------------------  */}
 
   <View style={styles.screenContainer}>
-      <Button title="SIGN IN" width="100%" color="#385805" style={{backgroundColor: '#385805'}} 
-
-onPress = {this.goToDashboard}
+      <Button title="SIGN IN" width="100%" color="#385805" 
+     
+      style={{backgroundColor: '#385805'}} 
+      onPress = {this.Login.bind(this)}
+// onPress = {this.goToDashboard}
       // onPress={this.handleClick}
       // onClick={this.handleClick}
      />

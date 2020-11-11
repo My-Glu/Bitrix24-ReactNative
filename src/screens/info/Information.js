@@ -38,7 +38,11 @@ export default class Information extends Component {
             centerComponent={<Text style={{ fontSize:20}}>Information</Text>}
             
             // rightComponent={<Image source={require('../../assets/images/search.png')} style={styles.headerRight} />}
-            rightComponent={<Text>Done</Text>}
+            rightComponent={
+              <TouchableOpacity>
+                <Text>Done</Text>
+                </TouchableOpacity>
+            }
             options={() => ({
               // headerTitle: getHeaderTitle(route),
               // headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,

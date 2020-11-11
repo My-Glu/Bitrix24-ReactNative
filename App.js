@@ -5,11 +5,14 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar, AppRegistry,
+  AsyncStorage,
+  StatusBar, 
+  AppRegistry,
   Image,
   Dimensions,
   TouchableOpacity
 } from 'react-native';
+
 import {createAppContainer} from 'react-navigation';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -17,7 +20,7 @@ import ListOne from './src/components/ListOne';
 import Login from './src/screens/login/Login';
 import Splash from './Splash';
 import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
-import OTPScreen from './src/screens/forgetPassword/OTPScreen';
+import OTPScreen from './src/screens/login/OTPScreen';
 
 
 import PipeLine from './src/navPages/Pipelines';
@@ -76,6 +79,7 @@ export default class App extends React.Component {
     super(props);
     this.state = {
         timePassed: false,
+        session:false,
         
     };
 }
@@ -84,15 +88,50 @@ export default class App extends React.Component {
 //  }
 
 componentDidMount() {
+
     StatusBar.setHidden(true, 'none');
     setTimeout( () => {
         this.setTimePassed();
-    },500);
+    },1000);
+
+
+//      AsyncStorage.getItem('SESSION')
+//    .then(
+//         (value) =>
+//           // AsyncStorage returns a promise
+//           // Adding a callback to get the value
+//         this.setState({session:value})
+//         // Setting the value in Text
+//       );
+
 }
 
 setTimePassed() {
     this.setState({timePassed: true});
 }
+
+ displayData= async()=> {
+
+    try{
+
+        AsyncStorage.getItem('email1').then(
+            (value) =>
+              // AsyncStorage returns a promise
+              // Adding a callback to get the value
+              setProfileName(value),
+            // Setting the value in Text
+          );
+
+    }
+
+    catch(error){
+Alert.alert(error)
+    }
+
+  }
+
+
+
 
 render() {
     
@@ -100,7 +139,17 @@ render() {
         return <Splash/>;
     } else {
         // return <ClientsEdit/>
+
         return <Routes/>
+
+        // if(session==true){
+        //     return <NavScreen/>
+        // }else{
+        //     return <Routes/>
+        // }
+
+
+       
         // return <MessageBubble/>
         // return <OTPScreen/>
         // return <UserChat/>

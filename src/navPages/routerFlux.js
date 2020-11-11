@@ -1,5 +1,8 @@
 import React from 'react';
 import Login from '../screens/login/Login';
+import OnBoarding from '../screens/login/OnBoarding';
+import OTPScreen from '../screens/login/OTPScreen';
+import SetPassword from '../screens/login/SetPassword';
 import Channel from './Channel';
 import Menu from './Menu';
 import Pipelines from './Pipelines';
@@ -37,7 +40,6 @@ import CreateProduct from './archiveProduct/CreateProduct';
 import CreateInvoice from './invoices/CreateInvoice';
 import CreateQuote from './quotes/CreateQuote';
 import DetailsUserTasks from '../navPages/employee/DetailsUserTasks';
-
 import { Router, Scene } from 'react-native-router-flux';
 
 
@@ -54,12 +56,31 @@ const Routes = () => (
          />
 
         <Scene
+         key="onboard" 
+         component={OnBoarding} 
+         hideNavBar={false} 
+         title="Onboarding" 
+        />
+
+        <Scene
+         key="otp" 
+         component={OTPScreen} 
+         hideNavBar={false} 
+         title="OTP" 
+        />
+
+        <Scene
+         key="setPassword" 
+         component={SetPassword} 
+         hideNavBar={false} 
+         title="Sign Up" 
+        />
+
+        <Scene
          key="navScreen" 
          component={NavScreen} 
          hideNavBar={true} 
          renderBackButton={()=>{}}
-
-        //  initial = {true}
          />
 
         <Scene

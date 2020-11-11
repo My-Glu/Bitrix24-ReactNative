@@ -1,12 +1,67 @@
-import React from 'react';
-import {StyleSheet, Text, View,TouchableOpacity, Image} from "react-native";
+import React, {useState,useEffect} from 'react';
+import {StyleSheet, Text, View,TouchableOpacity, AsyncStorage,Image} from "react-native";
 import {Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import Employee from '.././navPages/Employee'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Actions } from 'react-native-router-flux';
 
 const SideMenu = (props) => {
     
+    const [profileName, setProfileName] = useState('');
+    // let profileName = AsyncStorage.getItem('email1');
+
+
+    useEffect(() => {
+        // document.title = `You clicked ${count} times`;
+
+        // {displayData}
+
+        AsyncStorage.getItem('email1').then(
+            (value) =>
+            // let name   = email.substring(0, email.lastIndexOf("@"));
+              // AsyncStorage returns a promise
+              // Adding a callback to get the value
+              setProfileName(value.substring(0, value.lastIndexOf("@"))),
+            // Setting the value in Text
+          );
+
+
+      });
+
+    // useEffect(() => {
+    //     // code to run on component mount
+    //     displayData
+    //   }, [])
+
+
+    const displayData= async()=> {
+
+        try{
+
+            AsyncStorage.getItem('email1').then(
+                (value) =>
+                  // AsyncStorage returns a promise
+                  // Adding a callback to get the value
+                  setProfileName(value),
+                // Setting the value in Text
+              );
+
+
+
+    // let uEmail = await AsyncStorage.getItem('email1');
+    // setProfileName(uEmail)
+    // Alert.alert(uEmail);
+
+        }
+
+        catch(error){
+    Alert.alert(error)
+        }
+    
+      }
+
+
     return(
         <View style={{flex:1}}>
             <DrawerContentScrollView {...props}>
@@ -14,7 +69,7 @@ const SideMenu = (props) => {
             <View style={{flexDirection:'row',marginTop:25,alignItems:'center'}}>
               <Avatar.Image backgroundColor="#ffffff" source={require('../assets/images/userprog.png')} size={65} />
               <View style={{flexDirection:'column', marginLeft: 10}}>
-                <Title style={{color:'green'}}>Farhan Sarwar</Title>
+    <Title style={{color:'green'}}>{profileName}</Title>
                 <TouchableOpacity delayPressIn={1}
                 onPress={()=> {props.navigation.navigate('Information')}}
                 >
@@ -159,7 +214,6 @@ const SideMenu = (props) => {
               
               
               
-              
             </DrawerContentScrollView>
 
             {/* <Image  source={require('../assets/images/invoices.png')} tintColor='#49641D' style={{width:18, height:18,}}/> */}
@@ -167,7 +221,8 @@ const SideMenu = (props) => {
                 <DrawerItem
                  icon = { () => (<Image  source={require('../assets/images/logout.png')} tintColor='#49641D' style={{width:18, height:18,}}/> )}
                  label="Sign Out"
-                 
+                 onPress={() => {AsyncStorage.setItem('SESSION', false) &&  Actions.login()  }
+                }
                  />
             </Drawer.Section>
 

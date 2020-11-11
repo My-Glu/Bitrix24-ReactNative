@@ -12,6 +12,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const deviceHeight = Dimensions.get('window').height
 const deviceWidth = Dimensions.get('window').width
 
+const afiaNoor = "https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/"
+const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/"
 export default class App extends Component {
 
     constructor(props) {
@@ -19,15 +21,50 @@ export default class App extends Component {
         this.state = {
 
             search: '',
+            data:{},
+            newUsers:{},
         }
     }
 
+  componentDidMount() {
+    this.fetchData();
+
+    this.fetchNewUsers();
+  }
+
+// https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/im.recent.get?SKIP_CHAT=N
+ 
+fetchNewUsers= async()=> {
+    // const response = await fetch("https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/im.recent.get?SKIP_CHAT=N");
+    const response = await fetch(afiaNoor+"user.get");
+    const json = await response.json()
+    // .then((response) => response.json())
+     .catch((error) => console.warn("fetch error:", error))
+    this.setState({newUsers: json.result});
+
+  }
+
+
+fetchData= async()=> {
+
+    const response = await fetch(afiaNoor+"im.recent.get?SKIP_CHAT=N");
+    // const response = await fetch("https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/user.get");
+    const json = await response.json()
+    // .then((response) => response.json())
+     .catch((error) => console.warn("fetch error:", error))
+    this.setState({data: json.result});
+
+  }
+
+
+// https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/im.user.list.get?ID=[1,2,3,4,5,6,7,8,9,10]
     updateSearch = (search) => {
         this.setState({ search });
     };
 
-    goToUserChat = () => {
-        Actions.userChat()
+    goToUserChat = (item) => {
+        Actions.userChat({id:item.id, user:item.user.name})
+        // Actions.userChat({id:item.ID, user:item.NAME})
     };
 
     renderInner = () => (
@@ -64,14 +101,45 @@ export default class App extends Component {
                 <View style={{marginBottom:20}}>
                     <Text style={{fontSize:15,color:'grey'}}>Employees</Text>
                 </View>
+{/* -------------------------------flatlist ------------ */}
 
+
+
+<FlatList  
+data={this.state.newUsers} 
+                    // data={[  
+                    //     {key: 'Shahid Saleem'},{key: 'Fahad Yousaf'}, {key: 'Imran khan'},{key: 'Hooram Sultan'},  
+                    //     {key: 'Meherma Sultan'},  {key: 'Afia Noor'},
+                    //     {key: 'Meherma Sultan'},  {key: 'Afia Noor'},
+                    // ]}  
+                    keyExtractor={(object, index) => index}
+                    renderItem={({item}) => 
+                
+                <View>
+ <View style={{flexDirection: 'row',marginBottom:15 ,alignItems:'center',}}>
+                <Avatar.Image size={24} source={require('../assets/images/blue6.jpg')} size={65} />
+                <View style={{ marginLeft: 30 }}>
+
+    <Title style={{ color: 'green', }}>{item.NAME}</Title>
+                    
+                </View>
+                </View>
+                </View>
+                }
+    
+    />
+
+
+
+
+{/*               
                 <View style={{flexDirection: 'row',marginBottom:15 ,alignItems:'center',}}>
                 <Avatar.Image size={24} source={require('../assets/images/blue6.jpg')} size={65} />
                 <View style={{ marginLeft: 30 }}>
                     <Title style={{ color: 'green', }}>Sohail</Title>
                     
                 </View>
-</View>
+                </View>
 
 <View style={{flexDirection: 'row',marginBottom:15 ,alignItems:'center',}}>
                 <Avatar.Image size={24} source={require('../assets/images/blue6.jpg')} size={65} />
@@ -87,9 +155,19 @@ export default class App extends Component {
                     <Title style={{ color: 'green', }}>Arfa</Title>
                     
                 </View>
-</View>
+</View> */}
+
+
+
 
             </View>
+            // bottomup sheet panel end 
+
+// ------------------------- flatlist end ----------------------
+
+
+
+
 
             // -------------------- bottom up sheet design end --------------------
             
@@ -157,16 +235,29 @@ export default class App extends Component {
 
 {/* -------------------------------- item 1 --- chat friend one ------------------------- */}
 
+<FlatList  
+data={this.state.data} 
+                    // data={[  
+                    //     {key: 'Shahid Saleem'},{key: 'Fahad Yousaf'}, {key: 'Imran khan'},{key: 'Hooram Sultan'},  
+                    //     {key: 'Meherma Sultan'},  {key: 'Afia Noor'},
+                    //     {key: 'Meherma Sultan'},  {key: 'Afia Noor'},
+                    // ]}  
+                    keyExtractor={(object, index) => index}
+                    renderItem={({item}) =>  
 
 <View style={{marginLeft:'5%',marginRight:'5%', marginTop: '5%'}} >
+
 <TouchableOpacity 
-onPress={this.goToUserChat}
+onPress={this.goToUserChat.bind(this, item)}
 >
+
 <View style={{flexDirection: 'row' ,  justifyContent:'space-between', }}>
     <View style={{flexDirection: 'row'}}>
 <Avatar.Image style={{position: 'relative'}} source={require('../assets/images/blue6.jpg')} size={50} />
                                     <View style={{ marginLeft:'5%' }}>
-                                        <Title style={{ color: '#49641D', fontSize:14,  fontFamily:'segoesb',}}>Farhan Sarwer<Text style={{fontSize:12}}>("its You")</Text></Title>
+                                        <Title style={{ color: '#49641D', fontSize:14,  fontFamily:'segoesb',}}>{item.user.name}
+                                        {/* <Text visible={false} style={{fontSize:12}}>("its You")</Text> */}
+                                        </Title>
                                         <Caption style={{ fontSize:15, marginTop:-5, color: 'rgba(73,100,29,0.5)'}}>Employee </Caption>
                                     </View>
                                
@@ -180,7 +271,7 @@ onPress={this.goToUserChat}
 </TouchableOpacity>
 
 </View>
-
+                    }/>
 
 
                 {/* <View style={styles.tableView}>

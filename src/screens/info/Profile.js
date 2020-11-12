@@ -13,6 +13,48 @@ export default class Profile extends Component {
     };
   }
 
+
+  updateUserProfile= async()=> {
+    // const response = await fetch("https://randomuser.me/api?results=15");
+    // const response = await fetch("https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/im.chat.add?TYPE=CHAT&TITLE=Myglu&DESCRIPTION=Myglu Community&COLOR=MINT&MESSAGE={this.state.message}&USERS=Array(1,4)&AVATAR='avatar'&ENTITY_TYPE=CHAT&ENTITY_ID=4&OWNER_ID={this.props.id}");
+    // const response = await fetch(afiaNoor+"im.chat.add?TYPE=CHAT&TITLE=Myglu&DESCRIPTION=MygluCommunity&COLOR=MINT&MESSAGE={this.state.message}&USERS=Array(1,4)&ENTITY_TYPE=CHAT&ENTITY_ID=4&OWNER_ID={this.props.id}");
+    // const response = await fetch(afiaNoor+"im.recent.get?SKIP_CHAT=N");
+    const response = await fetch(afiaNoor+"user.update?ID=6&NAME=urwa&LAST_NAME=ali&EMAIL=urwa.ali@my-glu.com&PERSONAL_MOBILE=03067459550&PERSONAL_PHONE=null&PERSONAL_BIRTHDAY=02/16/1997&WORK_POSITION=developer&PERSONAL_GENDER=female&WORK_PHONE=null&UF_WEB_SITES=null&UF_SKYPE=null&UF_FACEBOOK=null&UF_LINKEDIN=null");
+    // const response = await fetch(afiaNoor+"im.recent.get");
+    // const response = await fetch(afiaNoor+`im.dialog.messages.get?DIALOG_ID=${this.props.id}`);
+    // const response = await fetch(afiaNoor+"im.dialog.messages.get?DIALOG_ID=83");
+    const jsonData = await response.json()
+    // .then((json) => json.json())
+     .catch((error) => console.warn("fetch error:", error) && Alert.alert('E'))
+
+    // this.setState({data:[{
+    //   id: jsonData.result.ID,
+    //   firstName: jsonData.result.NAME,
+    //   lastName: jsonData.result.LAST_NAME,
+    //   Email: jsonData.result.EMAIL,
+    //   mobile : jsonData.result.PERSONAL_MOBILE,
+    //   phone: jsonData.result.PERSONAL_PHONE,
+    //   DOB: jsonData.result.PERSONAL_BIRTHDAY,
+    //   position: jsonData.result.WORK_POSITION,
+    //   gender: jsonData.result.PERSONAL_GENDER,
+    //   website: jsonData.result.UF_WEB_SITES,
+    //   workphone: jsonData.result.WORK_PHONE,
+    //   skype: jsonData.result.UF_SKYPE,
+    //   facebook:jsonData.result.UF_FACEBOOK,
+    //   linkedin:jsonData.result.UF_LINKEDIN,
+
+    //  }
+    // ]});
+
+    // this.setState({
+    //   data:{
+    //   messages:jsonData.result.messages
+    //   }
+    // });
+    // Alert.alert(this.state.data.chat_id)
+  }
+
+
   render() {
     return (
       <ScrollView>

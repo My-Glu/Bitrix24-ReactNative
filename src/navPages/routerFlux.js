@@ -45,8 +45,11 @@ import { Router, Scene } from 'react-native-router-flux';
 
 const Routes = () => (
     
+  
     <Router>
-      <Scene key="root">
+      <Scene key="root"
+       backAndroidHandler={() => Actions.pop()}
+      >
         
         <Scene
          key="login" 

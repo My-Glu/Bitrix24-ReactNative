@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import * as React from 'react';
-import { Button, View, Text, TouchableOpacity, Image, Dimensions,BackHandler, } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import { Button, View, Text, TouchableOpacity, Image, Dimensions,BackHandler, ToastAndroid,} from 'react-native';
 import Employee from '.././navPages/Employee'
 import Leads from '.././navPages/Leads'
 import Deals from '.././navPages/Deals'
@@ -13,6 +13,9 @@ import Clients from '.././navPages/Clients'
 import ProductArchives from '.././navPages/ProductArchives'
 import Information from '.././screens/info/Information'
 import Icon5 from 'react-native-vector-icons/FontAwesome5';
+// import {Provider} from 'react-redux';
+// import Toast from 'react-native-root-toast';
+
 
 // import Clients from './Clients'
 import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
@@ -44,7 +47,7 @@ const Tab = createBottomTabNavigator();
 
 const deviceHeight = Dimensions.get('window').height
 const deviceWidth = Dimensions.get('window').width
-
+let backHandlerClickCount = 0;
 const NavigationDrawerStructure = (props)=> {
   //Structure for the navigatin Drawer
   const toggleDrawer = () => {
@@ -53,6 +56,74 @@ const NavigationDrawerStructure = (props)=> {
   };
 
   
+
+  useEffect(() => {
+    // back handle exit app
+    BackHandler.addEventListener('hardwareBackPress', backButtonHandler);
+    return () => {
+        BackHandler.removeEventListener('hardwareBackPress', backButtonHandler);
+    };
+}, []);
+
+
+const backButtonHandler = () => {
+  // const shortToast = message => {
+  //     Toast.show(message, {
+  //         duration: Toast.durations.LONG,
+  //         position: Toast.positions.BOTTOM,
+  //     });
+  // }
+
+  backHandlerClickCount += 1;
+  if ((backHandlerClickCount < 2)) {
+    // ToastAndroid.show(""+this.state.logUserID, ToastAndroid.LONG);
+    ToastAndroid.show("Press again to  exit", ToastAndroid.LONG);
+  } else {
+      BackHandler.exitApp();
+  }
+
+  // timeout for fade and exit
+  setTimeout(() => {
+      backHandlerClickCount = 0;
+  }, 1000);
+
+  return true;
+}
+
+
+
+
+//   useEffect(() => {
+
+    
+//     BackHandler.removeEventListener('hardwareBackPress', handleBackButton);
+
+//   });
+
+//  const handleBackButton = () => {
+//     if (this.props.isFocused) {
+//       Alert.alert(
+//         'Exit App',
+//         'Exiting the application?',
+//         [
+//           {
+//             text: 'Cancel',
+//             onPress: () => console.log('Cancel Pressed'),
+//             style: 'cancel'
+//           },
+//           {
+//             text: 'OK',
+//             onPress: () => BackHandler.exitApp()
+//           }
+//         ],
+//         {
+//           cancelable: false
+//         }
+//       );
+//       return true;
+//     }
+//   };
+
 
   return (
     <View style={{ flexDirection: 'row', marginLeft:10 }}>

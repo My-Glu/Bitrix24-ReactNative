@@ -23,7 +23,8 @@ export default class Login extends Component {
   // const LoginScreen = props => {
   
     // }
-  
+
+
     goToDashboard = () => {
       // Actions.navScreen()
       // Actions.navScreen({onBack: () => console.log('custom back callback') });
@@ -43,7 +44,8 @@ export default class Login extends Component {
       password: '',
        message: '',
       isLogIn: false,
-      sessionOn: JSON.stringify(false),
+      // sessionOn: JSON.stringify(false),
+      sessionOn: "false",
       token:'',
       email:'',
       loggedUserID:'',
@@ -167,14 +169,15 @@ this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID})
   ToastAndroid.show(""+res.message, ToastAndroid.LONG);
 }else if(res.status === 1){
   // Alert.alert("Response1", "Error: "+ res.status +" "+res.message);
-  this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID})
+  this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID});
+  // this.setState({sessionOn:"true"});
   this.saveData();
+  
   Actions.navScreen({userEmail: res.User.EMAIL});
   //for session
-//  this.setState({sessionOn:JSON.stringify(true)})
+ 
   // this.saveData().bind(this, res.User.EMAIL);
  
-
   // this.displayData();
   // this.setState({sessionOn:true})
   // AsyncStorage.setItem('SESSION', true)
@@ -205,14 +208,14 @@ else{
 
 
 // componentDidMount() {
-//  let value = AsyncStorage.getItem('SESSION')
-  // const value = AsyncStorage.getItem('SESSION')
+// //  let value = AsyncStorage.getItem('SESSION')
+//   const value = AsyncStorage.getItem('SESSION')
 
-  // if(value=="true"){
-  // if(this.state.sessionOn=="true"){
-  //   Actions.navScreen();
-  //   // Actions.navScreen({onBack: () => Actions.login()});
-  // }
+//   if(value=="true"){
+//   // if(this.state.sessionOn=="true"){
+//     Actions.navScreen();
+//     // Actions.navScreen({onBack: () => Actions.login()});
+//   }
 // }
 
 
@@ -512,7 +515,7 @@ checkboxContainer: {
     borderColor: 'black',
     backgroundColor: 'red'
  },
- 
+
  screenContainer: {
   height:100,
   marginHorizontal:5,

@@ -23,6 +23,7 @@ export default class OnBoarding extends Component {
     //       "password": this.state.password
     //   }
     // })
+    
     }).then((response) => response.json())
     .then((res) => {
   // if(typeof(res.message) != "undefined"){

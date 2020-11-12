@@ -16,7 +16,7 @@ export default class Information extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      profileData:[{ 
+      profileData:{ 
         id:'',
         firstName:'',
         lastName:'',
@@ -32,7 +32,7 @@ export default class Information extends Component {
         facebook:'',
         linkedin:'',
         
-      }]
+      }
       ,
       logUserID:'',
     };
@@ -68,7 +68,7 @@ export default class Information extends Component {
 
     // this.setState({data:[{
     //   id: jsonData.result.ID,
-    //   firstName: jsonData.result.NAME,
+      // firstName: jsonData.result.NAME,
     //   lastName: jsonData.result.LAST_NAME,
     //   Email: jsonData.result.EMAIL,
     //   mobile : jsonData.result.PERSONAL_MOBILE,
@@ -116,7 +116,7 @@ export default class Information extends Component {
 // Alert.alert(uEmail);
 
     } catch(error){
-      Alert.alert(error)
+      Alert.alert(error);
           }
       
         }
@@ -128,17 +128,26 @@ export default class Information extends Component {
     // const response = await fetch(afiaNoor+"im.recent.get?SKIP_CHAT=N");
     // const response = await fetch(bitrix+"user.get?ID=1")
     // const response = await fetch(`https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/user.get?ID=${this.state.loggedUserID}`, {
-    const response = await fetch(afiaNoor+`user.get?ID=${this.state.logUserID}`, {
+    // const response = await fetch(afiaNoor+`user.get?ID=${this.state.logUserID}`, {
+  
+      // return new Promise((resolve, reject) => {
+
+      // });
+
+    const response = await fetch(afiaNoor+`user.get?ID=1`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
-      }})
+      }});
     // const response = await fetch(afiaNoor+"im.recent.get");
     // const response = await fetch(afiaNoor+`im.dialog.messages.get?DIALOG_ID=${this.props.id}`);
     // const response = await fetch(afiaNoor+"im.dialog.messages.get?DIALOG_ID=83");
+  
     const jsonData = await response.json()
-    .catch((error) => console.warn("fetch error:", error) && Alert.alert('E'))
+    .catch((error) => console.warn("fetch error:", error) );
+
+  // });
     // .then((response) => response.json())
     // .then((json) => json.json())
     //  .catch((error) => console.warn("fetch error:", error) && Alert.alert('E')
@@ -187,7 +196,13 @@ export default class Information extends Component {
 
   render() {
     return (
-     <Profile/>
+    //  <Profile   />
+    <View>
+
+<Text style={{textAlign: 'center', marginTop:35,color:'#49641D' ,fontSize:20}}>hello {this.state.firstName}</Text>
+
+
+    </View>
         
     );
   }

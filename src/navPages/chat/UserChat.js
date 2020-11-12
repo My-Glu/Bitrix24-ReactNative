@@ -69,7 +69,9 @@ export default class UserChat extends Component {
       // const response = await fetch("https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/im.chat.add?TYPE=CHAT&TITLE=Myglu&DESCRIPTION=Myglu Community&COLOR=MINT&MESSAGE={this.state.message}&USERS=Array(1,4)&AVATAR='avatar'&ENTITY_TYPE=CHAT&ENTITY_ID=4&OWNER_ID={this.props.id}");
       // const response = await fetch(afiaNoor+"im.chat.add?TYPE=CHAT&TITLE=Myglu&DESCRIPTION=MygluCommunity&COLOR=MINT&MESSAGE={this.state.message}&USERS=Array(1,4)&ENTITY_TYPE=CHAT&ENTITY_ID=4&OWNER_ID={this.props.id}");
       // const response = await fetch(afiaNoor+"im.recent.get?SKIP_CHAT=N");
-      const response = await fetch(afiaNoor+"im.dialog.messages.get?DIALOG_ID=83");
+      // const response = await fetch(afiaNoor+"im.dialog.messages.get?DIALOG_ID=83");
+      const response = await fetch(afiaNoor+`im.dialog.messages.get?DIALOG_ID=${this.props.id}`);
+      // const response = await fetch(afiaNoor+`im.dialog.messages.get?DIALOG_ID=1`);
       // const response = await fetch(afiaNoor+"im.recent.get");
       // const response = await fetch(afiaNoor+`im.dialog.messages.get?DIALOG_ID=${this.props.id}`);
       // const response = await fetch(afiaNoor+"im.dialog.messages.get?DIALOG_ID=83");
@@ -208,6 +210,7 @@ scrollbars='none'
 //  firstName={item.title}
  firstName={this.props.user}
 //  message={item.message.text}
+uid={item.author_id}
  message={item.text}
  datetime= {item.date}
 //  message={item.chat_id}
@@ -304,7 +307,7 @@ style={{borderWidth:2,borderColor:'#C0C0C0', borderRadius:4, marginVertical:'3%'
 {/* ------------send button ------------ */}
 
 <TouchableOpacity style={{ marginHorizontal: '1%' , }}
-onPress={()=>{this.SendMessage() &&  this.fetchData()}}
+onPress={()=>{this.SendMessage() && this.fetchData()}}
 >
 <Icon3 name="send" color="#49641D" style={{ fontSize: 22, }}></Icon3>
 </TouchableOpacity>  

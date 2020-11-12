@@ -73,15 +73,18 @@ export default class OTPScreen extends Component {
     }).then((response) => response.json())
     .then((res) => {
    if(res.status == 0){
-    Alert.alert("Response0", "Status: "+ res.status +"\n Message "+res.message);
+    // Alert.alert("Response0", "Status: "+ res.status +"\n Message "+res.message);
+    ToastAndroid.show(""+res.message, ToastAndroid.LONG);
   }else if(res.status === 1){
     // Alert.alert("Response1", "Error: "+ res.status +" "+res.message);
     // Actions.navScreen();
-    Alert.alert("Response1", "Status: "+ res.status +"\n Message "+res.message);
+    // Alert.alert("Response1", "Status: "+ res.status +"\n Message "+res.message);
+    ToastAndroid.show(""+res.message, ToastAndroid.LONG);
   }
    else{
     // this.setState({ auth_token: res.auth_token });
-    Alert.alert("Oops", "Something went wrong" );
+    // Alert.alert("Oops", "Something went wrong" );
+    ToastAndroid.show("Something went wrong", ToastAndroid.LONG);
     }
   }).catch((error) => {
      console.error(error);

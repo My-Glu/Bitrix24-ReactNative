@@ -11,10 +11,9 @@ const SideMenu = (props) => {
     const [profileName, setProfileName] = useState('');
     // let profileName = AsyncStorage.getItem('email1');
 
-
     useEffect(() => {
-        // document.title = `You clicked ${count} times`;
 
+        // document.title = `You clicked ${count} times`;
         // {displayData}
 
         AsyncStorage.getItem('email1').then(
@@ -47,8 +46,6 @@ const SideMenu = (props) => {
                 // Setting the value in Text
               );
 
-
-
     // let uEmail = await AsyncStorage.getItem('email1');
     // setProfileName(uEmail)
     // Alert.alert(uEmail);
@@ -60,7 +57,6 @@ const SideMenu = (props) => {
         }
     
       }
-
 
     return(
         <View style={{flex:1}}>
@@ -221,7 +217,7 @@ const SideMenu = (props) => {
                 <DrawerItem
                  icon = { () => (<Image  source={require('../assets/images/logout.png')} tintColor='#49641D' style={{width:18, height:18,}}/> )}
                  label="Sign Out"
-                 onPress={() => {AsyncStorage.setItem('SESSION', false) &&  Actions.login()  }
+                 onPress={() => {AsyncStorage.setItem('SESSION', JSON.stringify(false)) &&  Actions.login()  }
                 }
                  />
             </Drawer.Section>

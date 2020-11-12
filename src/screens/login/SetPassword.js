@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, StyleSheet, Text,TextInput, Image,Dimensions, ScrollView,Button, Alert, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, AsyncStorage,Text,TextInput,ToastAndroid, Image,Dimensions, ScrollView,Button, Alert, TouchableOpacity} from 'react-native';
 // import styles from "./style";
 // import { Button } from 'react-native-elements';
 import CheckBox from '@react-native-community/checkbox';
@@ -28,6 +28,7 @@ export default class SetPassword extends Component {
        message: '',
       isLogIn: false
     };
+    this.Login = this.Login.bind(this); 
   }
 
   goToDashboard = () => {
@@ -36,12 +37,26 @@ export default class SetPassword extends Component {
     Actions.navScreen({onBack: () => Actions.login()});
  }
 
+
+   
+ saveData= () => {
+  // let userEmail = email;
+  // AsyncStorage.setItem('email1', JSON.stringify(userEmail));
+  // AsyncStorage.setItem('email1', JSON.stringify(this.state.email));
+  AsyncStorage.setItem('email1', this.props.email);
+  AsyncStorage.setItem('loggedUserID', this.state.loggedUserID);
+  AsyncStorage.setItem('SESSION', this.state.sessionOn);
+
+}
+
+
  Login= async()=> {
 
-    const response = await fetch(`http://34.210.75.190/api/login?email=${this.props.email}&password=${this.state.password}&password_confirmation=${this.state.confirmPassword}`,
+    const response = await fetch(`http://34.210.75.190/api/onboard/confirm?email=${this.props.email}&password=${this.state.password}&password_confirmation=${this.state.confirmPassword}`,
     {method: 'POST',
     headers: {
     'Content-Type': 'application/json'},
+
     // body: JSON.stringify({
     //   // "provider": "email",
     //   "data":
@@ -50,23 +65,37 @@ export default class SetPassword extends Component {
     //       "password": this.state.password
     //   }
     // })
+
     }).then((response) => response.json())
     .then((res) => {
+
   // if(typeof(res.message) != "undefined"){
   //  Alert.alert("Error1", "Error: "+ res.message);
   // }else
   
-   if(res.status == 0){
-    Alert.alert("Response0", "Status: "+ res.status +"\n Message "+res.message);
+   if(res.status === 0){
+    // Alert.alert("Response0", "Message: "+res.message);
+    ToastAndroid.show(""+res.message, ToastAndroid.LONG);
   }else if(res.status === 1){
-    Alert.alert("Response1", "Error: "+ res.status +" "+res.message);
-  }else if(res.status === 2){
+    // Alert.alert("Response1", "Message: "+res.message);
+    ToastAndroid.show("Signup Success !", ToastAndroid.SHORT);
+    this.saveData();
+    
+
+    Actions.navScreen();
+
+
+
+
+  }
+  // else if(res.status === 2){
     // {this.goToDashboard}
-    Actions.login({onBack: () => Actions.login()});
+    // Actions.login({onBack: () => Actions.login()});
+    // Actions.login();
     // Actions.onboard(this, this.state.username, this.state.password);
     // Actions.onboard({email: this.state.username, password: this.state.password});
     // Alert.alert("Response", "Status: "+ res.status +"\nMessage: "+res.message);
-  }
+  // }
   else{
     // this.setState({ auth_token: res.auth_token });
     Alert.alert("Oops", "Something went wrong");
@@ -95,7 +124,7 @@ export default class SetPassword extends Component {
               style={styles.image}
                 />
 
-              <Text style={styles.textTitle }>LOGIN</Text>
+              <Text style={styles.textTitle }>SIGNUP</Text>
               
 {/* ------------------------------Horizontal line -------------------------------------- */}
                <View style={{flexDirection: 'row', alignItems: 'center'}}>
@@ -196,10 +225,10 @@ onPress = {this.goToForgetPass}
  {/* ------------------------------Button signin----------------------------------------------  */}
 
  <View style={styles.screenContainer}>
-     <Button title="SIGN IN" width="100%" color="#385805" 
+     <Button title="SIGN UP" width="100%" color="#385805" 
     
      style={{backgroundColor: '#385805'}} 
-     onPress = {this.Login.bind(this)}
+     onPress = {this.Login}
 
     />
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, StyleSheet, Text,TextInput, Image,Dimensions, AsyncStorage, ScrollView,Button, Alert, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Text,TextInput, Image,Dimensions, AsyncStorage, ScrollView,Button, Alert, TouchableOpacity, ToastAndroid} from 'react-native';
 // import styles from "./style";
 // import { Button } from 'react-native-elements';
 import CheckBox from '@react-native-community/checkbox';
@@ -40,12 +40,13 @@ export default class Login extends Component {
     this.state = {
       responseData:{},
       username: '',
-    password: '',
+      password: '',
        message: '',
       isLogIn: false,
-      sessionOn: false,
+      sessionOn: JSON.stringify(false),
       token:'',
       email:'',
+      loggedUserID:'',
     };
     
     // this.onPressButton = this.onPressButton.bind(this);
@@ -60,22 +61,23 @@ export default class Login extends Component {
     // AsyncStorage.setItem('email1', JSON.stringify(userEmail));
     // AsyncStorage.setItem('email1', JSON.stringify(this.state.email));
     AsyncStorage.setItem('email1', this.state.email);
+    AsyncStorage.setItem('loggedUserID', this.state.loggedUserID);
     AsyncStorage.setItem('SESSION', this.state.sessionOn);
 
   }
 
 
-  displayData= async()=> {
+//   displayData= async()=> {
 
-    try{
-let uEmail = await AsyncStorage.getItem('email1');
-Alert.alert(uEmail);
-    }
-    catch(error){
-Alert.alert(error)
-    }
+//     try{
+// let uEmail = await AsyncStorage.getItem('email1');
+// Alert.alert(uEmail);
+//     }
+//     catch(error){
+// Alert.alert(error)
+//     }
 
-  }
+//   }
 
 
 //   moveToForgetPassword = () => {
@@ -155,15 +157,23 @@ Login= async()=> {
 // if(typeof(res.message) != "undefined"){
 //  Alert.alert("Error1", "Error: "+ res.message);
 // }else
-this.setState({email: res.User.EMAIL})
- if(res.status == 0){
-  Alert.alert("Response0", "Status: "+ res.status +"\n Message "+res.message);
+if(res.User != null){
+this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID})
+}
+
+ if(res.status === 0){
+  // Alert.alert("Response0", "Status: "+ res.status +"\n Message "+res.message);
+  // Alert.alert("Response", "Message: "+res.message);
+  ToastAndroid.show(""+res.message, ToastAndroid.LONG);
 }else if(res.status === 1){
   // Alert.alert("Response1", "Error: "+ res.status +" "+res.message);
-  Actions.navScreen({userEmail: res.User.EMAIL});
- this.setState({sessionOn:true})
-  // this.saveData().bind(this, res.User.EMAIL);
+  this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID})
   this.saveData();
+  Actions.navScreen({userEmail: res.User.EMAIL});
+  //for session
+//  this.setState({sessionOn:JSON.stringify(true)})
+  // this.saveData().bind(this, res.User.EMAIL);
+ 
 
   // this.displayData();
   // this.setState({sessionOn:true})
@@ -194,16 +204,44 @@ else{
 }
 
 
-componentDidMount() {
+// componentDidMount() {
 //  let value = AsyncStorage.getItem('SESSION')
   // const value = AsyncStorage.getItem('SESSION')
 
   // if(value=="true"){
-  if(AsyncStorage.getItem('SESSION')){
-    Actions.navScreen();
-    // Actions.navScreen({onBack: () => Actions.login()});
+  // if(this.state.sessionOn=="true"){
+  //   Actions.navScreen();
+  //   // Actions.navScreen({onBack: () => Actions.login()});
+  // }
+// }
+
+
+
+ displayData= async()=> {
+
+  try{
+
+      AsyncStorage.getItem('email1').then(
+          (value) =>
+            // AsyncStorage returns a promise
+            // Adding a callback to get the value
+            this.setState({sessionOn:value})
+            // setProfileName(value),
+          // Setting the value in Text
+        );
+
+// let uEmail = await AsyncStorage.getItem('email1');
+// setProfileName(uEmail)
+// Alert.alert(uEmail);
+
   }
+
+  catch(error){
+Alert.alert(error)
+  }
+
 }
+
 
 
 setLogin() {
@@ -285,7 +323,7 @@ setLogin() {
                  
 <View style={{ flexDirection: 'row' , marginBottom:20, paddingHorizontal:'5%'}}>
                <View style={{ flexDirection: 'row' }}>
-                  <CheckBox style={{ height: 20, width: 20, borderColor: '#aaa' , marginRight: 10 }}     />
+                  <CheckBox style={{ height: 20, width: 20, color: '#d3d3d3' , marginRight: 10 }}     />
                   <Text style={{fontSize: RFValue(14)}}>Remember me?</Text>
                   </View>
                   <View style={{ width: '5%'}}></View>
@@ -312,7 +350,7 @@ onPress = {this.goToForgetPass}
   <View style={styles.screenContainer}>
       <Button title="SIGN IN" width="100%" color="#385805" 
      
-      style={{backgroundColor: '#385805'}} 
+      style={{backgroundColor: '#385805', height:80}} 
       onPress = {this.Login.bind(this)}
 // onPress = {this.goToDashboard}
       // onPress={this.handleClick}
@@ -360,9 +398,6 @@ onPress = {this.goToForgetPass}
                     <Text style={[styles.textBody], {alignSelf: 'flex-end'}}>               Forgot Password?</Text>
                 </View> */}
 
-
-
-
                    {/* 
                 <Image 
                     source={require('../images/reactlogo.png')} 
@@ -408,7 +443,7 @@ onPress = {this.goToForgetPass}
 
 const styles = StyleSheet.create({
   container: {
-      flex: 1,
+      
       
       alignItems: 'center',
       justifyContent: 'center',
@@ -420,9 +455,11 @@ const styles = StyleSheet.create({
   
   },
   textTitle: {
-      fontFamily: 'berlinaansdemibold',
+    fontFamily: 'berlinsans',
       fontSize: 40,
+      fontWeight: 'bold',
       marginTop: -10,
+     color: '#49641D'
   },
   textBody: {
       fontFamily: 'Foundation',
@@ -447,7 +484,7 @@ SectionStyle: {
   backgroundColor: '#fff',
   borderWidth: .5,
   borderColor: '#000',
-  height: 40,
+  height: 45,
   borderRadius: 5 ,
   margin: 10
 },
@@ -471,20 +508,21 @@ checkboxContainer: {
     margin: 8,
   },
   buttonSignin: {
-     
     borderWidth: 1,
-    
     borderColor: 'black',
     backgroundColor: 'red'
  },
+ 
  screenContainer: {
-  flex: 1,
+  height:100,
   marginHorizontal:5,
   alignSelf: 'stretch',
   justifyContent: "center",
-  padding: 16,
+  paddingHorizontal: 16,
+  borderRadius: 5,
   color:'#385805'
   },
+
   circle :{
   height : 60,
   width :60,
@@ -493,6 +531,7 @@ checkboxContainer: {
   borderWidth:2,
   justifyContent: "center", 
   paddingHorizontal: 5,
+  backgroundColor: '#FBFFF4'
  }
 
 });

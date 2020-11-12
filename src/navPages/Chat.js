@@ -8,12 +8,12 @@ import { Avatar, Title, Caption } from 'react-native-paper';
 import {Header,SearchBar, Input} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
 const deviceHeight = Dimensions.get('window').height
 const deviceWidth = Dimensions.get('window').width
 
 const afiaNoor = "https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/"
 const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/"
+
 export default class App extends Component {
 
     constructor(props) {
@@ -26,10 +26,12 @@ export default class App extends Component {
         }
     }
 
-  componentDidMount() {
-    this.fetchData();
 
+  componentDidMount() {
+
+    this.fetchData();
     this.fetchNewUsers();
+
   }
 
 // https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/im.recent.get?SKIP_CHAT=N
@@ -298,6 +300,7 @@ onPress={this.goToUserChat.bind(this, item)}
                         </ScrollView>
                     </View>
                 </View> */}
+
                 {/* --------------------------------------------- item 1 end --------------------------------------- */}
                
                 {/* --------------------------------------------- item 2 --------------------------------------- */}
@@ -315,8 +318,6 @@ onPress={this.goToUserChat.bind(this, item)}
                 </View>
 
             </View>
-
-
 
         );
 

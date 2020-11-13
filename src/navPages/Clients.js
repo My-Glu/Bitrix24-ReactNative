@@ -134,7 +134,7 @@ onTouchOutside={onClosePopup2}
 
                <View style={styles.registeredName}>
 
-                 <Avatar.Image source={require('.././assets/images/blue6.jpg')} size={50} />
+                 <Avatar.Image backgroundColor="#ffffff" source={require('.././assets/images/userprog.png')} size={50} />
                  <View style={{ marginLeft: 5 }}>
                             <Title style={{ color: '#49641D' }}>{item.key}</Title>
                  </View>

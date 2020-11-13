@@ -80,7 +80,7 @@ onTouchOutside={onClosePopup}
         {/* --------------------------------------Image Block----------------------------- */}
 <View style={{backgroundColor: 'white', paddingVertical:10}}>
 <View style={{flexDirection: 'row', display: 'flex',alignItems: 'center', justifyContent: 'center',marginBottom:10}}>
-<Avatar.Image source={require('../../assets/images/blue6.jpg')} size={60} />
+<Avatar.Image backgroundColor="#ffffff" source={require('../../assets/images/userprog.png')} size={60} />
  
 </View>
 <View style={{justifyContent: 'center', alignItems: 'center', display: 'flex'}}>

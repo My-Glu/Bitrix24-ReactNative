@@ -44,8 +44,8 @@ export default class Login extends Component {
       password: '',
        message: '',
       isLogIn: false,
-      // sessionOn: JSON.stringify(false),
-      sessionOn: "false",
+      sessionOn: JSON.stringify(false),
+      // sessionOn: "false",
       token:'',
       email:'',
       loggedUserID:'',
@@ -64,7 +64,8 @@ export default class Login extends Component {
     // AsyncStorage.setItem('email1', JSON.stringify(this.state.email));
     AsyncStorage.setItem('email1', this.state.email);
     AsyncStorage.setItem('loggedUserID', this.state.loggedUserID);
-    AsyncStorage.setItem('SESSION', this.state.sessionOn);
+    // AsyncStorage.setItem('SESSION', this.state.sessionOn);
+    AsyncStorage.setItem('SESSION', JSON.stringify(true));
 
   }
 
@@ -171,8 +172,9 @@ this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID})
   // Alert.alert("Response1", "Error: "+ res.status +" "+res.message);
   this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID});
   // this.setState({sessionOn:"true"});
+  this.setState({sessionOn:JSON.stringify(true)});
   this.saveData();
-  
+  ToastAndroid.show("Loading...", ToastAndroid.LONG);
   Actions.navScreen({userEmail: res.User.EMAIL});
   //for session
  
@@ -207,16 +209,44 @@ else{
 }
 
 
-// componentDidMount() {
-// //  let value = AsyncStorage.getItem('SESSION')
-//   const value = AsyncStorage.getItem('SESSION')
+componentDidMount() {
+//  let value = AsyncStorage.getItem('SESSION')
+  // const value = AsyncStorage.getItem('SESSION')
 
-//   if(value=="true"){
-//   // if(this.state.sessionOn=="true"){
-//     Actions.navScreen();
-//     // Actions.navScreen({onBack: () => Actions.login()});
-//   }
-// }
+  
+
+  AsyncStorage.getItem('SESSION').then(
+    (value) =>
+      // AsyncStorage returns a promise
+      // Adding a callback to get the value
+      // this.setState({sessionOn:value})
+
+
+      //
+
+{   
+  // ToastAndroid.show(""+value, ToastAndroid.LONG)
+      if(value==JSON.stringify(true)){
+        // ToastAndroid.show(""+value, ToastAndroid.LONG)
+        Actions.navScreen();
+
+      }
+    }
+
+
+      // setProfileName(value),
+    // Setting the value in Text
+  );
+
+
+  // if(value){
+  // // if(value=="true"){
+  // // if(this.state.sessionOn=="true"){
+  //   Actions.navScreen();
+  //   // Actions.navScreen({onBack: () => Actions.login()});
+  // }
+
+}
 
 
 
@@ -477,7 +507,9 @@ containerInput: {
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  margin: 10
+  marginHorizontal: 20,
+  marginVertical:30
+
 },
 
 SectionStyle: {

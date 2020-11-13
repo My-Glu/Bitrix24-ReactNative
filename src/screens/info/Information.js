@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet,View,TextInput, Text,ScrollView, StatusBar,Image,ToastAndroid, TouchableOpacity } from 'react-native';
+import { StyleSheet,View,TextInput,Alert, Text,ScrollView, StatusBar,Image,ToastAndroid, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch, TouchableWithoutFeedback } from 'react-native-paper';
 import {Header} from 'react-native-elements';
 import {Actions} from 'react-native-router-flux';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
 import Profile from './Profile';
 
 

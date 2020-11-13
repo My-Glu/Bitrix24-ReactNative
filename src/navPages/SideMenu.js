@@ -215,7 +215,8 @@ const SideMenu = (props) => {
                 <DrawerItem
                  icon = { () => (<Image  source={require('../assets/images/logout.png')} tintColor='#49641D' style={{width:18, height:18,}}/> )}
                  label="Sign Out"
-                 onPress={() => {AsyncStorage.setItem('SESSION', "false") &&  Actions.login()  }
+                //  onPress={() => {AsyncStorage.setItem('SESSION', "false) &&  Actions.login()  }
+                 onPress={() => {AsyncStorage.setItem('SESSION', JSON.stringify(false)) &&  Actions.login()  }
                 }
                  />
             </Drawer.Section>

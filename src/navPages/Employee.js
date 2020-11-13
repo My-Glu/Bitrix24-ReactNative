@@ -159,7 +159,7 @@ export default class Employee extends Component {
 //       style={styles.images}
 //     />
 //   } else {
-//     return <Image source={require('../assets/images/blue6.jpg')}
+//     return <Image source={require('../assets/images/userprog.png')}
 //       style={styles.images}
 //     />
 //   }
@@ -173,7 +173,7 @@ export default class Employee extends Component {
 //     />
 //   } else {
 //     return <Image
-//       source={require('../assets/images/blue6.jpg')}
+//       source={require('../assets/images/userprog.png')}
 //       style={styles.images}
 //     />
 //   }
@@ -250,7 +250,7 @@ renderInner = () => (
 <ScrollView>
 <View  style={{paddingVertical: '15%'}}>
 <View style={{flexDirection: 'row' ,marginBottom:20,borderBottomColor:'#F0F0F0',borderBottomWidth:1,alignItems:'center',borderBottomEndRadius:100,borderBottomStartRadius:100}}>
-          <Avatar.Image size={24} source={require('../assets/images/blue6.jpg')} size={60} />
+          <Avatar.Image size={24} backgroundColor="#ffffff" source={require('../assets/images/userprog.png')} size={60} />
           <View style={{ marginLeft: 30 }}>
               <Title style={{ color: 'green', }}>Furqan</Title>
               
@@ -258,7 +258,7 @@ renderInner = () => (
 </View>
 
 <View style={{flexDirection: 'row' ,marginBottom:20,borderBottomColor:'#F0F0F0',borderBottomWidth:1,alignItems:'center',borderBottomEndRadius:100,borderBottomStartRadius:100}}>
-          <Avatar.Image size={24} source={require('../assets/images/blue6.jpg')} size={60} />
+          <Avatar.Image size={24} backgroundColor="#ffffff" source={require('../assets/images/userprog.png')} size={60} />
           <View style={{ marginLeft: 30 }}>
               <Title style={{ color: 'green', }}>+923067860123</Title>
               
@@ -266,7 +266,7 @@ renderInner = () => (
 </View>
 
 <View style={{flexDirection: 'row' ,marginBottom:20,borderBottomColor:'#F0F0F0',borderBottomWidth:1,alignItems:'center',borderBottomEndRadius:100,borderBottomStartRadius:100}}>
-          <Avatar.Image size={24} source={require('../assets/images/blue6.jpg')} size={60} />
+          <Avatar.Image size={24} backgroundColor="#ffffff" source={require('../assets/images/userprog.png')} size={60} />
           <View style={{ marginLeft: 30 }}>
               <Title style={{ color: 'green', }}>+923067860123</Title>
               
@@ -274,7 +274,7 @@ renderInner = () => (
 </View>
 
 <View style={{flexDirection: 'row' ,marginBottom:20,borderBottomColor:'#F0F0F0',borderBottomWidth:1,alignItems:'center',borderBottomEndRadius:100,borderBottomStartRadius:100}}>
-          <Avatar.Image size={24} source={require('../assets/images/blue6.jpg')} size={60} />
+          <Avatar.Image size={24} backgroundColor="#ffffff" source={require('../assets/images/userprog.png')} size={60} />
           <View style={{ marginLeft: 30 }}>
               <Title style={{ color: 'green', }}>+923067860123</Title>
               
@@ -283,7 +283,7 @@ renderInner = () => (
 
 
 <View style={{flexDirection: 'row' ,marginBottom:20,borderBottomColor:'#F0F0F0',borderBottomWidth:1,alignItems:'center',borderBottomEndRadius:100,borderBottomStartRadius:100}}>
-          <Avatar.Image  source={require('../assets/images/blue6.jpg')} size={60} />
+          <Avatar.Image backgroundColor="#ffffff"  source={require('../assets/images/userprog.png')} size={60} />
           <View style={{ marginLeft: 30 }}>
               <Title style={{ color: 'green', }}>Iqbal</Title>
               
@@ -398,7 +398,7 @@ fall = new Animated.Value(1);
          >
         <View style={{flexDirection: 'row', justifyContent: 'space-between',alignItems: 'center',marginBottom:10}}>
  
-  <Avatar.Image source={require('.././assets/images/blue6.jpg')} size={50} />
+  <Avatar.Image backgroundColor="#ffffff"  source={require('.././assets/images/userprog.png')} size={50} />
   
   <View><Text style={{textAlign: 'left'}}>{item.key}</Text></View>
 
@@ -426,7 +426,7 @@ fall = new Animated.Value(1);
          >
         <View style={{flexDirection: 'row', justifyContent: 'space-between',alignItems: 'center',marginBottom:10}}>
  
-  <Avatar.Image source={require('.././assets/images/blue6.jpg')} size={50} />
+  <Avatar.Image source={require('.././assets/images/userprog.png')} size={50} />
   
   <View><Text>Shahid Saleem</Text></View>
 

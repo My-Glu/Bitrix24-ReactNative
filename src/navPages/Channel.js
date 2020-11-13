@@ -18,7 +18,7 @@ export default class Channel extends Component {
 
 <View style={{flexDirection: 'row' ,  justifyContent:'space-between', }}>
     <View style={{flexDirection: 'row'}}>
-<Avatar.Image style={{position: 'relative'}} source={require('../assets/images/blue6.jpg')} size={50} />
+<Avatar.Image backgroundColor="#ffffff" style={{position: 'relative'}} source={require('../assets/images/userprog.png')} size={50} />
                                     <View style={{ marginLeft:'2%' }}>
                                         <Title style={{ color: '#49641D', fontSize:15,  fontFamily:'segoesb',}}>Farhan Sarwer </Title>
                                         <Caption style={{ fontSize:15, marginTop:-5, color: 'rgba(73,100,29,0.5)'}}>FACEBOOK </Caption>
@@ -49,7 +49,7 @@ export default class Channel extends Component {
 
 <View style={{flexDirection: 'row' ,  justifyContent:'space-between', }}>
     <View style={{flexDirection: 'row'}}>
-<Avatar.Image style={{position: 'relative'}} source={require('../assets/images/blue6.jpg')} size={50} />
+<Avatar.Image style={{position: 'relative'}} source={require('../assets/images/userprog.png')} size={50} />
                                     <View style={{ marginLeft:'2%' }}>
                                         <Title style={{ color: '#49641D', fontSize:15,  fontFamily:'segoesb',}}>Farhan Sarwer </Title>
                                         <Caption style={{ fontSize:15, marginTop:-5, color: 'rgba(73,100,29,0.5)'}}>INSTAGRAM </Caption>

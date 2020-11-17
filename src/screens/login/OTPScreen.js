@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet,View, Text, TextInput,Alert, CustomTextInput, Button } from 'react-native';
+import { StyleSheet,View, Text, TextInput,Alert,SafeAreaView,Image,TouchableOpacity, Dimensions,CustomTextInput, Button } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import OTPInputView from '@twotalltotems/react-native-otp-input'
+
+
+const deviceHeight = Dimensions.get('window').height
+const deviceWidth = Dimensions.get('window').width
+
+
 export default class OTPScreen extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +20,7 @@ export default class OTPScreen extends Component {
     };
   }
 
+  
 
   VerifyOTP= async()=> {
 
@@ -97,21 +104,32 @@ export default class OTPScreen extends Component {
   render() {
     return (
     // http://34.210.75.190/api/otp/verify?email=urwa.ali@my-glu.com&OTP=40731
-      <View style={{ 
+    
+    <SafeAreaView style={{flex: 1}}>
+      <View style={styles.containerMain}>
+
+      {/* <View style={{ 
            display: 'flex',
            flexDirection: 'column',
            flex: 1,
            justifyContent: 'center',
            marginTop: -100,
            
-          }}>
+          }}> */}
 
-<View style={{backgroundColor: 'white', padding:'5%', borderRadius:8,marginHorizontal:'5%', elevation: 5,
+{/* <View style={{backgroundColor: 'white', padding:'5%', borderRadius:8,
            shadowColor: '#000',
            shadowOffset: { width: 0, height: 0 },
            shadowOpacity: 0.1,
            shadowRadius: 5,
-           backgroundColor: '#F7F9F3',}}>
+           backgroundColor: '#F7F9F3',}}> */}
+
+
+
+<View style={{ marginHorizontal:'10%',}}>
+
+<Image height="50" width="10" style={{  marginTop: -100, height: 110,width:170,alignSelf: 'center', marginBottom: '10%' }} source={require('../../assets/images/password.png')}/>
+
         <Text style={{fontSize:16, fontFamily:'segoe-ui',textAlign:'center'}}>Enter OTP sent to your email: </Text>
         <View style={{backgroundColor: '#ECFFCE', borderwidth:'#d3d3d3', borderRadius:8 , marginVertical:'3%'}}>
      
@@ -198,23 +216,33 @@ export default class OTPScreen extends Component {
         </View>
 
         </View> 
+        </View> 
+
+
+
 
 <View style={{ justifyContent: 'center', alignItems: 'center'}}><Text>Resend OTP in <Text style={{fontWeight:'bold'}}>25</Text><Text style={{fontWeight:'bold'}}>s</Text></Text></View>
+<TouchableOpacity style={{width: '100%', backgroundColor:'white'}} onPress = {this.ResendOTP.bind(this)}>
 
+<Text style={[styles.textStyle],{ backgroundColor: 'white', fontSize:19, textAlign: 'center', color: '#49641D', paddingTop:5 }}>RESEND</Text>
+
+</TouchableOpacity>
+
+{/* 
 <View style={{marginTop: '3%', alignSelf: 'center', width:'30%'}}>
 <Button style={{fontWeight: 'bold'}} title="Resend"
 onPress = {this.ResendOTP.bind(this)}
 />
-</View>
+</View> */}
 
 
-<View style={{ justifyContent: 'center', alignItems: 'center', marginTop:'5%'}}><Text><Text style={{fontWeight:'bold'}}>5</Text> <Text>Attempts Remaining</Text></Text></View>
-
+<View style={{ justifyContent: 'center', alignItems: 'center', marginTop:'2%'}}><Text><Text style={{fontWeight:'bold'}}>5</Text> <Text>Attempts Remaining</Text></Text></View>
+{/* 
 <View style={{marginTop:'10%'}}>
 <Button style={{fontWeight: 'bold'}} title="Submit"
 onPress = {this.VerifyOTP.bind(this)}
 />
-</View>
+</View> */}
 
 {/* <View> */}
 {/*    
@@ -232,7 +260,26 @@ key={index}/>
 
 
 </View>
+      {/* </View> */}
+
+
+        <View style={styles.bottomView}>
+
+
+
+        {/* <View style={{marginTop: '3%', alignSelf: 'center', width:'30%'}}>
+<Button backgroundColor="#49641D" style={{fontWeight: 'bold'}} title="Resend"
+onPress = {this.ResendOTP.bind(this)}
+/>
+</View> */}
+
+         <TouchableOpacity onPress = {this.VerifyOTP.bind(this)}>
+          <Text style={styles.textStyle}>SUBMIT</Text>
+          </TouchableOpacity>
+
+        {/* </View> */}
       </View>
+    </SafeAreaView>
 
       
     );
@@ -241,6 +288,28 @@ key={index}/>
 
 
 const styles = StyleSheet.create({
+
+
+  containerMain: {
+    flex: 1,
+    // alignItems: 'center',
+   
+    justifyContent: 'center',
+    backgroundColor: 'white'
+  },
+  bottomView: {
+    width: '100%',
+    height: 50,
+    backgroundColor: '#D6E2C2',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute', //Here is the trick
+    bottom: 0, //Here is the trick
+  },
+  textStyle: {
+    color: '#49641D',
+    fontSize: 19,
+  },
 
   borderStyleBase: {
     width: 30,

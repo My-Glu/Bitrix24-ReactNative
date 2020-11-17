@@ -167,6 +167,9 @@ this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID})
  if(res.status === 0){
   // Alert.alert("Response0", "Status: "+ res.status +"\n Message "+res.message);
   // Alert.alert("Response", "Message: "+res.message);
+
+// Actions.newUserMail();
+
   ToastAndroid.show(""+res.message, ToastAndroid.LONG);
 }else if(res.status === 1){
   // Alert.alert("Response1", "Error: "+ res.status +" "+res.message);
@@ -191,11 +194,14 @@ this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID})
   // Actions.navScreen({onBack: () => Actions.login()});
   // Actions.onboard(this, this.state.username, this.state.password);
   Actions.onboard({email: this.state.username, password: this.state.password});
+  // Actions.onBoardingScreens({email: this.state.username, password: this.state.password});
   // Alert.alert("Response", "Status: "+ res.status +"\nMessage: "+res.message);
+
 }
 else{
   // this.setState({ auth_token: res.auth_token });
-  Alert.alert("Oops", "Something went wrong");
+  // Alert.alert("Oops", "Something went wrong");
+  ToastAndroid.show("Something went wrong", ToastAndroid.LONG);
   }
 }).catch((error) => {
    console.error(error);
@@ -314,7 +320,7 @@ setLogin() {
                 <View style={{flex: 1, height:10}}></View>
 
 {/*-------------------------------- input email ------------------------------------- */}
-            
+            <View style={{height:'2%'}}></View>
 <View style={styles.containerInput}>
                 <View style={styles.SectionStyle}>
 
@@ -363,6 +369,7 @@ setLogin() {
 <View style={{ flex:0.78, alignItems: 'flex-end',}}></View>
 
 {/* <TouchableOpacity onPress={() => this.onPressButton}>  */}
+
 <TouchableOpacity 
 onPress = {this.goToForgetPass}
 //goto forgetpassword screen
@@ -380,7 +387,20 @@ onPress = {this.goToForgetPass}
 
   {/* ------------------------------Button signin----------------------------------------------  */}
 
+
+
   <View style={styles.screenContainer}>
+
+
+<TouchableOpacity style={{backgroundColor: '#385805' ,paddingVertical:12, borderRadius:8}}   onPress = {this.Login.bind(this)}>
+
+<Text style={{ color: 'white', textAlign: 'center', fontWeight:'bold', fontFamily:'segoe-ui'}}>SIGN IN</Text>
+
+</TouchableOpacity>
+
+
+
+  {/* <View style={styles.screenContainer}>
       <Button title="SIGN IN" width="100%" color="#385805" 
      
       style={{backgroundColor: '#385805', height:80}} 
@@ -388,9 +408,18 @@ onPress = {this.goToForgetPass}
 // onPress = {this.goToDashboard}
       // onPress={this.handleClick}
       // onClick={this.handleClick}
-     />
+     /> */}
 
     </View>
+
+
+<View style={{marginTop:'3%'}}>
+    <TouchableOpacity
+    onPress={Actions.newUserMail}
+    >
+<Text style={{color:'#d3d3d3'}} >New User ? <Text style={{color:'#49641D', fontSize:18, fontWeight:'bold'}}>Onboarding</Text></Text>
+</TouchableOpacity>
+</View>
 
 
 
@@ -550,7 +579,7 @@ checkboxContainer: {
 
  screenContainer: {
   height:100,
-  marginHorizontal:5,
+  marginHorizontal:18,
   alignSelf: 'stretch',
   justifyContent: "center",
   paddingHorizontal: 16,

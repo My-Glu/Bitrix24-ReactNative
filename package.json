@@ -31,6 +31,7 @@
     "react-native-emojipicker": "^1.1.1",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-get-random-values": "^1.5.0",
+    "react-native-onboarding-swiper": "^1.1.4",
     "react-native-paper": "^4.2.0",
     "react-native-pathjs-charts": "0.0.34",
     "react-native-picker-module": "^2.0.2",

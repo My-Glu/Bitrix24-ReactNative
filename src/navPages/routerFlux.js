@@ -1,7 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import { AsyncStorage, Dimensions,CustomTextInput, Button } from 'react-native';
 import Login from '../screens/login/Login';
 import OnBoarding from '../screens/login/OnBoarding';
 import OTPScreen from '../screens/login/OTPScreen';
+import OnBoardingScreens from '../screens/login/OnBoardingScreens';
+import NewUserMail from '../screens/login/NewUserMail';
 import SetPassword from '../screens/login/SetPassword';
 import Channel from './Channel';
 import Menu from './Menu';
@@ -40,22 +43,85 @@ import CreateProduct from './archiveProduct/CreateProduct';
 import CreateInvoice from './invoices/CreateInvoice';
 import CreateQuote from './quotes/CreateQuote';
 import DetailsUserTasks from '../navPages/employee/DetailsUserTasks';
+import Splash from '../../Splash'
 import { Router, Scene } from 'react-native-router-flux';
+import { TabRouter } from 'react-navigation';
 
 
-const Routes = () => (
+const Routes = () => {
     
+  const [isLogin, setIsLogin] = useState('');
+
   
+//  displayData= async()=> {
+
+//   try{
+
+//       AsyncStorage.getItem('email1').then(
+//           (value) =>
+//             // AsyncStorage returns a promise
+//             // Adding a callback to get the value
+//             setProfileName(value),
+//           // Setting the value in Text
+//         );
+
+//   }
+
+//   catch(error){
+// Alert.alert(error)
+//   }
+
+// }
+
+ 
+  useEffect(() => {
+    // back handle exit app
+    // BackHandler.addEventListener('hardwareBackPress', backButtonHandler);
+    // return () => {
+    //     BackHandler.removeEventListener('hardwareBackPress', backButtonHandler);
+    // };
+
+    AsyncStorage.getItem('SESSION').then(
+      (value) =>
+        // AsyncStorage returns a promise
+        // Adding a callback to get the value
+        setIsLogin(value),
+      // Setting the value in Text
+    );
+    
+
+}, []);
+
+
+const authenticate = () => {
+  isLogin ? true : false
+}
+
+
+return(
     <Router>
       <Scene key="root"
        backAndroidHandler={() => Actions.pop()}
       >
         
+        {/* <Scene 
+              key="splash" 
+              component={Splash}
+              // initial
+              initial={true}
+              on={authenticate}
+              success="navScreen"
+              failure="login"
+            />
+ */}
+
         <Scene
          key="login" 
          component={Login} 
          hideNavBar={true} 
-         initial = {true}
+         initial
+        //  c
+        // initial={!isLogin}
          />
 
         <Scene
@@ -68,21 +134,36 @@ const Routes = () => (
         <Scene
          key="otp" 
          component={OTPScreen} 
-         hideNavBar={false} 
+         hideNavBar={true} 
          title="OTP" 
         />
 
         <Scene
          key="setPassword" 
          component={SetPassword} 
-         hideNavBar={false} 
-         title="Sign Up" 
+         hideNavBar={true} 
+        //  title="Sign Up" 
+        />
+
+        {/* <Scene
+         key="onBoardingScreens" 
+         component={OnBoardingScreens} 
+         hideNavBar={true} 
+        //  title="Sign Up" 
+        /> */}
+
+        <Scene
+         key="newUserMail" 
+         component={NewUserMail} 
+         hideNavBar={true} 
+        //  title="Sign Up" 
         />
 
         <Scene
          key="navScreen" 
          component={NavScreen} 
          hideNavBar={true} 
+        //  initial={isLogin}
          renderBackButton={()=>{}}
          />
 
@@ -153,60 +234,62 @@ const Routes = () => (
         hideNavBar={true} 
         />
 
-      <Scene 
+       <Scene 
         key="viewLeads" 
         component={ViewLeads} 
         hideNavBar={true} 
         />
 
-      <Scene 
+       <Scene 
         key="editLeads" 
         component={EditLeads} 
         hideNavBar={true} 
         />
 
-<Scene 
+       <Scene 
         key="newLead" 
         component={NewLead} 
         hideNavBar={true} 
         />
 
 
-      <Scene 
+       <Scene 
         key="allDeals" 
         component={Deals} 
         hideNavBar={true} 
         />
 
-      <Scene 
+       <Scene 
         key="newDeal" 
         component={NewDeal}
         hideNavBar={true} 
         />
-      <Scene 
+      
+       <Scene 
         key="viewDeal" 
         component={ViewDeal}
         hideNavBar={true} 
         />
 
-      <Scene 
+       <Scene 
         key="editDeal" 
         component={EditDeal}
         hideNavBar={true} 
         />
 
-      <Scene 
+       <Scene 
         key="productArchives" 
         component={ProductArchives} 
         hideNavBar={true} 
         />
 
-      <Scene 
+       <Scene 
         key="viewProduct" 
         component={ViewProduct}
         hideNavBar={true}  
         />
-      <Scene 
+
+       <Scene 
         key="createProduct" 
         component={CreateProduct}
         hideNavBar={true}  
@@ -307,8 +390,9 @@ const Routes = () => (
       </Scene>
     
     </Router>
+    );
     
-  );
+};
 
   export default Routes
 

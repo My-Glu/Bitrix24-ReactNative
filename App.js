@@ -18,11 +18,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import ListOne from './src/components/ListOne';
 import Login from './src/screens/login/Login';
+import NewUserMail from './src/screens/login/NewUserMail';
 import OnBoarding from './src/screens/login/OnBoarding';
 import Splash from './Splash';
 import ForgetPassword from './src/screens/forgetPassword/ForgetPassword';
 import OTPScreen from './src/screens/login/OTPScreen';
-
+import SetPassword from './src/screens/login/SetPassword';
 
 import PipeLine from './src/navPages/Pipelines';
 import Channel from './src/navPages/Channel';
@@ -74,6 +75,7 @@ import Deals from './src/navPages/Deals';
 import PopUp from './src/navPages/PopUp';
 import ProductArchives from './src/navPages/ProductArchives';
 //  color: 'rgba(73,100,29,0.5)'
+
 export default class App extends React.Component {
   
   constructor(props){
@@ -84,6 +86,7 @@ export default class App extends React.Component {
         
     };
 }
+
 // componentDidMount() {
 //     StatusBar.setHidden(true);
 //  }
@@ -91,9 +94,21 @@ export default class App extends React.Component {
 componentDidMount() {
 
     StatusBar.setHidden(true, 'none');
+    
     setTimeout( () => {
-        this.setTimePassed();
+        // this.setTimePassed();
+        this.setState({timePassed: true});
     },1000);
+
+    // AsyncStorage.getItem('SESSION').then(
+    //   (value) =>
+    //     // AsyncStorage returns a promise
+    //     // Adding a callback to get the value
+    //     // ToastAndroid.show(""+value, ToastAndroid.LONG)
+    //     this.setState({session:value})
+    //     // setProfileName(value),
+    //   // Setting the value in Text
+    // );
 
 
 //      AsyncStorage.getItem('SESSION')
@@ -132,25 +147,29 @@ Alert.alert(error)
   }
 
 
+  
+
 
 
 render() {
-    
+    // ----------------------
     if (!this.state.timePassed) {
         return <Splash/>;
     } else {
+      // -------------------------------
         // return <ClientsEdit/>
-
+// if(this.state.session == JSON.stringify(true))
         return <Routes/>
+        // return <NewUserMail/>
+        // return <Information/>
 
         // if(session==true){
         //     return <NavScreen/>
         // }else{
-        //     return <Routes/>
+            // return <Routes/>
         // }
 
-
-       
+        // return <SetPassword/>
         // return <OnBoarding/>
         // return <MessageBubble/>
         // return <OTPScreen/>
@@ -184,7 +203,7 @@ render() {
 
 }
 
-
+}
 //  <Image source={require('../../assets/images/noorgrplogo3x.png')}
 
   // render() {
@@ -204,7 +223,7 @@ render() {
 
   //   );
   // }
-}
+// }
 
 
 //--------------------bottom nav within nav drawer all ftns-----------------------
@@ -1332,5 +1351,3 @@ render() {
 //       </View>
 //     );
 //   }
-
-//   export default App;

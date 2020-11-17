@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StyleSheet, View, Text, Button, Alert, Image, TouchableOpacity,ToastAndroid } from 'react-native';
+import {StyleSheet,SafeAreaView, View, Text, Button,Dimensions, Alert, Image, TouchableOpacity,ToastAndroid } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 export default class OnBoarding extends Component {
   constructor(props) {
@@ -8,7 +8,9 @@ export default class OnBoarding extends Component {
     };
   }
 
-  
+// const deviceHeight = Dimensions.get('window').height
+// const deviceWidth = Dimensions.get('window').width
+
   GenerateOTP= async()=> {
 
     const response = await fetch(`http://34.210.75.190/api/onboard?email=${this.props.email}&password=${this.props.password}`,
@@ -59,7 +61,6 @@ export default class OnBoarding extends Component {
   }
   
 
-
   render() {
 
 // timer code -----------------------
@@ -81,25 +82,62 @@ const RESEND_OTP_TIME_LIMIT = 25;
 
     return (
    
+      <SafeAreaView style={{flex: 1}}>
+      <View style={styles.containerMain}>
+       
+       {/* <View style={{backgroundColor: '#DCFCAD',}}> */}
 
-      <View>
+ <Image style={{alignSelf: 'center',  marginTop: '10%'}} source={require('../../assets/images/onboard.png')}/>
 
-<Image style={{alignSelf: 'center', width:'90%', marginTop: '3%'}} source={require('../../assets/images/onboarding.jpg')}/>
-<View style={{ marginHorizontal: '5%'}}>
-<Text style={{textAlign: 'left',fontSize:25,fontFamily:'segoesb',fontWeight:'bold',color: '#49641D',padding:'3%', marginTop:'20%', borderRadius:25,}}>Proceed to Onboarding</Text> 
+ <View style={{ marginHorizontal: '5%'}}>
+ <Text style={{textAlign: 'center',fontSize:50,fontFamily:'berlinsans',fontWeight:'bold',color: '#49641D',padding:'3%', borderRadius:25,}}>CRM Application</Text> 
 
-   {/* <Button title={'Generate OTP'}/> */}
+    {/* <Button title={'Generate OTP'}/> */}
 
-   <TouchableOpacity   onPress={this.GenerateOTP.bind(this)}
+    {/* <TouchableOpacity   onPress={this.GenerateOTP.bind(this)}
+   
+    >
+   <Text style={{textAlign: 'center',fontFamily:'segoe-ui',alignSelf: 'center',width: '30%',color: '#49641D',borderColor:'#D6E2C2',backgroundColor:'#D6E2C2',fontWeight:'bold', borderWidth:1,padding:'3%', marginTop:'10%', fontSize:18, borderRadius:25,}}>NEXT</Text>
+    </TouchableOpacity>
+    */}
+
+ </View>
+
+       </View>
+      
+      
+      <View style={styles.bottomView}>
+      <TouchableOpacity   onPress={this.GenerateOTP.bind(this)}
    
    >
-   <Text style={{textAlign: 'center',fontFamily:'segoe-ui',alignSelf: 'flex-end',width: '30%',color: '#49641D',borderColor:'#D6E2C2',backgroundColor:'#D6E2C2',fontWeight:'bold', borderWidth:1,padding:'3%', marginTop:'3%', fontSize:18, borderRadius:25,}}>NEXT</Text>
+  <Text style={{textAlign: 'center',fontFamily:'segoe-ui',alignSelf: 'center',color: '#49641D',borderColor:'#D6E2C2',fontWeight:'bold', borderWidth:1,padding:'3%', fontSize:18, }}>NEXT</Text>
    </TouchableOpacity>
+  
+        </View>
+      {/* </View> */}
+    </SafeAreaView>
+
+
+
+//       <View style={{backgroundColor: '#DCFCAD', height:Dimensions.get('window').height}}>
+
+// <Image style={{alignSelf: 'center',  marginTop: '10%'}} source={require('../../assets/images/onboard.png')}/>
+
+// <View style={{ marginHorizontal: '5%'}}>
+// <Text style={{textAlign: 'center',fontSize:50,fontFamily:'berlinsans',fontWeight:'bold',color: '#49641D',padding:'3%', borderRadius:25,}}>CRM Application</Text> 
+
+//    {/* <Button title={'Generate OTP'}/> */}
+
+//    <TouchableOpacity   onPress={this.GenerateOTP.bind(this)}
+   
+//    >
+//    <Text style={{textAlign: 'center',fontFamily:'segoe-ui',alignSelf: 'center',width: '30%',color: '#49641D',borderColor:'#D6E2C2',backgroundColor:'#D6E2C2',fontWeight:'bold', borderWidth:1,padding:'3%', marginTop:'10%', fontSize:18, borderRadius:25,}}>NEXT</Text>
+//    </TouchableOpacity>
    
 
-</View>
+// </View>
 
-      </View>
+//       </View>
 
 
       // <View style={{ 
@@ -145,6 +183,19 @@ const styles = StyleSheet.create({
       shadowOffset: { width: 0, height: 0 },
       shadowOpacity: 0.1,
       shadowRadius: 5,
+    },
+    bottomView: {
+      width: '100%',
+      height: 50,
+      backgroundColor: '#D6E2C2',
+      justifyContent: 'center',
+      alignItems: 'center',
+      position: 'absolute', //Here is the trick
+      bottom: 0, //Here is the trick
+    },
+    textStyle: {
+      color: '#fff',
+      fontSize: 18,
     }
 
 })

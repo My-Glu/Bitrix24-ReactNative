@@ -80,12 +80,7 @@ export default class SetPassword extends Component {
     // Alert.alert("Response1", "Message: "+res.message);
     ToastAndroid.show("Signup Success !", ToastAndroid.SHORT);
     this.saveData();
-    
-
-    Actions.navScreen();
-
-
-
+        Actions.navScreen();
 
   }
   // else if(res.status === 2){
@@ -119,18 +114,17 @@ export default class SetPassword extends Component {
       
         <View style={styles.container}>
         
-            <Image source={require('../../assets/images/noorgrplogo3x.png')}
-             resizeMode="center" 
-              style={styles.image}
+            <Image style={{height: 150,width:150,   alignSelf: 'center', marginBottom: '10%', marginTop: '10%'}} source={require('../../assets/images/login.png')}
+              // style={styles.image}
                 />
 
-              <Text style={styles.textTitle }>SIGNUP</Text>
+              <Text style={styles.textTitle }>Set Your Password</Text>
               
 {/* ------------------------------Horizontal line -------------------------------------- */}
-               <View style={{flexDirection: 'row', alignItems: 'center'}}>
+               {/* <View style={{flexDirection: 'row', alignItems: 'center'}}>
                  <View style={{flex: 1, height: 1, backgroundColor: 'black', marginHorizontal: 20, }} />
 
-               </View>
+               </View> */}
 
                {/* <View style={{flex: 1, height:10}}></View> */}
 
@@ -181,7 +175,7 @@ export default class SetPassword extends Component {
                <Icon name="lock" style={{fontSize:22,paddingRight:5,paddingLeft:5,color:'#00000029'}} />
 
                         <TextInput
-                        style={{flex:1}}
+                         style={{flex:1}}
                          placeholder="Confirm Password Here"
                          underlineColorAndroid="transparent"
                          pass={true}
@@ -225,12 +219,20 @@ onPress = {this.goToForgetPass}
  {/* ------------------------------Button signin----------------------------------------------  */}
 
  <View style={styles.screenContainer}>
-     <Button title="SIGN UP" width="100%" color="#385805" 
+
+
+<TouchableOpacity style={{backgroundColor: '#385805' ,paddingVertical:12, borderRadius:8}}  onPress = {this.Login}>
+
+<Text style={{ color: 'white', textAlign: 'center', fontWeight:'bold', fontFamily:'segoe-ui'}}>SIGNUP</Text>
+
+</TouchableOpacity>
+
+     {/* <Button title="SIGN UP" width="100%" color="#385805" 
     
      style={{backgroundColor: '#385805'}} 
      onPress = {this.Login}
 
-    />
+    /> */}
 
    </View>
 
@@ -277,8 +279,9 @@ const styles = StyleSheet.create({
     },
     textTitle: {
         fontFamily: 'berlinaansdemibold',
-        fontSize: 40,
+        fontSize: 18,
         marginTop: -10,
+        color: '#E9E9E9'
     },
     textBody: {
         fontFamily: 'Foundation',
@@ -303,7 +306,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderWidth: .5,
     borderColor: '#000',
-    height: 40,
+    height: 50,
     borderRadius: 5 ,
     marginHorizontal: 10
   },
@@ -339,7 +342,9 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: "center",
     padding: 16,
-    color:'#385805'
+    color:'#385805',
+    
+    marginTop:30
     },
     circle :{
     height : 60,

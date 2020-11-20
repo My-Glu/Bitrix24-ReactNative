@@ -152,6 +152,7 @@ export default class Information extends Component {
         Accept: 'application/json',
        'Content-Type': 'application/json'
       }});
+      
     // const response = await fetch(afiaNoor+"im.recent.get");
     // const response = await fetch(afiaNoor+`im.dialog.messages.get?DIALOG_ID=${this.props.id}`);
     // const response = await fetch(afiaNoor+"im.dialog.messages.get?DIALOG_ID=83");

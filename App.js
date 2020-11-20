@@ -38,6 +38,7 @@ import Employee from './src/navPages/Employee';
 import DetailsEmployee from './src/navPages/employee/DetailsEmployee';
 import Calendar from './src/navPages/menu/Calendar';
 import NewEvent from './src/navPages/menu/NewEvent';
+import Emoji from './src/navPages/chat/Emoji';
 
 import Information from './src/screens/info/Information';
 
@@ -146,11 +147,6 @@ Alert.alert(error)
 
   }
 
-
-  
-
-
-
 render() {
     // ----------------------
     if (!this.state.timePassed) {
@@ -160,6 +156,7 @@ render() {
         // return <ClientsEdit/>
 // if(this.state.session == JSON.stringify(true))
         return <Routes/>
+        // return <Emoji/>
         // return <NewUserMail/>
         // return <Information/>
 

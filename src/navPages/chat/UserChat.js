@@ -24,6 +24,7 @@ export default class UserChat extends Component {
     super(props);
     this.state = {
       // data:[],
+      emojis:[{}],  
       data:{
 
         messages:null,
@@ -42,7 +43,7 @@ export default class UserChat extends Component {
 
 
   componentDidMount() {
-    this.fetchData();
+    // this.fetchData();
     // this.SendMessage();
   }
 
@@ -90,7 +91,39 @@ export default class UserChat extends Component {
     }
   
 
+    fetchEmojiData = async () => {
+   
 
+      const response = await fetch(
+        'https://emoji-api.com/emojis?access_key=9b5cfd5953e65d211644af41436addbc607a1569',
+        {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        },
+      );
+  
+      const jsonData = await response
+        .json()
+      //   .then((json) => json.json())
+        .catch((error) => console.warn('fetch error:', error.message));
+  
+      this.setState({emojis:jsonData});
+  
+    };
+
+    
+    _renderItem = ({ item }) => {
+      return (
+  <View>
+  <Text>{item.character}</Text>
+      </View>
+  
+      );
+    };
+  
 
   // fetchData= async()=> {
   //   // const response = await fetch("https://randomuser.me/api?results=15");
@@ -120,7 +153,8 @@ export default class UserChat extends Component {
 
 
   render() {
-
+    this.fetchEmojiData();
+    this.fetchData();
     let popupRefMenu = React.createRef()
     const onShowPopupMenu = () =>{ popupRefMenu.show()}
     const onClosePopupMenu = () =>{ popupRefMenu.close()}
@@ -250,6 +284,30 @@ uid={item.author_id}
 
         <View style={styles.bottomView}>
 
+ <View style={{marginBottom:10}}>
+       
+        {/* <Text>`${'&#1F601;'}`</Text> */}
+        {/* <Text>&#128151;</Text> */}
+        {/* <Text>&#x1F601;</Text> */}
+
+        <FlatList  
+       
+data={this.state.emojis} 
+                    // data={[  
+                    //     {key: 'Shahid Saleem'},{key: 'Fahad Yousaf'}, {key: 'Imran khan'},{key: 'Hooram Sultan'},  
+                    //     {key: 'Meherma Sultan'},  {key: 'Afia Noor'},
+                    //     {key: 'Meherma Sultan'},  {key: 'Afia Noor'},
+                    // ]}  
+                    horizontal={true}
+                ItemSeparatorComponent={() => <View style={{margin:5}}/>}
+                renderItem={this._renderItem}
+                    keyExtractor={(object, index) => index}
+                    
+                    />
+
+      </View>
+
+
         <View style={{flexDirection: 'row', justifyContent: 'center', paddingHorizontal:'1%', alignItems: 'center',}}> 
         <TouchableOpacity style={{ marginHorizontal: '1%'}}>
 <Icon3 name="paperclip" color="#49641D" style={{ fontSize: 22 }}></Icon3>
@@ -296,9 +354,13 @@ style={{borderWidth:2,borderColor:'#C0C0C0', borderRadius:4, marginVertical:'3%'
 
 <TouchableOpacity style={{ marginHorizontal: '1%' , }}
             // onPress={() => {this.setState({visible: !this.state.visible})}}
+            
             >
-<Icon4 name="emotsmile" color="#49641D" style={{ marginLeft: '2%' , fontSize: 22, }}></Icon4>
+<Icon4 name="emotsmile" color="#49641D" style={{ marginLeft: '2%' ,fontSize: 22, }}></Icon4>
 </TouchableOpacity>
+
+
+
 <TouchableOpacity style={{ marginRight: '2%' , }}>
 <Icon2 name="microphone" color="#49641D" style={{ fontSize: 22, }}></Icon2>
 </TouchableOpacity>   
@@ -316,7 +378,8 @@ onPress={()=>{this.SendMessage() && this.fetchData()}}
 
           {/* <Text style={styles.textStyle}>Bottom View</Text> */}
         </View>
-      </View>
+        </View>
+      {/* </View> */}
     </SafeAreaView>
 
 );
@@ -332,9 +395,9 @@ const styles = StyleSheet.create({
   },
   bottomView: {
     width: '100%',
-    height: 50,
+    height: 100,
     justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
     position: 'absolute', //Here is the trick
     bottom: 0, //Here is the trick
     backgroundColor: 'white'

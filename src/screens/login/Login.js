@@ -58,7 +58,6 @@ export default class Login extends Component {
   
   saveData= () => {
 
-
     // let userEmail = email;
     // AsyncStorage.setItem('email1', JSON.stringify(userEmail));
     // AsyncStorage.setItem('email1', JSON.stringify(this.state.email));
@@ -171,6 +170,7 @@ this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID})
 // Actions.newUserMail();
 
   ToastAndroid.show(""+res.message, ToastAndroid.LONG);
+  
 }else if(res.status === 1){
   // Alert.alert("Response1", "Error: "+ res.status +" "+res.message);
   this.setState({email: res.User.EMAIL, loggedUserID: res.User.ID});

@@ -8,6 +8,44 @@ import RoundCheckbox from 'react-native-round-checkbox';
 import {Picker} from '@react-native-community/picker';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
+const afiaNoor = "https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/"
+// const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/"
+const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/qjisdjl3s26c86gc/"
+
+var data={fields};
+
+var PhoneArray=[ { "VALUE": "", "VALUE_TYPE": "" } ] 
+var fields = { 
+  "TITLE": "", 
+  "STATUS_DESCRIPTION": "",
+  "OPPORTUNITY": 0,
+  "SOURCE_DESCRIPTION":"",
+  "NAME": "", 
+  "SECOND_NAME": "", 
+  "LAST_NAME": "", 
+  "EMAIL":"",
+  // "STATUS_ID": "", 
+  // "OPENED": "", 
+  "ASSIGNED_BY_ID": 0, 
+  "CURRENCY_ID": "", 
+  "WEB":"",
+  "COMPANY_TITLE":"",
+  "COMPANY_ID":"",
+  "POST":"",
+  "ADDRESS_PROVINCE": "",
+  "ADDRESS_POSTAL_CODE":"",
+  "ADDRESS":"",
+  "ADDRESS_2":"",
+  "ADDRESS_CITY":"",
+  "ADDRESS_REGION":"",
+  "ADDRESS_COUNTRY":"",
+  "COMMENTS":"",
+  "SOURCE_ID":"",
+  "HONORIFIC":"",
+  "PHONE": PhoneArray
+}
+
+
 export default class NewLead extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +61,200 @@ export default class NewLead extends Component {
 //   gotoNewEvent = () => {
 //     Actions.newEvent()
 //  }
+
+
+handleInputTextChangeLeadName = (newText1) => {
+  // this.setState({ linkedin: newText1 })
+  
+  fields.TITLE = newText1
+}
+
+handleInputTextChangeStatusInfo = (newText2) => {
+  // this.setState({ linkedin: newText2 })
+ fields.STATUS_DESCRIPTION = newText2
+}
+
+handleInputTextChangeDealOpportunity = (newText3) => {
+  // this.setState({ linkedin: newText3 })
+
+  fields.OPPORTUNITY=newText3
+
+}
+
+handleInputTextChangeSource = (newText21) => {
+  // this.setState({ linkedin: newText4 })
+  fields.SOURCE_DESCRIPTION = newText21
+}
+
+handleInputTextChangeSrcInfo = (newText4) => {
+  // this.setState({ linkedin: newText4 })
+  fields.SOURCE_DESCRIPTION = newText4
+}
+
+handleInputTextChangeLastName = (newText5) => {
+  // this.setState({ linkedin: newText5 })
+  fields.LAST_NAME=newText5
+}
+
+handleInputTextChangeName = (newText6) => {
+  // this.setState({ linkedin: newText6 })
+  fields.NAME=newText6
+}
+
+handleInputTextChangeSecondName = (newText7) => {
+  // this.setState({ linkedin: newText7 })
+  fields.SECOND_NAME=newText7
+}
+
+handleInputTextChangeWorkPhone = (newText8) => {
+  // this.setState({ linkedin: newText8 })
+  fields.PHONE=newText11
+}
+
+handleInputTextChangeEmail = (newText9) => {
+  // this.setState({ linkedin: newText9 })
+  fields.EMAIL=newText9
+}
+
+handleInputTextChangeWebsite = (newText10) => {
+  // this.setState({ linkedin: newText10 })
+  fields.WEB=newText10
+}
+
+handleInputTextChangeCompanyName = (newText11) => {
+ 
+   fields.COMPANY_TITLE=newText11
+}
+
+handleInputTextChangePosition = (newText12) => {
+  
+   fields.POST=newText12
+}
+
+handleInputTextChangeStreetBuilding = (newText13) => {
+  
+fields.ADDRESS_2=newText13
+}
+
+handleInputTextChangeSuiteApartment = (newText14) => {
+  // this.setState({ linkedin: newText14 })
+fields.ADDRESS=newText14
+
+}
+
+handleInputTextChangeCity = (newText15) => {
+  // this.setState({ linkedin: newText15 })
+     fields.ADDRESS_CITY=newText15
+  
+}
+
+handleInputTextChangeRegion = (newText16) => {
+  // this.setState({ linkedin: newText16 })
+  fields.ADDRESS_REGION= newText16
+}
+
+handleInputTextChangeStateProvince = (newText17) => {
+  // this.setState({ linkedin: newText17 })
+  fields.ADDRESS_PROVINCE=newText17
+}
+
+handleInputTextChangeZip = (newText18) => {
+  // this.setState({ linkedin: newText18 })
+  fields.ADDRESS_POSTAL_CODE=newText18
+}
+
+handleInputTextChangeCompany = (newText19) => {
+  // this.setState({ linkedin: newText19 })
+  fields.COMPANY_ID=newText19
+}
+
+handleInputTextChangeComment = (newText20) => {
+  // this.setState({ linkedin: newText20 })
+  fields.COMMENTS=newText20
+}
+
+// handleInputTextChangeLastName = (newText21) => {
+//   this.setState({ linkedin: newText21 })
+// }
+
+handleInputTextChangeSaluation = (newText22) => {
+  // this.setState({ linkedin: newText2 })
+  fields.HONORIFIC=newText22
+}
+
+handleInputTextChangeCurrency = (newText23) => {
+  // this.setState({ linkedin: newText2 })
+  fields.CURRENCY_ID=newText23
+}
+handleInputTextChangeResPerson = (newText24) => {
+  // this.setState({ linkedin: newText2 })
+  fields.ASSIGNED_BY_ID=newText24
+}
+
+
+
+
+
+makeNewLead= async()=> {
+ 
+  ToastAndroid.show("fn ", ToastAndroid.LONG);
+  
+  // const response = await fetch(afiaNoor+`user.update?ID=${this.props.uid}&NAME=${this.state.firstName}&LAST_NAME=${this.state.lastName}&PERSONAL_MOBILE=${this.state.mobile}&PERSONAL_PHONE=${this.state.phone}&PERSONAL_BIRTHDAY=${this.state.dob}&WORK_POSITION=${this.state.position}&PERSONAL_GENDER=${this.state.gender}&WORK_PHONE=${this.state.workphone}&UF_SKYPE=${this.state.skype}&UF_FACEBOOK=${this.state.facebook}&UF_LINKEDIN=${this.state.linkedin}`,
+  const response = await fetch(bitrix+`crm.lead.add?${data}`,
+  {method: 'POST',
+  headers: {
+  'Content-Type': 'application/json'},
+  // body: JSON.stringify({
+  //   // "provider": "email",s
+  //   "data":
+  //    {
+  //       "email": this.state.username,
+  //       "password": this.state.pass
+  //   }
+  // })
+  }).then((json) =>  ToastAndroid.show("processing" , ToastAndroid.LONG))
+  .catch((error) => console.warn("fetch error:", error.message));
+ 
+  // const response = await fetch(afiaNoor+"im.recent.get");
+  // const response = await fetch(afiaNoor+`im.dialog.messages.get?DIALOG_ID=${this.props.id}`);
+  // const response = await fetch(afiaNoor+"im.dialog.messages.get?DIALOG_ID=83");
+  // const jsonData = await response.json()
+  // .then((json) =>  ToastAndroid.show("processing", ToastAndroid.LONG))
+  //  .catch((error) => console.warn("fetch error:", error.message))
+
+  //  jsonData.then(res=> res.json)
+  //  .catch((error) => console.warn("fetch error:", error.message))
+
+   ToastAndroid.show("saved", ToastAndroid.LONG);
+
+  // this.setState({data:[{
+  //   id: jsonData.result.ID,
+  //   firstName: jsonData.result.NAME,
+  //   lastName: jsonData.result.LAST_NAME,
+  //   Email: jsonData.result.EMAIL,
+  //   mobile : jsonData.result.PERSONAL_MOBILE,
+  //   phone: jsonData.result.PERSONAL_PHONE,
+  //   DOB: jsonData.result.PERSONAL_BIRTHDAY,
+  //   position: jsonData.result.WORK_POSITION,
+  //   gender: jsonData.result.PERSONAL_GENDER,
+  //   website: jsonData.result.UF_WEB_SITES,
+  //   workphone: jsonData.result.WORK_PHONE,
+  //   skype: jsonData.result.UF_SKYPE,
+  //   facebook:jsonData.result.UF_FACEBOOK,
+  //   linkedin:jsonData.result.UF_LINKEDIN,
+
+  //  }
+  // ]});
+
+  // this.setState({
+  //   data:{
+  //   messages:jsonData.result.messages
+  //   }
+  // });
+  // Alert.alert(this.state.data.chat_id)
+}
+
+
 
 
   render() {
@@ -89,7 +321,9 @@ export default class NewLead extends Component {
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} color="#49641D" placeholder="Lead name" editable={true} />
+    <TextInput style={styles.pLeft} color="#49641D" placeholder="Lead name" editable={true} 
+    onChange={this.handleInputTextChangeLeadName}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -120,7 +354,9 @@ export default class NewLead extends Component {
 {/* ----------------------- */}
 
 <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} color="#49641D" placeholder="Lead name" editable={true} />
+    <TextInput style={styles.pLeft} color="#49641D" placeholder="Status Information" editable={true} 
+     onChange={this.handleInputTextChangeStatusInfo}
+    />
   </View>
 
 {/*  
@@ -168,7 +404,9 @@ export default class NewLead extends Component {
 style={{backgroundColor: 'white'}}
                       selectedValue={this.state.lang}  
                       onValueChange={(itemVal, itemPos) =>  
-                          this.setState({lang: itemVal, choosenIndex: itemPos})}  
+                          // this.setState({lang: itemVal, choosenIndex: itemPos})
+                          fields.CURRENCY_ID=itemVal
+                        }  
                   >  
                  <Picker.Item label="US Dollar" value="us" />  
                 <Picker.Item label="Euro" value="eu" />  
@@ -220,7 +458,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Deal Opportunity" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Deal Opportunity" color="#49641D" editable={true} 
+     onChange={this.handleInputTextChangeDealOpportunity}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -241,8 +481,12 @@ style={{backgroundColor: 'white'}}
   </View>
   {/* ----------------- */}
   
-          {/* ------------------------------Horizontal line -------------------------------------- */}
-  {/* ----------------------- */}
+        {/* ------------------------------Horizontal line -------------------------------------- */}
+  <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2,}}>
+                    <View style={{flex: 1, height: 1, backgroundColor: '#D3D3D3'}} />
+  
+                  </View>
+                  {/* ----------------------- */}
  
  <View style={{backgroundColor:'white'}}>
 <View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center',backgroundColor:'white', marginLeft:'8%', marginRight:'5%'}}>
@@ -253,7 +497,10 @@ style={{backgroundColor: 'white'}}
 style={{backgroundColor: 'white'}}
                       selectedValue={this.state.lang}  
                       onValueChange={(itemVal, itemPos) =>  
-                          this.setState({lang: itemVal, choosenIndex: itemPos})}  
+                          // this.setState({lang: itemVal, choosenIndex: itemPos})}  
+                          // this.handleInputTextChangeSource
+                          fields.SOURCE_ID=itemVal
+                        }
                   >  
                  <Picker.Item label="Call" value="no" />  
                 <Picker.Item label="E-Mail" value="email" />  
@@ -310,8 +557,10 @@ style={{backgroundColor: 'white'}}
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Source Information" color="#49641D" editable={true} />
+          <View pointerEvents="auto" style={{backgroundColor:'white', paddingLeft:'8%'}}>
+    <TextInput  placeholder="Source Information" color="#49641D" editable={true} 
+     onChange={this.handleInputTextChangeSourceInfo} style
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -330,7 +579,7 @@ style={{backgroundColor: 'white'}}
     {/* -------------row  image ------------------ */}
   {/* ----------------- */}
   <View  >
-  <Text style={styles.smText}>Responsible person</Text>
+  <Text style={[styles.smText], {paddingLeft:'8%'}}>Responsible person</Text>
   </View>
   {/* ----------------- */}
   
@@ -422,9 +671,40 @@ style={{backgroundColor: 'white'}}
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Not Selected" color="#49641D" editable={true} />
-  </View>
+          {/* <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+    <TextInput style={styles.pLeft} placeholder="Not Selected" color="#49641D" editable={true} 
+     onChange={this.handleInputTextChangeSaluation}
+    />
+  </View> */}
+  
+<View style={{backgroundColor:'white'}}>
+<View style={{flexDirection: 'row',justifyContent: 'space-between', alignItems: 'center',  marginLeft:'8%', marginRight:'5%'}}>
+  
+<View style={{  width:'100%',  justifyContent: 'center',  }}>
+
+<Picker   
+style={{backgroundColor: 'white'}}
+                      selectedValue={this.state.lang}  
+                      onValueChange={(itemVal, itemPos) =>  
+                          // this.setState({lang: itemVal, choosenIndex: itemPos})
+                          fields.HONORIFIC=itemVal
+                        }  
+                  >  
+                 <Picker.Item label="Not Selected" value="none" />  
+                <Picker.Item label="Mr." value="mr" />  
+                <Picker.Item label="Mrs." value="mrs" />  
+                <Picker.Item label="Ms." value="ms" />  
+                <Picker.Item label="Dr." value="dr" />  
+                  {/* <Picker.Item label="React Native" value="rn" />   */}
+              </Picker>
+              </View>
+  
+              <Icon name="chevron-forward-outline" style={{fontSize: 35, color: '#e2e2e2', marginLeft:-40 }}></Icon>
+   
+    </View>
+    </View>
+
+
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
        <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
@@ -449,7 +729,8 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Last name" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Last name" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeLastName }/>
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -473,7 +754,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Name" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Name" color="#49641D" editable={true} 
+    onChange={this.handleInputTextChangeName}
+      />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -497,7 +780,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Second name" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Second name" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeSecondName}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -524,7 +809,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Date of Birth" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Date of Birth" color="#49641D" editable={true}
+    onChange={this.handleInputTextChange}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -553,7 +840,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} 
+    onChange={this.handleInputTextChangeWorkPhone}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -581,7 +870,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeEmail}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -609,7 +900,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Add" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeWebsite}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -632,7 +925,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Company name" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Company name" color="#49641D" editable={true} 
+    onChange={this.handleInputTextChangeCompanyName}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -656,7 +951,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Position" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Position" color="#49641D" editable={true} 
+    onChange={this.handleInputTextChangePosition}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -685,7 +982,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* -------------1---------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Street, Building" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Street, Building" color="#49641D" editable={true} 
+    onChange={this.handleInputTextChangeStreetBuilding}
+    />
   
    {/* ------------------------------sm Horizontal line -------------------------------------- */}
    <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -694,7 +993,9 @@ style={{backgroundColor: 'white'}}
                   </View>
   {/* ------------------------------sm Horizontal line end-------------------------------------- */}
    {/* -------------2---------- */}
-  <TextInput style={styles.pLeft} placeholder="Suite/ Apartment" color="#49641D" editable={true} />
+  <TextInput style={styles.pLeft} placeholder="Suite/ Apartment" color="#49641D" editable={true}
+  onChange={this.handleInputTextChangeSuiteApartment}
+  />
   
    {/* ------------------------------sm Horizontal line -------------------------------------- */}
    <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2, marginLeft:'8%', marginRight:'8%'}}>
@@ -703,7 +1004,9 @@ style={{backgroundColor: 'white'}}
                   </View>
   
   {/* -------------3-------------- */}
-  <TextInput style={styles.pLeft} placeholder="City" color="#49641D" editable={true} />
+  <TextInput style={styles.pLeft} placeholder="City" color="#49641D" editable={true}
+  onChange={this.handleInputTextChangeCity}
+  />
   {/* --------------------------- */}
   
   {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -713,7 +1016,9 @@ style={{backgroundColor: 'white'}}
                   </View>
   
   {/* -------------4-------------- */}
-  <TextInput style={styles.pLeft} placeholder="Region" color="#49641D" editable={true} />
+  <TextInput style={styles.pLeft} placeholder="Region" color="#49641D" editable={true} 
+  onChange={this.handleInputTextChangeRegion}
+  />
   {/* --------------------------- */}
   
   {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -723,7 +1028,9 @@ style={{backgroundColor: 'white'}}
                   </View>
   
   {/* -------------5-------------- */}
-  <TextInput style={styles.pLeft} placeholder="State/ Province" color="#49641D" editable={true} />
+  <TextInput style={styles.pLeft} placeholder="State/ Province" color="#49641D" editable={true}
+  onChange={this.handleInputTextChangeStateProvince}
+  />
   {/* --------------------------- */}
   
   {/* ------------------------------sm Horizontal line -------------------------------------- */}
@@ -733,7 +1040,9 @@ style={{backgroundColor: 'white'}}
                   </View>
   
   {/* -------------6-------------- */}
-  <TextInput style={styles.pLeft} placeholder="Zip" color="#49641D" editable={true} />
+  <TextInput style={styles.pLeft} placeholder="Zip" color="#49641D" editable={true}
+  onChange={this.handleInputTextChangePostalCode} 
+  />
   {/* --------------------------- */}
   
   
@@ -744,7 +1053,9 @@ style={{backgroundColor: 'white'}}
                   </View>
   
   {/* -------------6-------------- */}
-  <TextInput style={styles.pLeft} placeholder="Company" color="#49641D" editable={true} />
+  <TextInput style={styles.pLeft} placeholder="Company" color="#49641D" editable={true} 
+  onChange={this.handleInputTextChangeCompany}
+  />
   {/* --------------------------- */}
   </View>
   {/* ------------------------------sm Horizontal line end-------------------------------------- */}
@@ -779,7 +1090,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Comment" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Comment" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeComment}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -806,8 +1119,14 @@ style={{backgroundColor: 'white'}}
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true} />
+          <View style={{backgroundColor:'white'}}>
+    {/* <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeComment}
+    /> */}
+
+<Text style={[styles.pLeft], { color:'#49641D', paddingLeft:'9%', paddingVertical:'2%', fontSize:16}}>Select</Text>
+
+
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,StatusBar, Text, StyleSheet, Image,FlatList, TouchableOpacity } from 'react-native';
+import { View,StatusBar, Text, StyleSheet, Image,FlatList, TouchableOpacity, ToastAndroid } from 'react-native';
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
@@ -8,12 +8,28 @@ import MoreLeads from './leads/MoreLeads';
 import MenuLeads from './leads/MenuLeads';
 import CreateUsingSourceLeads from './leads/CreateUsingSourceLeads';
 
+const afiaNoor = "https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/"
+// const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/"
+const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/qjisdjl3s26c86gc/"
+
+var order = {"STATUS_ID":"ASC"};
+var filter = {">OPPORTUNITY":0, "!STATUS_ID":"CONVERTED"};
+var select = ["ID", "TITLE", "STATUS_ID", "OPPORTUNITY", "CURRENCY_ID" ];
+var data ={order,filter,select}
+
 export default class Leads extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
+      result:[],
+
     };
+
+    // this.fetchData()= this.fetchData.bind(this);
   }
+
+
 
   goToViewLead = () => {
     Actions.viewLeads()
@@ -23,7 +39,7 @@ export default class Leads extends Component {
 
   Actions.navScreen()
 
-}
+ }
 
 
 goToSearchScreen = () => {
@@ -33,19 +49,40 @@ goToSearchScreen = () => {
 }
 
 
-  render() {
+fetchData= async()=> {
+// https://b24-l9xpyr.bitrix24.com/rest/1/qjisdjl3s26c86gc/crm.lead.list
+  // const response = await fetch(afiaNoor+"im.recent.get?SKIP_CHAT=N");
+  // const response = await fetch(bitrix+ `crm.lead.list?order=${order}&filter=${filter}&select=${select}`);
+  ToastAndroid.show("ammmm ", ToastAndroid.LONG);
+  const response = await fetch(bitrix+ `crm.lead.list?${data}`);
+  // const response = await fetch("https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/user.get");
+  const json = await response.json()
+  // .then((response) => response.json())
+   .catch((error) => console.warn("fetch error:", error.message));
+  this.setState({result: json.result});
+  ToastAndroid.show("res "+ this.state.result[0].ID, ToastAndroid.LONG);
+  ToastAndroid.show("okkkkkk ", ToastAndroid.LONG);
 
+}
+
+componentDidMount(){
+
+  
+
+}
+  render() {
+this.fetchData();
   let popupRef = React.createRef()
   const onShowPopup = () =>{ popupRef.show()}
   const onClosePopup = () =>{ popupRef.close()}
 
   let popupRefMenu = React.createRef()
   const onShowPopupMenu = () =>{ popupRefMenu.show()}
-const onClosePopupMenu = () =>{ popupRefMenu.close()}
+  const onClosePopupMenu = () =>{ popupRefMenu.close()}
 
-let popupRefSrc = React.createRef()
+  let popupRefSrc = React.createRef()
   const onShowPopupSrc = () =>{ popupRefSrc.show()}
-const onClosePopupSrc = () =>{ popupRefSrc.close()}
+  const onClosePopupSrc = () =>{ popupRefSrc.close()}
 
 
     return (
@@ -95,10 +132,13 @@ onTouchOutside={onClosePopupMenu}
         
         
 <FlatList  
-                    data={[  
-                        {key: 'Shahid Saleem'},{key: 'Azeem Murtaza'}, {key: 'Imran khan'},{key: 'Hooram Sultan'},  
-                        {key: 'Meherma Sultan'},  {key: 'Afia Noor'},  {key: 'sadaf Noor'}, {key: 'asfa Noor'},
-                    ]}  
+                       data={this.state.result}
+                    // data={[  
+                    //     {key: 'Shahid Saleem'},{key: 'Azeem Murtaza'}, {key: 'Imran khan'},{key: 'Hooram Sultan'},  
+                    //     {key: 'Meherma Sultan'},  {key: 'Afia Noor'},  {key: 'sadaf Noor'}, {key: 'asfa Noor'},
+                    // ]}  
+                    ItemSeparatorComponent={this.renderSeparator} 
+                    keyExtractor={(object, index) => index} 
                     renderItem={({item}) =>  
                     <View >
                        
@@ -118,7 +158,7 @@ onTouchOutside={onClosePopupMenu}
        
                          <Avatar.Image source={require('.././assets/images/blue6.jpg')} size={50} />
                          <View style={{ marginLeft: 5 }}>
-                           <Title style={{ color: '#49641D' }}>{item.key}</Title>
+                           <Title style={{ color: '#49641D' }}>{item.NAME} {item.LAST_NAME}</Title>
                          </View>
                         
                        
@@ -143,7 +183,7 @@ onTouchOutside={onClosePopupMenu}
        
                      <View>
                        <Text style={{ marginBottom: 5, color:'#C0C0C0', fontSize: 16 }}>Id</Text>
-                       <Text style={{ color: '#49641D' }}>2</Text>
+          <Text style={{ color: '#49641D' }}>{item.ID}</Text>
                      </View>
        
                    </View>
@@ -163,7 +203,7 @@ onTouchOutside={onClosePopupMenu}
        
        
                      <View>
-                       <Text style={{ marginBottom: 5, color: '#C0C0C0', fontSize: 16 }}>Status- <Text style={{ color: '#49641D' }}>Good Lead</Text></Text>
+                       <Text style={{ marginBottom: 5, color: '#C0C0C0', fontSize: 16 }}>Status- <Text style={{ color: '#49641D' }}>{item.TITLE}</Text></Text>
                        <Text style={{ color: '#49641D' }}>-----------------------------</Text>
                      </View>
        
@@ -184,7 +224,10 @@ onTouchOutside={onClosePopupMenu}
        
                      <View>
                        <Text style={{ marginBottom: 5, color: '#C0C0C0', fontSize: 16 }}>Created on</Text>
-                       <Text style={{ color: '#49641D' }}>08/09/2020</Text>
+                       {/* <Text style={{ color: '#49641D' }}>08/09/2020</Text> */}
+          {/* <Text style={{ color: '#49641D' }}>{item.DATE_CREATE}</Text> */}
+          {/* {this.props.datetime.substring(0, this.props.datetime.lastIndexOf("T"))} */}
+          <Text style={{ color: '#49641D' }}>{item.DATE_CREATE.substring(0, item.DATE_CREATE.lastIndexOf("T"))}</Text>
                      </View>
        
                    </View>
@@ -223,7 +266,7 @@ onTouchOutside={onClosePopup}
        
         </View>
                                </View>}
-                    ItemSeparatorComponent={this.renderSeparator}  
+                    
                 />
         
              

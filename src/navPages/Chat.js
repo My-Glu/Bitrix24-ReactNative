@@ -3,7 +3,7 @@ import 'react-native-gesture-handler';
 import Animated from 'react-native-reanimated';
 import BottomSheet from 'reanimated-bottom-sheet';
 import { Actions } from 'react-native-router-flux';
-import { StyleSheet,View, Text, StatusBar,Image, FlatList, Alert, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
+import { StyleSheet,View, Text, StatusBar,Image, FlatList, Alert,SafeAreaView,ToastAndroid, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { Avatar, Title, Caption } from 'react-native-paper';
 import {Header,SearchBar, Input} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -14,25 +14,25 @@ const deviceWidth = Dimensions.get('window').width
 const afiaNoor = "https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/"
 const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/"
 
+var usersList= [];
 export default class App extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
 
             search: '',
-            data:{},
+            data:[],
             newUsers:{},
+            
         }
     }
 
+//   componentDidMount() {
 
-  componentDidMount() {
+//     // this.fetchData();
+//     // this.fetchNewUsers();
 
-    this.fetchData();
-    this.fetchNewUsers();
-
-  }
+//   }
 
 // https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/im.recent.get?SKIP_CHAT=N
  
@@ -56,6 +56,20 @@ fetchData= async()=> {
      .catch((error) => console.warn("fetch error:", error))
     this.setState({data: json.result});
 
+  }
+
+
+  myUserList = () => {
+    // this.setState({ firstName: newText })
+    // for(let userObj of this.state.data.message.author_id){
+        this.state.data.map((userData) => {
+            // if (userData.message.author_id==7){
+            if (userData.user.id==43){
+                usersList.push(userData);
+            }
+           // console.log(usersList);
+        });
+ 
   }
 
 
@@ -192,8 +206,13 @@ data={this.state.newUsers}
       fall = new Animated.Value(1);
 
     render() {
+
+        this.fetchData();
+        this.fetchNewUsers();
+        this.myUserList();
+    
 //  -------------------------------------- Main render -----------------------------
-        const { search} = this.state;
+        // const { search} = this.state;
         return (
 
             <View style={styles.container}>
@@ -238,7 +257,8 @@ data={this.state.newUsers}
 {/* -------------------------------- item 1 --- chat friend one ------------------------- */}
 
 <FlatList  
-data={this.state.data} 
+// data={this.state.data} 
+data={usersList} 
                     // data={[  
                     //     {key: 'Shahid Saleem'},{key: 'Fahad Yousaf'}, {key: 'Imran khan'},{key: 'Hooram Sultan'},  
                     //     {key: 'Meherma Sultan'},  {key: 'Afia Noor'},
@@ -257,10 +277,15 @@ onPress={this.goToUserChat.bind(this, item)}
     <View style={{flexDirection: 'row'}}>
 <Avatar.Image style={{position: 'relative'}} source={require('../assets/images/blue6.jpg')} size={50} />
                                     <View style={{ marginLeft:'5%' }}>
+                                        {/* <Title style={{ color: '#49641D', fontSize:14,  fontFamily:'segoesb',}}>{item.user.name} */}
+                                        {/* <Title style={{ color: '#49641D', fontSize:14,  fontFamily:'segoesb',}}>{this.myUserList.bind(this, item)} */}
+                                        {/* <Title style={{ color: '#49641D', fontSize:14,  fontFamily:'segoesb',}}>{this.state.data[0].user.name} */}
+                                        {/* <Title style={{ color: '#49641D', fontSize:14,  fontFamily:'segoesb',}}>{this.state.data[0].message.author_id} */}
                                         <Title style={{ color: '#49641D', fontSize:14,  fontFamily:'segoesb',}}>{item.user.name}
                                         {/* <Text visible={false} style={{fontSize:12}}>("its You")</Text> */}
                                         </Title>
                                         <Caption style={{ fontSize:15, marginTop:-5, color: 'rgba(73,100,29,0.5)'}}>Employee </Caption>
+                                    
                                     </View>
                                
                                     </View>
@@ -318,7 +343,7 @@ onPress={this.goToUserChat.bind(this, item)}
                 </View>
 
             </View>
-
+           
         );
 
 

@@ -6,16 +6,16 @@ import {
   View,
   Text,
   AsyncStorage,
-  StatusBar, 
+  StatusBar,
   AppRegistry,
   Image,
   Dimensions,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 
 import {createAppContainer} from 'react-navigation';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import ListOne from './src/components/ListOne';
 import Login from './src/screens/login/Login';
 import NewUserMail from './src/screens/login/NewUserMail';
@@ -78,28 +78,25 @@ import ProductArchives from './src/navPages/ProductArchives';
 //  color: 'rgba(73,100,29,0.5)'
 
 export default class App extends React.Component {
-  
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-        timePassed: false,
-        session:false,
-        
+      timePassed: false,
+      session: false,
     };
-}
+  }
 
-// componentDidMount() {
-//     StatusBar.setHidden(true);
-//  }
+  // componentDidMount() {
+  //     StatusBar.setHidden(true);
+  //  }
 
-componentDidMount() {
-
+  componentDidMount() {
     StatusBar.setHidden(true, 'none');
-    
-    setTimeout( () => {
-        // this.setTimePassed();
-        this.setState({timePassed: true});
-    },1000);
+
+    setTimeout(() => {
+      // this.setTimePassed();
+      this.setState({timePassed: true});
+    }, 2000);
 
     // AsyncStorage.getItem('SESSION').then(
     //   (value) =>
@@ -111,117 +108,105 @@ componentDidMount() {
     //   // Setting the value in Text
     // );
 
-
-//      AsyncStorage.getItem('SESSION')
-//    .then(
-//         (value) =>
-//           // AsyncStorage returns a promise
-//           // Adding a callback to get the value
-//         this.setState({session:value})
-//         // Setting the value in Text
-//       );
-
-}
-
-setTimePassed() {
-    this.setState({timePassed: true});
-}
-
- displayData= async()=> {
-
-    try{
-
-        AsyncStorage.getItem('email1').then(
-            (value) =>
-              // AsyncStorage returns a promise
-              // Adding a callback to get the value
-              setProfileName(value),
-            // Setting the value in Text
-          );
-
-    }
-
-    catch(error){
-Alert.alert(error)
-    }
-
+    //      AsyncStorage.getItem('SESSION')
+    //    .then(
+    //         (value) =>
+    //           // AsyncStorage returns a promise
+    //           // Adding a callback to get the value
+    //         this.setState({session:value})
+    //         // Setting the value in Text
+    //       );
   }
 
-render() {
+  setTimePassed() {
+    this.setState({timePassed: true});
+  }
+
+  displayData = async () => {
+    try {
+      AsyncStorage.getItem('email1').then(
+        (value) =>
+          // AsyncStorage returns a promise
+          // Adding a callback to get the value
+          setProfileName(value),
+        // Setting the value in Text
+      );
+    } catch (error) {
+      Alert.alert(error);
+    }
+  };
+
+  render() {
     // ----------------------
     if (!this.state.timePassed) {
-        return <Splash/>;
+      return <Splash />;
     } else {
       // -------------------------------
-        // return <ClientsEdit/>
-// if(this.state.session == JSON.stringify(true))
-        return <Routes/>
-        // return <Emoji/>
-        // return <NewUserMail/>
-        // return <Information/>
+      // return <ClientsEdit/>
+      // if(this.state.session == JSON.stringify(true))
+      return <Routes />;
+      // return <Emoji/>
+      // return <NewUserMail/>
+      // return <Information/>
 
-        // if(session==true){
-        //     return <NavScreen/>
-        // }else{
-            // return <Routes/>
-        // }
+      // if(session==true){
+      //     return <NavScreen/>
+      // }else{
+      // return <Routes/>
+      // }
 
-        // return <SetPassword/>
-        // return <OnBoarding/>
-        // return <MessageBubble/>
-        // return <OTPScreen/>
-        // return <UserChat/>
-        // return <BottomView/>
-        // return <NewEvent/>
-        // return <Calendar/>
-        // return <CustomPie/>
-        // return <PopUp/>
-        // return <NavScreen/>
-        // return <DetailsEmployee/>
-        // return <UserTasks/>
-        // return <DetailsUserTasks/>
-        // return <ViewProduct/>
-        // return <EditProduct/>
-        // return <ProductArchives/>
-        // return <ViewCompany/>
-        // return <ViewDeal/>
-        // return <NewDeal/>
-        // return <NewCompany/>
-        // return <NewLead/>
-        // return <EditDeal/>
-        // return <Clients/>
-        // return <Deals/>
-        // return <Leads/>
-        // return <ViewLeads/>
-        // return <EditLeads/>
-        // return <Employee/>
-
+      // return <SetPassword/>
+      // return <OnBoarding/>
+      // return <MessageBubble/>
+      // return <OTPScreen/>
+      // return <UserChat/>
+      // return <BottomView/>
+      // return <NewEvent/>
+      // return <Calendar/>
+      // return <CustomPie/>
+      // return <PopUp/>
+      // return <NavScreen/>
+      // return <DetailsEmployee/>
+      // return <UserTasks/>
+      // return <DetailsUserTasks/>
+      // return <ViewProduct/>
+      // return <EditProduct/>
+      // return <ProductArchives/>
+      // return <ViewCompany/>
+      // return <ViewDeal/>
+      // return <NewDeal/>
+      // return <NewCompany/>
+      // return <NewLead/>
+      // return <EditDeal/>
+      // return <Clients/>
+      // return <Deals/>
+      // return <Leads/>
+      // return <ViewLeads/>
+      // return <EditLeads/>
+      // return <Employee/>
     }
-
-}
-
+  }
 }
 //  <Image source={require('../../assets/images/noorgrplogo3x.png')}
 
-  // render() {
- 
-  //   return (
-     
-  //     <View>
-  //         {/* <Navigation/> */}
-  //       {/* <ForgetPassword/> */}
-  //     {/* <TabNavigator/> */}
-  //           {/* <Login/> */}
-  //           {/* <Information/> */}
-  //            {/* <Splash /> */}
-  //            {/* <Chat/> */}
+// render() {
 
-  //     </View>
+//   return (
 
-  //   );
-  // }
+//     <View>
+//         {/* <Navigation/> */}
+//       {/* <ForgetPassword/> */}
+//     {/* <TabNavigator/> */}
+//           {/* <Login/> */}
+//           {/* <Information/> */}
+//            {/* <Splash /> */}
+//            {/* <Chat/> */}
+
+//     </View>
+
+//   );
 // }
-
+// }
 
 //--------------------bottom nav within nav drawer all ftns-----------------------
 // import 'react-native-gesture-handler';
@@ -317,14 +302,14 @@ render() {
 //           backgroundColor: '#49641D',
 //           borderTopRightRadius: 20,
 //           borderTopLeftRadius: 20,
-         
+
 //         },
 //         labelStyle: {
 //           textAlign: 'center',
 //           fontSize: 11
 //         },
 //       }}>
-        
+
 //         {/* bottom nav screen one */}
 //       {/* <Tab.Screen
 //         name="Clients"
@@ -346,9 +331,7 @@ render() {
 //           // ),
 //         }} /> */}
 
-
-
-//         <Tab.Screen 
+//         <Tab.Screen
 //         name="DASHBOARD"
 //         component={Dashboard}
 //         options={{tabBarIcon:()=> (<Icon name="dashboard" size={24} color='#fff'/>)}}
@@ -398,16 +381,16 @@ render() {
 //             fontWeight: 'bold', //Set Header text style
 //           },
 //         })}
-//       /> 
+//       />
 //     </Stack.Navigator>
 
 //     // <Stack.Navigator
 //     //   initialRouteName="Clients"
 //     //   // component={BottomTabStack}
-      
+
 //     //   screenOptions={{
 //     //     headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
-        
+
 //     //     headerStyle: {
 //     //       backgroundColor: '#fff', //Set Header color
 //     //     },
@@ -421,11 +404,9 @@ render() {
 //     //     component={SettingScreen}
 //     //     options={{
 //     //       title: 'Settings', //Set Header Title
-          
+
 //     //     }}/>
 //     // </Stack.Navigator>
-
-
 
 //   );
 // }
@@ -435,10 +416,10 @@ render() {
 //     <Stack.Navigator
 //       initialRouteName="Second Screen"
 //       // component={BottomTabStack}
-      
+
 //       screenOptions={{
 //         headerLeft: ()=> <NavigationDrawerStructure navigationProps={navigation} />,
-        
+
 //         headerStyle: {
 //           backgroundColor: '#fff', //Set Header color
 //         },
@@ -452,7 +433,7 @@ render() {
 //         component={SettingScreen}
 //         options={{
 //           title: 'Settings', //Set Header Title
-          
+
 //         }}/>
 //     </Stack.Navigator>
 //   );
@@ -470,7 +451,7 @@ render() {
 //           itemStyle: { marginVertical: 5 },
 //         }}>
 //           {/* ------------Screen one------------ */}
-          
+
 //         <Drawer.Screen
 //           name="DashboardScreenStack"
 //           options={{ drawerLabel: 'Dashboard' }}
@@ -508,10 +489,6 @@ render() {
 // export default App;
 
 //------------------------latest nav working all ftns above---------------------------------
-
-
-
-
 
 // -----------------------------nav two--------------------------
 
@@ -569,7 +546,7 @@ render() {
 //   return (
 //     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center'}}>
 //       <Text>No New Notifications!</Text>
-//       <Button 
+//       <Button
 //       onPress={() => navigation.goBack()}
 //       title="Go back home"
 //       />
@@ -591,7 +568,7 @@ render() {
 //       <Text>
 //         Welcome to TabA page!
 //       </Text>
-//       <Button 
+//       <Button
 //       onPress={() => navigation.navigate('TabA Details')}
 //       title="Go to TabA Details"
 //       />
@@ -628,18 +605,6 @@ render() {
 //   )
 // }
 
-
-
-
-
-
-
-
-
-
-
-
-
 //-------------------- faseeh code One below ----------------------
 // import React, { Component } from 'react';
 
@@ -663,7 +628,7 @@ render() {
 // export default class App extends Component {
 
 //     render() {
-       
+
 //     return (
 
 // <NavigationContainer>
@@ -676,13 +641,10 @@ render() {
 // <Tab.Screen name="root2" component={root2} />
 // <Drawer.Screen name="root" component={root} />
 
-                    
-          
 //         </stack.Navigator>
 //       </NavigationContainer>
 
 //     );
-
 
 //   }
 // }
@@ -708,7 +670,6 @@ render() {
 // );
 // }
 //--------------------faseeh code----------------------------
-
 
 //------------------------------------------wroking drawer-----------------------
 // import * as React from 'react';
@@ -818,20 +779,20 @@ render() {
 
 //----------------------------------new drawer code end -------------------------------------
 // import * as React from 'react';
-// import {StyleSheet, Text, View,Button, Image} from 'react-native';  
-// import { createBottomTabNavigator, createAppContainer} from 'react-navigation';  
-// import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';  
-// import Icon from 'react-native-vector-icons/Ionicons';  
+// import {StyleSheet, Text, View,Button, Image} from 'react-native';
+// import { createBottomTabNavigator, createAppContainer} from 'react-navigation';
+// import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+// import Icon from 'react-native-vector-icons/Ionicons';
 // import {Header} from 'react-native-elements';
 // import NavDrawer from './src/navDrawer/NavDrawer';
 
-// class Dashboard extends React.Component {  
-//   render() {  
-//     return (  
-//         <View> 
+// class Dashboard extends React.Component {
+//   render() {
+//     return (
+//         <View>
 //         <View style={styles.containerh}>
 //         {/* <NavDrawer/> */}
-//             <Header 
+//             <Header
 //             containerStyle={styles.headerContainer}
 //             leftComponent={<Image source={require('./src/assets/images/bar.png')}
 //             onPress={() =>navigation.toggleDrawer()}
@@ -839,48 +800,48 @@ render() {
 //             // centerComponent={{text: 'Home', style:{...styles.headerTitle}}}
 //             rightComponent={<Image source={require('./src/assets/images/search.png')} style={styles.headerRight} />}
 //         /></View>
-        
+
 //         <View style={styles.container}>
-//             <Text>Dashboard</Text> 
+//             <Text>Dashboard</Text>
 //             </View>
-         
-//         </View>  
-//     );  
-//   }  
-// }  
-// class ProfileScreen extends React.Component {  
-//   render() {  
-//     return (  
-//         <View style={styles.container}>  
-//           <Text>Profile Screen</Text>  
-//         </View>  
-//     );  
-//   }  
-// }  
-// class ImageScreen extends React.Component {  
-//     render() {  
-//         return (  
-//             <View style={styles.container}>  
-//                 <Text>Image Screen</Text>  
-//             </View>  
-//         );  
-//     }  
-// }  
-// class CartScreen extends React.Component {  
-//     render() {  
-//         return (  
-//             <View style={styles.container}>  
-//                 <Text>Cart Screen</Text>  
-//             </View>  
-//         );  
-//     }  
-// }  
-// const styles = StyleSheet.create({  
-//     container: {  
-//         flex: 1,  
-//         justifyContent: 'center',  
-//         alignItems: 'center'  
-//     },  
+
+//         </View>
+//     );
+//   }
+// }
+// class ProfileScreen extends React.Component {
+//   render() {
+//     return (
+//         <View style={styles.container}>
+//           <Text>Profile Screen</Text>
+//         </View>
+//     );
+//   }
+// }
+// class ImageScreen extends React.Component {
+//     render() {
+//         return (
+//             <View style={styles.container}>
+//                 <Text>Image Screen</Text>
+//             </View>
+//         );
+//     }
+// }
+// class CartScreen extends React.Component {
+//     render() {
+//         return (
+//             <View style={styles.container}>
+//                 <Text>Cart Screen</Text>
+//             </View>
+//         );
+//     }
+// }
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         justifyContent: 'center',
+//         alignItems: 'center'
+//     },
 //     containerh: {
 //         marginTop:30,
 //         paddingTop: 10,
@@ -906,62 +867,62 @@ render() {
 //           height: 24,
 //           marginHorizontal: 10
 //       }
-// });  
-// const TabNavigator = createMaterialBottomTabNavigator(  
-//     {  
-//         Dashboard: { screen: Dashboard,  
-//             navigationOptions:{  
-//                 tabBarLabel:'Dashboard',  
-//                 tabBarIcon: ({ tintColor }) => (  
-//                     <View>  
-//                         <Icon style={[{color: tintColor}]} size={25} name={'ios-Dashboard'}/>  
-//                     </View>),  
-//             }  
-//         },  
-//         Profile: { screen: ProfileScreen,  
-//             navigationOptions:{  
-//                 tabBarLabel:'Profile',  
-//                 tabBarIcon: ({ tintColor }) => (  
-//                     <View>  
-//                         <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>  
-//                     </View>),  
-//                 activeColor: '#f60c0d',  
-//                 inactiveColor: '#f65a22',  
-//                 barStyle: { backgroundColor: '#f69b31' },  
-//             }  
-//         },  
-//         Image: { screen: ImageScreen,  
-//             navigationOptions:{  
-//                 tabBarLabel:'History',  
-//                 tabBarIcon: ({ tintColor }) => (  
-//                     <View>  
-//                         <Icon style={[{color: tintColor}]} size={25} name={'ios-images'}/>  
-//                     </View>),  
-//                 activeColor: '#615af6',  
-//                 inactiveColor: '#46f6d7',  
-//                 barStyle: { backgroundColor: '#67baf6' },  
-//             }  
-//         },  
-//         Cart: {  
-//             screen: CartScreen,  
-//             navigationOptions:{  
-//                 tabBarLabel:'Cart',  
-//                 tabBarIcon: ({ tintColor }) => (  
-//                     <View>  
-//                         <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'}/>  
-//                     </View>),  
-//             }  
-//         },  
-//     },  
-//     {  
-//       initialRouteName: "Dashboard",  
-//       activeColor: '#f0edf6',  
-//       inactiveColor: '#226557',  
-//       barStyle: { backgroundColor: '#3BAD87' },  
-//     },  
-// );  
-  
-// export default createAppContainer(TabNavigator);  
+// });
+// const TabNavigator = createMaterialBottomTabNavigator(
+//     {
+//         Dashboard: { screen: Dashboard,
+//             navigationOptions:{
+//                 tabBarLabel:'Dashboard',
+//                 tabBarIcon: ({ tintColor }) => (
+//                     <View>
+//                         <Icon style={[{color: tintColor}]} size={25} name={'ios-Dashboard'}/>
+//                     </View>),
+//             }
+//         },
+//         Profile: { screen: ProfileScreen,
+//             navigationOptions:{
+//                 tabBarLabel:'Profile',
+//                 tabBarIcon: ({ tintColor }) => (
+//                     <View>
+//                         <Icon style={[{color: tintColor}]} size={25} name={'ios-person'}/>
+//                     </View>),
+//                 activeColor: '#f60c0d',
+//                 inactiveColor: '#f65a22',
+//                 barStyle: { backgroundColor: '#f69b31' },
+//             }
+//         },
+//         Image: { screen: ImageScreen,
+//             navigationOptions:{
+//                 tabBarLabel:'History',
+//                 tabBarIcon: ({ tintColor }) => (
+//                     <View>
+//                         <Icon style={[{color: tintColor}]} size={25} name={'ios-images'}/>
+//                     </View>),
+//                 activeColor: '#615af6',
+//                 inactiveColor: '#46f6d7',
+//                 barStyle: { backgroundColor: '#67baf6' },
+//             }
+//         },
+//         Cart: {
+//             screen: CartScreen,
+//             navigationOptions:{
+//                 tabBarLabel:'Cart',
+//                 tabBarIcon: ({ tintColor }) => (
+//                     <View>
+//                         <Icon style={[{color: tintColor}]} size={25} name={'ios-cart'}/>
+//                     </View>),
+//             }
+//         },
+//     },
+//     {
+//       initialRouteName: "Dashboard",
+//       activeColor: '#f0edf6',
+//       inactiveColor: '#226557',
+//       barStyle: { backgroundColor: '#3BAD87' },
+//     },
+// );
+
+// export default createAppContainer(TabNavigator);
 
 //----------------------- all screens --------------------------------------------
 
@@ -985,18 +946,17 @@ render() {
 // // import Navigation from './Navigation';
 
 // export default class App extends React.Component {
-  
+
 //     constructor() {
 //     super();
-//     // this.state = { 
+//     // this.state = {
 //     // };
 //   }
 
-
 //   render() {
- 
+
 //     return (
-     
+
 //       <View>
 //           {/* <Navigation/> */}
 //         {/* <ForgetPassword/> */}
@@ -1011,8 +971,6 @@ render() {
 //     );
 //   }
 // }
-
-
 
 // ------------------------------------
 // import 'react-native-gesture-handler';
@@ -1108,7 +1066,7 @@ render() {
 //         component={Deals}
 //         options={{
 //           title: 'Deals', //Set Header Title
-          
+
 //         }}/>
 //       <Stack.Screen
 //         name="Leads"
@@ -1144,122 +1102,117 @@ render() {
 // export default App;
 // --------------------------------------
 
-
-
-
-
-
 // // // import React, { Component } from 'react';
 
-// import React, { Component } from 'react';  
-// import { View, Text, StyleSheet, Button } from 'react-native';  
-// import Icon from 'react-native-vector-icons/Ionicons';  
-// import { createDrawerNavigator } from 'react-navigation'  
-  
-// import {  
-//     createSwitchNavigator,  
-//     createAppContainer,  
-//     createStackNavigator  
-// } from 'react-navigation';  
-// export default class App extends Component {  
-//     render() {  
-//         return <AppContainer />;  
-//     }  
-// }  
-  
-// class WelcomeScreen extends Component {  
-//     static navigationOptions = {  
-//          title: 'Welcome',  
-//     };  
-//     render() {  
-//         return (  
-//             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>  
-//                 <Text>WelcomeScreen</Text>  
-//                 <Button  
-//                     title="Go to DashboardScreen"  
-//                     onPress={() => this.props.navigation.navigate('Dashboard')}  
-//                 />  
-//             </View>  
-//         );  
-//     }  
-// }  
-  
-// class DashboardScreen extends Component {  
-//     static navigationOptions = {  
-//          title: 'Dashboard',  
-//     };  
-  
-//     render() {  
-//         return (  
-//             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>  
-//                 <Text>DashboardScreen</Text>  
-//             </View>  
-//         );  
-//     }  
-// }  
-// const DashboardStackNavigator = createStackNavigator(  
-//     {  
-//         DashboardNavigator: DashboardScreen  
-//     },  
-//     {  
-//         defaultNavigationOptions: ({ navigation }) => {  
-//         return {  
-//             headerLeft: (  
-//                 <Icon  
-//                     style={{ paddingLeft: 10 }}  
-//                     onPress={() => navigation.openDrawer()}  
-//                     name="md-menu"  
-//                     size={30}  
-//                 />  
-//             )  
-//         };  
-//         }  
-//     }  
-// );  
-  
-// const WelcomeStackNavigator = createStackNavigator(  
-//     {  
-//         WelcomeNavigator: WelcomeScreen  
-//     },  
-//     {  
-//         defaultNavigationOptions: ({ navigation }) => {  
-//             return {  
-//                 headerLeft: (  
-//                     <Icon  
-//                         style={{ paddingLeft: 10 }}  
-//                         onPress={() => navigation.openDrawer()}  
-//                         name="md-menu"  
-//                         size={30}  
-//                     />  
-//                 )  
-//             };  
-//         }  
-//     }  
-// );  
-// const AppDrawerNavigator = createDrawerNavigator({  
-//     Dashboard: {  
-//         screen: DashboardStackNavigator  
-//     },  
-//     Welcome: {  
-//         screen: WelcomeStackNavigator  
-//     },  
-// });  
-  
-// const AppSwitchNavigator = createSwitchNavigator({  
-//     Dashboard: { screen: AppDrawerNavigator },  
-//     Welcome: { screen: WelcomeScreen },  
-  
-// });  
-  
-// const AppContainer = createAppContainer(AppSwitchNavigator);  
-  
-// const styles = StyleSheet.create({  
-//     container: {  
-//         flex: 1,  
-//         alignItems: 'center',  
-//         justifyContent: 'center'  
-//     }  
-// });  
+// import React, { Component } from 'react';
+// import { View, Text, StyleSheet, Button } from 'react-native';
+// import Icon from 'react-native-vector-icons/Ionicons';
+// import { createDrawerNavigator } from 'react-navigation'
+
+// import {
+//     createSwitchNavigator,
+//     createAppContainer,
+//     createStackNavigator
+// } from 'react-navigation';
+// export default class App extends Component {
+//     render() {
+//         return <AppContainer />;
+//     }
+// }
+
+// class WelcomeScreen extends Component {
+//     static navigationOptions = {
+//          title: 'Welcome',
+//     };
+//     render() {
+//         return (
+//             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//                 <Text>WelcomeScreen</Text>
+//                 <Button
+//                     title="Go to DashboardScreen"
+//                     onPress={() => this.props.navigation.navigate('Dashboard')}
+//                 />
+//             </View>
+//         );
+//     }
+// }
+
+// class DashboardScreen extends Component {
+//     static navigationOptions = {
+//          title: 'Dashboard',
+//     };
+
+//     render() {
+//         return (
+//             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+//                 <Text>DashboardScreen</Text>
+//             </View>
+//         );
+//     }
+// }
+// const DashboardStackNavigator = createStackNavigator(
+//     {
+//         DashboardNavigator: DashboardScreen
+//     },
+//     {
+//         defaultNavigationOptions: ({ navigation }) => {
+//         return {
+//             headerLeft: (
+//                 <Icon
+//                     style={{ paddingLeft: 10 }}
+//                     onPress={() => navigation.openDrawer()}
+//                     name="md-menu"
+//                     size={30}
+//                 />
+//             )
+//         };
+//         }
+//     }
+// );
+
+// const WelcomeStackNavigator = createStackNavigator(
+//     {
+//         WelcomeNavigator: WelcomeScreen
+//     },
+//     {
+//         defaultNavigationOptions: ({ navigation }) => {
+//             return {
+//                 headerLeft: (
+//                     <Icon
+//                         style={{ paddingLeft: 10 }}
+//                         onPress={() => navigation.openDrawer()}
+//                         name="md-menu"
+//                         size={30}
+//                     />
+//                 )
+//             };
+//         }
+//     }
+// );
+// const AppDrawerNavigator = createDrawerNavigator({
+//     Dashboard: {
+//         screen: DashboardStackNavigator
+//     },
+//     Welcome: {
+//         screen: WelcomeStackNavigator
+//     },
+// });
+
+// const AppSwitchNavigator = createSwitchNavigator({
+//     Dashboard: { screen: AppDrawerNavigator },
+//     Welcome: { screen: WelcomeScreen },
+
+// });
+
+// const AppContainer = createAppContainer(AppSwitchNavigator);
+
+// const styles = StyleSheet.create({
+//     container: {
+//         flex: 1,
+//         alignItems: 'center',
+//         justifyContent: 'center'
+//     }
+// });
 
 // ---------------------------------
 
@@ -1283,18 +1236,17 @@ render() {
 // // import Navigation from './Navigation';
 
 // export default class App extends React.Component {
-  
+
 //     constructor() {
 //     super();
 //     // this.state = {
 //     // };
 //   }
 
-
 //   render() {
- 
+
 //     return (
-     
+
 //       <View>
 //           {/* <Navigation/> */}
 //         {/* <ForgetPassword/> */}
@@ -1309,7 +1261,6 @@ render() {
 //   }
 // }
 
-
 // import { NavigationContainer } from '@react-navigation/native';
 // import { createStackNavigator } from '@react-navigation/stack';
 
@@ -1317,7 +1268,7 @@ render() {
 // export default class BottomNavigation extends Component {
 //   render() {
 //     return (
-      
+
 //         // <NavigationContainer>
 //         // <Stack.Navigator>
 //         // <Stack.Screen name="Home" component={HomeScreen} />
@@ -1337,8 +1288,6 @@ render() {
 //       </NavigationContainer>
 //     );
 //   }
-  
-
 
 // const Stack = createStackNavigator();
 // function HomeScreen() {

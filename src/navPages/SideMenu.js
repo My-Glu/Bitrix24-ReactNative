@@ -1,73 +1,64 @@
-import React, {useState,useEffect} from 'react';
-import {StyleSheet, Text, View,TouchableOpacity, AsyncStorage,Image} from "react-native";
+import React, { Component} from 'react';
+import {StyleSheet, Text, View,TouchableOpacity, AsyncStorage,Image, ToastAndroid} from "react-native";
 import {Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import Employee from '.././navPages/Employee'
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Actions } from 'react-native-router-flux';
 
-const SideMenu = (props) => {
-    
-    const [profileName, setProfileName] = useState('');
-    // let profileName = AsyncStorage.getItem('email1');
+var mProfileName = 'Name';
+class SideMenu extends Component {
 
-    useEffect(() => {
+    constructor(props) {
+        super(props);
+        this.state = {
+            profileName:'',
 
-        // document.title = `You clicked ${count} times`;
-        // {displayData}
+        };
 
         AsyncStorage.getItem('email1').then(
-            (value) =>
-            // let name   = email.substring(0, email.lastIndexOf("@"));
+            (value) =>{
+            let name   = value.substring(0, value.lastIndexOf("@"));
               // AsyncStorage returns a promise
               // Adding a callback to get the value
-              setProfileName(value.substring(0, value.lastIndexOf("@"))),
+            //   setProfileName(value.substring(0, value.lastIndexOf("@"))),
+            this.setState({profileName: name})
+            // ToastAndroid.show("userName "+name, ToastAndroid.LONG);
+            // mProfileName=name;
+            
             // Setting the value in Text
-          );
-
-
-      });
-
-    // useEffect(() => {
-    //     // code to run on component mount
-    //     displayData
-    //   }, [])
-
-
-    const displayData= async()=> {
-
-        try{
-
-            AsyncStorage.getItem('email1').then(
-                (value) =>
-                  // AsyncStorage returns a promise
-                  // Adding a callback to get the value
-                  setProfileName(value),
-                // Setting the value in Text
-              );
-
-    // let uEmail = await AsyncStorage.getItem('email1');
-    // setProfileName(uEmail)
-    // Alert.alert(uEmail);
-
-        }
-
-        catch(error){
-    Alert.alert(error)
-        }
-    
+            });
+      }
+ 
+      componentDidMount(){
+        // AsyncStorage.getItem('email1').then(
+        //     (value) =>{
+        //     let name   = value.substring(0, value.lastIndexOf("@"));
+        //       // AsyncStorage returns a promise
+        //       // Adding a callback to get the value
+        //     //   setProfileName(value.substring(0, value.lastIndexOf("@"))),
+        //     this.setState({profileName: name})
+        //     ToastAndroid.show("userName "+name, ToastAndroid.LONG);
+        //     // mProfileName=name;
+            
+        //     // Setting the value in Text
+        //     });
       }
 
+
+render() {
+    // var namePro=  AsyncStorage.getItem('email1');
     return(
         <View style={{flex:1}}>
-            <DrawerContentScrollView {...props}>
+            <DrawerContentScrollView>
             <View style={styles.userInfoSection}>
             <View style={{flexDirection:'row',marginTop:25,alignItems:'center'}}>
               <Avatar.Image backgroundColor="#ffffff" source={require('../assets/images/userprog.png')} size={65} />
               <View style={{flexDirection:'column', marginLeft: 10}}>
-    <Title style={{color:'green'}}>{profileName}</Title>
+    <Title style={{color:'green'}}>{this.state.profileName}</Title>
+    {/* <Title style={{color:'green'}}>{namePro}</Title> */}
                 <TouchableOpacity delayPressIn={1}
-                onPress={()=> {props.navigation.navigate('Information')}}
+                onPress={()=> {this.props.navigation.navigate('Information')}}
                 >
                 <Caption>Edit Profile</Caption>
                 </TouchableOpacity>
@@ -81,11 +72,11 @@ const SideMenu = (props) => {
                  <DrawerItem 
                  icon = { () => (<Image  source={require('../assets/images/myactivities.png')} tintColor='#49641D' style={{width:19, height:18,}}/>)}
                  label="My Activities"
-                 onPress={()=> {props.navigation.navigate('MyActivities')}}
+                 onPress={()=> {this.props.navigation.navigate('MyActivities')}}
                  width={220}
                  />
                  <Icon name="arrow-right" style={{fontSize:18}}
-                 onPress={()=> {props.navigation.navigate('MyActivities')}}
+                 onPress={()=> {this.props.navigation.navigate('MyActivities')}}
                  />
                  </View>
 
@@ -93,12 +84,12 @@ const SideMenu = (props) => {
                <DrawerItem 
                  icon = { () => (<Image  source={require('../assets/images/employees.png')} tintColor='#49641D' style={{width:21, height:21}}/> )}
                  label="Employees"
-                 onPress={()=> {props.navigation.navigate('Employee')}}
+                 onPress={()=> {this.props.navigation.navigate('Employee')}}
                  width={220}
                  
                  />
                  <Icon name="arrow-right" style={{fontSize:18}}
-                 onPress={()=> {props.navigation.navigate('Employee')}}
+                 onPress={()=> {this.props.navigation.navigate('Employee')}}
                  />
                  </View>
 
@@ -106,12 +97,12 @@ const SideMenu = (props) => {
 <DrawerItem 
                  icon = { () => (<Image  source={require('../assets/images/clients.png')} tintColor='#49641D' style={{width:20, height:20, }}/>  )}
                  label="Clients"
-                 onPress={()=> {props.navigation.navigate('Clients')}}
+                 onPress={()=> {this.props.navigation.navigate('Clients')}}
                  width={220}
                  
                  />
                  <Icon name="arrow-right" style={{fontSize:18}}
-                 onPress={()=> {props.navigation.navigate('Clients')}}
+                 onPress={()=> {this.props.navigation.navigate('Clients')}}
                  />
                  </View>
 
@@ -121,12 +112,12 @@ const SideMenu = (props) => {
 <DrawerItem 
                  icon = { () => (<Image  source={require('../assets/images/leads.png')} tintColor='#49641D' style={{width:19, height:18,}}/> )}
                  label="Leads"
-                 onPress={()=> {props.navigation.navigate('Leads')}}
+                 onPress={()=> {this.props.navigation.navigate('Leads')}}
                  width={220}
                  
                  />
                  <Icon name="arrow-right" style={{fontSize:18}}
-                 onPress={()=> {props.navigation.navigate('Leads')}}
+                 onPress={()=> {this.props.navigation.navigate('Leads')}}
                  />
                  </View>
 
@@ -134,12 +125,12 @@ const SideMenu = (props) => {
 <DrawerItem 
                  icon = { () => (<Image  source={require('../assets/images/deals.png')} tintColor='#49641D' style={{width:20, height:20, marginHorizontal:1}}/> )}
                  label="Deals"
-                 onPress={()=> {props.navigation.navigate('Deals')}}
+                 onPress={()=> {this.props.navigation.navigate('Deals')}}
                  width={220}
                  
                  />
                  <Icon name="arrow-right" style={{fontSize:18}}
-                 onPress={()=> {props.navigation.navigate('Deals')}}
+                 onPress={()=> {this.props.navigation.navigate('Deals')}}
                  />
                  </View>
 
@@ -147,12 +138,12 @@ const SideMenu = (props) => {
 <DrawerItem 
                  icon = { () => (<Image  source={require('../assets/images/quotes.png')} tintColor='#49641D' style={{width:19, height:19, marginHorizontal:2}}/>)}
                  label="Quotes"
-                 onPress={()=> {props.navigation.navigate('Quotes')}}
+                 onPress={()=> {this.props.navigation.navigate('Quotes')}}
                  width={220}
                  
                  />
                  <Icon name="arrow-right" style={{fontSize:18}}
-                 onPress={()=> {props.navigation.navigate('Quotes')}}
+                 onPress={()=> {this.props.navigation.navigate('Quotes')}}
                  />
                  </View>
 
@@ -160,12 +151,12 @@ const SideMenu = (props) => {
                  <DrawerItem 
                  icon = { () => (<Image  source={require('../assets/images/productarch.png')} tintColor='#49641D' style={{width:19, height:19, }}/> )}
                  label="Product Archives"
-                 onPress={()=> {props.navigation.navigate('ProductArchives')}}
+                 onPress={()=> {this.props.navigation.navigate('ProductArchives')}}
                  width={220}
                  
                  />
                  <Icon name="arrow-right" style={{fontSize:18}}
-                 onPress={()=> {props.navigation.navigate('ProductArchives')}}
+                 onPress={()=> {this.props.navigation.navigate('ProductArchives')}}
                  />
                  </View>
 
@@ -183,12 +174,12 @@ const SideMenu = (props) => {
                  <DrawerItem 
                  icon = { () => (<Image  source={require('../assets/images/invoices.png')} tintColor='#49641D' style={{width:18, height:18,}}/>)}
                  label="Invoices"
-                 onPress={()=> {props.navigation.navigate('Invoices')}}
+                 onPress={()=> {this.props.navigation.navigate('Invoices')}}
                  width={220}
                  
                  />
                  <Icon name="arrow-right" style={{fontSize:18}}
-                 onPress={()=> {props.navigation.navigate('Invoices')}}
+                 onPress={()=> {this.props.navigation.navigate('Invoices')}}
                  />
                  </View>
 
@@ -225,12 +216,17 @@ const SideMenu = (props) => {
                 <DrawerItem
                  icon = { () => (<Image  source={require('../assets/images/switch.png')} tintColor='#49641D' style={{width:18, height:18,}}/> )}
                  label="Switch User"
-                 onPress={()=> {props.navigation.navigate('SwitchUser')}}
+                 onPress={()=> {this.props.navigation.navigate('SwitchUser')}}
                  />
             </Drawer.Section>
         </View>
-    )
+    );
+
 }
+
+
+}
+
 
 export default SideMenu;
 

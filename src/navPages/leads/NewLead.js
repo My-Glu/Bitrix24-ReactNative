@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Header,SearchBar, Input} from 'react-native-elements';
-import { StyleSheet,View, Text, StatusBar,Image, Alert, TouchableOpacity, ScrollView, TextInput, Dimensions } from 'react-native';
+import { StyleSheet,View, Text, StatusBar,Image, Alert, TouchableOpacity, ScrollView, TextInput, Dimensions, ToastAndroid } from 'react-native';
 import { Avatar, Title, Caption } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
@@ -14,34 +14,36 @@ const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/qjisdjl3s26c86gc/"
 
 var data={fields};
 
-var PhoneArray=[ { "VALUE": "", "VALUE_TYPE": "" } ] 
+// var PhoneArray=[ { "VALUE": "09007860111", "VALUE_TYPE": "WORK" } ] 
+var PhoneArray=[ { "VALUE": "09007896767", "VALUE_TYPE": "Work" } ] 
 var fields = { 
-  "TITLE": "", 
-  "STATUS_DESCRIPTION": "",
+  "TITLE": '', 
+  "STATUS_DESCRIPTION": '',
   "OPPORTUNITY": 0,
-  "SOURCE_DESCRIPTION":"",
-  "NAME": "", 
-  "SECOND_NAME": "", 
-  "LAST_NAME": "", 
-  "EMAIL":"",
+  "SOURCE_DESCRIPTION":'',
+  "NAME": '', 
+  "SECOND_NAME": '', 
+  "LAST_NAME": '', 
+  "BIRTHDATE":'',
+  "EMAIL":'',
   // "STATUS_ID": "", 
   // "OPENED": "", 
-  "ASSIGNED_BY_ID": 0, 
-  "CURRENCY_ID": "", 
-  "WEB":"",
-  "COMPANY_TITLE":"",
-  "COMPANY_ID":"",
+  "ASSIGNED_BY_ID": '', 
+  "CURRENCY_ID": '', 
+  "WEB":'',
+  "COMPANY_TITLE":'',
+  "COMPANY_ID":'',
   "POST":"",
-  "ADDRESS_PROVINCE": "",
-  "ADDRESS_POSTAL_CODE":"",
-  "ADDRESS":"",
-  "ADDRESS_2":"",
-  "ADDRESS_CITY":"",
-  "ADDRESS_REGION":"",
-  "ADDRESS_COUNTRY":"",
-  "COMMENTS":"",
-  "SOURCE_ID":"",
-  "HONORIFIC":"",
+  "ADDRESS_PROVINCE": '',
+  "ADDRESS_POSTAL_CODE": '',
+  "ADDRESS":'',
+  "ADDRESS_2":'',
+  "ADDRESS_CITY":'',
+  "ADDRESS_REGION":'',
+  "ADDRESS_COUNTRY":'',
+  "COMMENTS":'',
+  "SOURCE_ID":'',
+  "HONORIFIC":'',
   "PHONE": PhoneArray
 }
 
@@ -108,7 +110,9 @@ handleInputTextChangeSecondName = (newText7) => {
 
 handleInputTextChangeWorkPhone = (newText8) => {
   // this.setState({ linkedin: newText8 })
-  fields.PHONE=newText11
+  PhoneArray.VALUE=newText8
+  PhoneArray.VALUE_TYPE="WORK"
+
 }
 
 handleInputTextChangeEmail = (newText9) => {
@@ -121,9 +125,9 @@ handleInputTextChangeWebsite = (newText10) => {
   fields.WEB=newText10
 }
 
-handleInputTextChangeCompanyName = (newText11) => {
+handleInputTextChangeCompanyName = (newText111) => {
  
-   fields.COMPANY_TITLE=newText11
+   fields.COMPANY_TITLE=newText111
 }
 
 handleInputTextChangePosition = (newText12) => {
@@ -212,7 +216,7 @@ makeNewLead= async()=> {
   //       "password": this.state.pass
   //   }
   // })
-  }).then((json) =>  ToastAndroid.show("processing" , ToastAndroid.LONG))
+  }).then((json) =>  ToastAndroid.show("processing..." , ToastAndroid.LONG))
   .catch((error) => console.warn("fetch error:", error.message));
  
   // const response = await fetch(afiaNoor+"im.recent.get");
@@ -225,7 +229,7 @@ makeNewLead= async()=> {
   //  jsonData.then(res=> res.json)
   //  .catch((error) => console.warn("fetch error:", error.message))
 
-   ToastAndroid.show("saved", ToastAndroid.LONG);
+   ToastAndroid.show("New Lead saved", ToastAndroid.LONG);
 
   // this.setState({data:[{
   //   id: jsonData.result.ID,
@@ -277,8 +281,11 @@ makeNewLead= async()=> {
         
             rightComponent={
             // <Image source={require('../../assets/images/search.png')}  />
-    
-            <Text>Save</Text> 
+            <TouchableOpacity
+            onPress={this.makeNewLead}
+            >
+             <Text>Save</Text> 
+            </TouchableOpacity>
 
           //   <View style={{flexDirection: 'row'}}>
 

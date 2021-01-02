@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View,StatusBar, Text, StyleSheet, Image, FlatList,TouchableOpacity } from 'react-native';
+import { View,StatusBar, Text, StyleSheet, Image, FlatList,TouchableOpacity,ToastAndroid } from 'react-native';
 import { Avatar, Title, Caption, Paragraph, Drawer, TouchableRipple, Switch } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Header} from 'react-native-elements';
@@ -8,12 +8,30 @@ import MoreDeals from './deals/MoreDeals';
 import MenuDeal from './deals/MenuDeal';
 import ChangeStageDeal from './deals/ChangeStageDeal';
 
+
+const afiaNoor = "https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/"
+// const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/"
+const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/qjisdjl3s26c86gc/"
+
+var order = {"STAGE_ID":"ASC"};
+var filter = {">PROBABILITY":50};
+var select = ["ID", "TITLE", "STATUS_ID", "PROBABILITY","OPPORTUNITY", "CURRENCY_ID" ];
+var data ={order,filter,select}
+
 export default class Deals extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      result:[],
     };
   }
+
+//   { 
+//     order: { "STAGE_ID": "ASC" },
+//     filter: { ">PROBABILITY": 50 },
+//     select: [ "ID", "TITLE", "STAGE_ID", "PROBABILITY", "OPPORTUNITY", "CURRENCY_ID" ]
+// }, 
+
 
   goToViewDeal = () => {
     Actions.viewDeal()
@@ -25,7 +43,6 @@ export default class Deals extends Component {
 
 }
 
-
 goToSearchScreen = () => {
 
   Actions.search()
@@ -33,21 +50,42 @@ goToSearchScreen = () => {
 }
 
 
+fetchData= async()=> {
+  // https://b24-l9xpyr.bitrix24.com/rest/1/qjisdjl3s26c86gc/crm.lead.list
+    // const response = await fetch(afiaNoor+"im.recent.get?SKIP_CHAT=N");
+    // const response = await fetch(bitrix+ `crm.lead.list?order=${order}&filter=${filter}&select=${select}`);
+    ToastAndroid.show("All deals start ", ToastAndroid.LONG);
+    const response = await fetch(bitrix+ `crm.deal.list?${data}`);
+    // const response = await fetch("https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/user.get");
+    const json = await response.json()
+    // .then((response) => response.json())
+     .catch((error) => console.warn("fetch error:", error.message));
+    this.setState({result: json.result});
+    ToastAndroid.show("All deals res "+ this.state.result[0].ID, ToastAndroid.LONG);
+    // ToastAndroid.show("okkkkkk ", ToastAndroid.LONG);
+  
+  }
+  
+
+  componentDidMount(){
+
+    this.fetchData();
+ 
+ }
 
   render() {
 
     let popupRef = React.createRef()
     const onShowPopup = () =>{ popupRef.show()}
-  const onClosePopup = () =>{ popupRef.close()}
+    const onClosePopup = () =>{ popupRef.close()}
 
-  let popupRefMenu = React.createRef()
+    let popupRefMenu = React.createRef()
     const onShowPopupMenu = () =>{ popupRefMenu.show()}
-  const onClosePopupMenu = () =>{ popupRefMenu.close()}
+    const onClosePopupMenu = () =>{ popupRefMenu.close()}
 
-  let popupRefSrc = React.createRef()
-  const onShowPopupSrc = () =>{ popupRefSrc.show()}
-const onClosePopupSrc = () =>{ popupRefSrc.close()}
-
+    let popupRefSrc = React.createRef()
+    const onShowPopupSrc = () =>{ popupRefSrc.show()}
+    const onClosePopupSrc = () =>{ popupRefSrc.close()}
 
     return (
         <View>
@@ -98,10 +136,13 @@ onTouchOutside={onClosePopupMenu}
         
 
         <FlatList  
-                    data={[  
-                        {key: 'Flatteys'},{key: 'Fahad Yousaf'}, {key: 'Imran khan'},{key: 'Hooram Sultan'},  
-                        {key: 'Meherma Sultan'},  {key: 'Afia Noor'},  {key: 'sadaf Noor'}, {key: 'asfa Noor'},
-                    ]}  
+                    // data={[  
+                    //     {key: 'Flatteys'},{key: 'Fahad Yousaf'}, {key: 'Imran khan'},{key: 'Hooram Sultan'},  
+                    //     {key: 'Meherma Sultan'},  {key: 'Afia Noor'},  {key: 'sadaf Noor'}, {key: 'asfa Noor'},
+                    // ]}  
+                    data={this.state.result}
+                    ItemSeparatorComponent={this.renderSeparator}
+                    keyExtractor={(object, index) => index} 
                     renderItem={({item}) =>  
                     <View >
                       
@@ -122,7 +163,7 @@ onTouchOutside={onClosePopupMenu}
        
                          <Avatar.Image source={require('.././assets/images/blue6.jpg')} size={50} />
                          <View style={{ marginLeft: 5, alignSelf: 'center'}}>
-                  <Title style={{ color: '#49641D' }}>{item.key}</Title>
+                  <Title style={{ color: '#49641D' }}>{item.COMPANY_ID}</Title>
                          </View>
                          <Icon name="chevron-forward-outline" style={{ marginLeft: '20%',alignSelf: 'center',fontSize: 35, color: '#e2e2e2' }}></Icon>
                        </View>

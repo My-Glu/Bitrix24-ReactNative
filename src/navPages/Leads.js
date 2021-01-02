@@ -53,25 +53,26 @@ fetchData= async()=> {
 // https://b24-l9xpyr.bitrix24.com/rest/1/qjisdjl3s26c86gc/crm.lead.list
   // const response = await fetch(afiaNoor+"im.recent.get?SKIP_CHAT=N");
   // const response = await fetch(bitrix+ `crm.lead.list?order=${order}&filter=${filter}&select=${select}`);
-  ToastAndroid.show("ammmm ", ToastAndroid.LONG);
+  ToastAndroid.show("All leads start ", ToastAndroid.LONG);
   const response = await fetch(bitrix+ `crm.lead.list?${data}`);
   // const response = await fetch("https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/user.get");
   const json = await response.json()
   // .then((response) => response.json())
    .catch((error) => console.warn("fetch error:", error.message));
   this.setState({result: json.result});
-  ToastAndroid.show("res "+ this.state.result[0].ID, ToastAndroid.LONG);
-  ToastAndroid.show("okkkkkk ", ToastAndroid.LONG);
+  ToastAndroid.show("All leads res "+ this.state.result[0].ID, ToastAndroid.LONG);
+  // ToastAndroid.show("okkkkkk ", ToastAndroid.LONG);
 
 }
 
 componentDidMount(){
 
-  
+   this.fetchData();
 
 }
+
   render() {
-this.fetchData();
+
   let popupRef = React.createRef()
   const onShowPopup = () =>{ popupRef.show()}
   const onClosePopup = () =>{ popupRef.close()}

@@ -398,8 +398,6 @@ onPress = {this.goToForgetPass}
 
 </TouchableOpacity>
 
-
-
   {/* <View style={styles.screenContainer}>
       <Button title="SIGN IN" width="100%" color="#385805" 
      

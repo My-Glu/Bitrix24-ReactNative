@@ -34,13 +34,11 @@ const styles = StyleSheet.create({
     container: {
         display: "flex",
           justifyContent: "center",
-          alignItems: "center"
+          alignItems: "center",
+          color:'#49641D'
     },
     image: {
-        width: 200,
-        
-       
-    },
-  
- 
+        width: 200
+            
+    }, 
   });

@@ -1,12 +1,59 @@
 import React, { Component } from 'react';
 import {Header,SearchBar, Input} from 'react-native-elements';
-import { StyleSheet,View, Text, StatusBar,Image, Alert, TouchableOpacity, ScrollView, TextInput, Dimensions } from 'react-native';
+import { StyleSheet,View, Text, StatusBar,Image, Alert, TouchableOpacity, ScrollView, ToastAndroid, TextInput, Dimensions } from 'react-native';
 import { Avatar, Title, Caption } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Actions } from 'react-native-router-flux';
 import RoundCheckbox from 'react-native-round-checkbox';
 import {Picker} from '@react-native-community/picker';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+
+const afiaNoor = "https://afianoor.bitrix24.com/rest/43/txgwylq6ihf7hca3/"
+// const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/0cug7v3gqpxbkn26/"
+const bitrix = "https://b24-l9xpyr.bitrix24.com/rest/1/qjisdjl3s26c86gc/"
+
+var data={fields};
+
+var PhoneArray=[ { "VALUE": "", "VALUE_TYPE": "" } ] 
+var fields = { 
+  "TITLE": "", 
+  "STAGE_ID":"",
+  "CURRENCY_ID": "", 
+  // "STATUS_DESCRIPTION": "",
+  "OPPORTUNITY": 0,
+  "PROBABILITY":"",
+  "BEGINDATE":"",
+  "CLOSEDATE":"",
+  "CONTACT_ID":"",
+  "COMPANY_ID":"",
+  "COMMENTS":"",
+  "ASSIGNED_BY_ID": 0, 
+  // "SOURCE_DESCRIPTION":"",
+  // "NAME": "", 
+  // "SECOND_NAME": "", 
+  // "LAST_NAME": "", 
+  // "EMAIL":"",
+  // "STATUS_ID": "", 
+  // "OPENED": "", 
+  // "ASSIGNED_BY_ID": 0, 
+  // "WEB":"",
+  // "COMPANY_TITLE":"",
+  // 
+  // "POST":"",
+  // "ADDRESS_PROVINCE": "",
+  // "ADDRESS_POSTAL_CODE":"",
+  // "ADDRESS":"",
+  // "ADDRESS_2":"",
+  // "ADDRESS_CITY":"",
+  // "ADDRESS_REGION":"",
+  // "ADDRESS_COUNTRY":"",
+  // "COMMENTS":"",
+  // "SOURCE_ID":"",
+  // "HONORIFIC":"",
+  // "PHONE": PhoneArray
+}
+
+
 
 export default class NewDeal extends Component {
   constructor(props) {
@@ -23,6 +70,102 @@ export default class NewDeal extends Component {
 //   gotoNewEvent = () => {
 //     Actions.newEvent()
 //  }
+
+
+
+handleInputTextChangeName = (newText1) => {
+  // this.setState({ linkedin: newText1 })
+  
+  fields.TITLE = newText1
+}
+
+handleInputTextChangeDealStage = (newText2) => {
+  // this.setState({ linkedin: newText2 })
+ fields.STAGE_ID = newText2
+}
+
+handleInputTextChangeCurrency = (newText3) => {
+  // this.setState({ linkedin: newText3 })
+
+  fields.CURRENCY_ID=newText3
+
+}
+
+handleInputTextChangeAmount = (newText21) => {
+  // this.setState({ linkedin: newText4 })
+  fields.OPPORTUNITY = newText21
+}
+
+handleInputTextChangeProbability = (newText4) => {
+  // this.setState({ linkedin: newText4 })
+  fields.PROBABILITY = newText4
+}
+
+handleInputTextChangeStartDate = (newText5) => {
+  // this.setState({ linkedin: newText5 })
+  fields.BEGINDATE=newText5
+}
+
+handleInputTextChangeCompletedOn = (newText6) => {
+  // this.setState({ linkedin: newText6 })
+  fields.CLOSEDATE=newText6
+}
+
+handleInputTextChangeType = (newText7) => {
+  // this.setState({ linkedin: newText7 })
+  fields.SECOND_NAME=newText7
+}
+
+handleInputTextChangeContact = (newText8) => {
+  // this.setState({ linkedin: newText8 })
+  fields.CONTACT_ID=newText11
+}
+
+handleInputTextChangeCompany = (newText9) => {
+  // this.setState({ linkedin: newText9 })
+  fields.EMAIL=newText9
+}
+
+handleInputTextChangeComment = (newText10) => {
+  // this.setState({ linkedin: newText10 })
+  fields.COMMENTS=newText10
+}
+
+
+makeNewDeal= async()=> {
+ 
+  ToastAndroid.show("add deal init ", ToastAndroid.LONG);
+  
+  // const response = await fetch(afiaNoor+`user.update?ID=${this.props.uid}&NAME=${this.state.firstName}&LAST_NAME=${this.state.lastName}&PERSONAL_MOBILE=${this.state.mobile}&PERSONAL_PHONE=${this.state.phone}&PERSONAL_BIRTHDAY=${this.state.dob}&WORK_POSITION=${this.state.position}&PERSONAL_GENDER=${this.state.gender}&WORK_PHONE=${this.state.workphone}&UF_SKYPE=${this.state.skype}&UF_FACEBOOK=${this.state.facebook}&UF_LINKEDIN=${this.state.linkedin}`,
+  const response = await fetch(bitrix+`crm.deal.add?${data}`,
+  {method: 'POST',
+  headers: {
+  'Content-Type': 'application/json'},
+  // body: JSON.stringify({
+  //   // "provider": "email",s
+  //   "data":
+  //    {
+  //       "email": this.state.username,
+  //       "password": this.state.pass
+  //   }
+  // })
+  }).then((json) =>  ToastAndroid.show("processing..." , ToastAndroid.LONG))
+  .catch((error) => console.warn("fetch error:", error.message));
+ 
+  // const response = await fetch(afiaNoor+"im.recent.get");
+  // const response = await fetch(afiaNoor+`im.dialog.messages.get?DIALOG_ID=${this.props.id}`);
+  // const response = await fetch(afiaNoor+"im.dialog.messages.get?DIALOG_ID=83");
+  // const jsonData = await response.json()
+  // .then((json) =>  ToastAndroid.show("processing", ToastAndroid.LONG))
+  //  .catch((error) => console.warn("fetch error:", error.message))
+
+  //  jsonData.then(res=> res.json)
+  //  .catch((error) => console.warn("fetch error:", error.message))
+
+   ToastAndroid.show("New deal saved", ToastAndroid.LONG);
+
+ 
+}
 
 
   render() {
@@ -48,8 +191,12 @@ export default class NewDeal extends Component {
           
               rightComponent={
               // <Image source={require('../../assets/images/search.png')}  />
-      
-          <Text>Save</Text>  
+      <TouchableOpacity
+      onPress={this.makeNewDeal}>
+        <Text>Save</Text>  
+      </TouchableOpacity>
+
+
       
       }
               // rightComponent={<Text>Done</Text>}
@@ -78,7 +225,9 @@ export default class NewDeal extends Component {
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} color="#49641D" placeholder="Name" editable={true} />
+    <TextInput style={styles.pLeft} color="#49641D" placeholder="Name" editable={true}
+    onChange={this.handleInputTextChangeName}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -113,7 +262,10 @@ export default class NewDeal extends Component {
 style={{backgroundColor: 'white'}}
                       selectedValue={this.state.dealstage}  
                       onValueChange={(itemValue, itemPosition) =>  
-                          this.setState({dealstage: itemValue, choosenIndex: itemPosition})}  
+                          // this.setState({dealstage: itemValue, choosenIndex: itemPosition})
+                          this.handleInputTextChangeDealStage
+                        }  
+
                   >  
                    <Picker.Item label="New" value="new" />  
                   <Picker.Item label="Sent to client" value="stc" />  
@@ -170,7 +322,10 @@ style={{backgroundColor: 'white'}}
 style={{backgroundColor: 'white'}}
                       selectedValue={this.state.currencys}  
                       onValueChange={(itemValue, itemPosition) =>  
-                          this.setState({currencys: itemValue, choosenIndex: itemPosition})}  
+                          // this.setState({currencys: itemValue, choosenIndex: itemPosition})
+                          this.handleInputTextChangeCurrency
+                        }  
+
                   >  
                   <Picker.Item label="US Dollar" value="no" />  
                   <Picker.Item label="Euro" value="eu" />  
@@ -216,7 +371,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Amount" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Amount" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeAmount}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -249,7 +406,12 @@ style={{backgroundColor: 'white'}}
   
   {/* <Avatar.Image source={require('../../assets/images/blue6.jpg')} size={40} /> */}
   <View>
-    <Title style={{ color: '#49641D' , fontSize:14}}>Probability, %</Title>
+    {/* <Title style={{ color: '#49641D' , fontSize:14}}>Probability, %</Title> */}
+    <View pointerEvents="auto" style={{backgroundColor:'white', PaddingLeft:'7%'}}>
+    <TextInput  placeholder="Probability, %" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeAmount}
+    />
+  </View>
   </View>
   
   </View>
@@ -455,9 +617,20 @@ style={{backgroundColor: 'white'}}
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+          {/* <View pointerEvents="auto" style={{backgroundColor:'white'}}>
     <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true} />
+  </View> */}
+
+<View style={{backgroundColor:'white'}}>
+    {/* <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeComment}
+    /> */}
+
+<Text style={[styles.pLeft], { color:'#49641D', paddingLeft:'9%', paddingVertical:'2%', fontSize:16}}>Select</Text>
+
+
   </View>
+
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
        <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
@@ -479,8 +652,17 @@ style={{backgroundColor: 'white'}}
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+          {/* <View pointerEvents="auto" style={{backgroundColor:'white'}}>
     <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true} />
+  </View> */}
+         <View style={{backgroundColor:'white'}}>
+    {/* <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeComment}
+    /> */}
+
+<Text style={[styles.pLeft], { color:'#49641D', paddingLeft:'9%', paddingVertical:'2%', fontSize:16}}>Select</Text>
+
+
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -507,7 +689,9 @@ style={{backgroundColor: 'white'}}
                   </View>
                   {/* ----------------------- */}
           <View pointerEvents="auto" style={{backgroundColor:'white'}}>
-    <TextInput style={styles.pLeft} placeholder="Comment" color="#49641D" editable={true} />
+    <TextInput style={styles.pLeft} placeholder="Comment" color="#49641D" editable={true} 
+    onChange={this.handleInputTextChangeComment}
+    />
   </View>
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
@@ -519,8 +703,6 @@ style={{backgroundColor: 'white'}}
   {/* ------------------------12 new end----------------- */}
   
   
-
-
 
           {/* -------------row 13------------------ */}
           {/* ----------------- */}
@@ -535,9 +717,20 @@ style={{backgroundColor: 'white'}}
   
                   </View>
                   {/* ----------------------- */}
-          <View pointerEvents="auto" style={{backgroundColor:'white'}}>
+          {/* <View pointerEvents="auto" style={{backgroundColor:'white'}}>
     <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true} />
+  </View> */}
+
+<View style={{backgroundColor:'white'}}>
+    {/* <TextInput style={styles.pLeft} placeholder="Select" color="#49641D" editable={true}
+    onChange={this.handleInputTextChangeComment}
+    /> */}
+
+<Text style={ { color:'#49641D', paddingLeft:'9%', paddingVertical:'2%', fontSize:16}}>Select</Text>
+
+
   </View>
+
   {/* --------------------------- */}
        {/* ------------------------------Horizontal line -------------------------------------- */}
        <View style={{flexDirection: 'row', alignItems: 'center', marginTop:2}}>
